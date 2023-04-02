@@ -17,13 +17,15 @@ public class Walk : MonoBehaviour
     void Start()
     {
         playerMovement = new PlayerMovement();
+        playerMovement.Enable();
         rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
-        rb.velocity = moveInput.normalized * movementSpeed * Time.fixedDeltaTime;
+        Vector3 inputSpeed = moveInput.normalized * movementSpeed;
+        rb.velocity = new Vector3(inputSpeed.x, rb.velocity.y, inputSpeed.z);
     }
 
     // Update is called once per frame
