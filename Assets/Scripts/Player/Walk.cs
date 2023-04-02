@@ -29,7 +29,7 @@ public class Walk : MonoBehaviour
         // Check player movement
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
         Vector3 inputSpeed = moveInput.normalized * movementSpeed;
-        rb.velocity = new Vector3(inputSpeed.x, rb.velocity.y, inputSpeed.z);
+        rb.velocity = inputSpeed.x * transform.right + inputSpeed.z * transform.forward + rb.velocity.y * transform.up;
 
         // Check jump
         playerMovement.Player_Map.Jump.performed += ctx => {
