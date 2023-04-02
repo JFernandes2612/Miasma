@@ -7,6 +7,9 @@ public class Walk : MonoBehaviour
     [SerializeField]
     private float movementSpeed;
 
+    [SerializeField]
+    private float jumpForce;
+
     private Vector3 moveInput;
 
     private Rigidbody rb;
@@ -23,9 +26,15 @@ public class Walk : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Check player movement
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
         Vector3 inputSpeed = moveInput.normalized * movementSpeed;
         rb.velocity = new Vector3(inputSpeed.x, rb.velocity.y, inputSpeed.z);
+
+        // Check jump
+        playerMovement.Player_Map.Jump.performed += ctx => {
+            rb.AddForce(Vector3.up * jumpForce);
+        };
     }
 
     // Update is called once per frame
