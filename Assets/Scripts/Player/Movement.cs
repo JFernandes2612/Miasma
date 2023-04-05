@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Walk : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed;
@@ -35,11 +35,5 @@ public class Walk : MonoBehaviour
         playerMovement.Player_Map.Jump.performed += ctx => {
             rb.AddForce(Vector3.up * jumpForce);
         };
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
