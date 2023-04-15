@@ -10,6 +10,9 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    [SerializeField]
+    private float acceleration;
+
     private Vector3 moveInput;
 
     private Rigidbody rb;
@@ -30,8 +33,20 @@ public class Movement : MonoBehaviour
     {
         // Check player movement
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
-        Vector3 inputSpeed = moveInput.normalized * movementSpeed;
-        rb.velocity = inputSpeed.x * transform.right + inputSpeed.z * transform.forward + rb.velocity.y * transform.up;
+        if (isGrounded)
+        {
+            if (moveInput != Vector3.zero)
+            {
+                Vector3 inputSpeed = moveInput.normalized * movementSpeed;
+                rb.velocity += (inputSpeed.x * transform.right + inputSpeed.z * transform.forward + rb.velocity.y * transform.up) * acceleration;
+            }
+            else if (rb.velocity != Vector3.zero)
+            {
+                rb.velocity -= rb.velocity * acceleration;
+            }
+
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, movementSpeed);
+        }
     }
 
     void Update()
@@ -39,7 +54,7 @@ public class Movement : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             isGrounded = false;
-            rb.AddForce(Vector3.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
@@ -54,5 +69,7 @@ public class Movement : MonoBehaviour
                     return;
                 }
         }
+
+        isGrounded = false;
     }
 }
