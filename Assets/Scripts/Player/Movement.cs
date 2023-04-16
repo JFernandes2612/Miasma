@@ -64,12 +64,7 @@ public class Movement : MonoBehaviour
             if (addSpeed <= 0.0f)
                 return;
 
-            float accelSpeed = airAcceleration * maxAirSpeed;
-
-            if (accelSpeed > addSpeed)
-                accelSpeed = addSpeed;
-
-            rb.velocity += accelSpeed * wishDir;
+            rb.velocity += addSpeed * airAcceleration * wishDir;
 
             rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxAirSpeed) + rb.velocity.y * Vector3.up;
         }
