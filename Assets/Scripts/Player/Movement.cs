@@ -17,14 +17,14 @@ public class Movement : MonoBehaviour
 
     private Rigidbody rb;
 
-    private PlayerMovement playerMovement;
+    private PlayerInput playerMovement;
 
     private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = new PlayerMovement();
+        playerMovement = new PlayerInput();
         playerMovement.Enable();
         rb = GetComponent<Rigidbody>();
     }
@@ -56,11 +56,12 @@ public class Movement : MonoBehaviour
             isGrounded = false;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.contacts.Length > 0)
+        if (collision.contacts.Length > 0)
         {
             foreach (ContactPoint contact in collision.contacts)
                 if (contact.normal.y > 0.0f)
