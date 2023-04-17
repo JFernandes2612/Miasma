@@ -5,13 +5,19 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private float movementSpeed;
+    private float baseMovementSpeed;
+
+    [SerializeField]
+    private float maxAirSpeed;
 
     [SerializeField]
     private float jumpForce;
 
     [SerializeField]
     private float acceleration;
+
+    [SerializeField]
+    private float airAcceleration;
 
     private Vector3 moveInput;
 
@@ -33,20 +39,37 @@ public class Movement : MonoBehaviour
     {
         // Check player movement
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
+
         if (isGrounded)
         {
             if (moveInput != Vector3.zero)
             {
-                Vector3 inputSpeed = moveInput.normalized * movementSpeed;
-                rb.velocity += (inputSpeed.x * transform.right + inputSpeed.z * transform.forward + rb.velocity.y * transform.up) * acceleration;
+                Vector3 inputSpeed = moveInput.normalized * baseMovementSpeed * acceleration;
+                rb.velocity += (inputSpeed.x * transform.right + inputSpeed.z * transform.forward);
             }
             else if (rb.velocity != Vector3.zero)
             {
                 rb.velocity -= rb.velocity * acceleration;
             }
 
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, movementSpeed);
+            rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), baseMovementSpeed) + rb.velocity.y * Vector3.up;
         }
+        else if (moveInput != Vector3.zero)
+        {
+            Vector3 wishDir = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
+            float currentSpeed = Vector3.Dot(rb.velocity, wishDir);
+
+            float addSpeed = baseMovementSpeed - currentSpeed;
+
+            if (addSpeed <= 0.0f)
+                return;
+
+            rb.velocity += addSpeed * airAcceleration * wishDir;
+
+            rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxAirSpeed) + rb.velocity.y * Vector3.up;
+        }
+
+
     }
 
     void Update()

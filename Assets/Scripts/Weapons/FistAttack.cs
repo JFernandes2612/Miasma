@@ -93,7 +93,7 @@ public class FistAttack : MonoBehaviour
         {
             HitTarget(hit.point);
 
-            if (hit.transform.TryGetComponent<Actor>(out Actor T))
+            if (hit.transform.TryGetComponent<Enemy>(out Enemy T))
             { T.TakeDamage(attackDamage); }
         }
     }
@@ -109,7 +109,6 @@ public class FistAttack : MonoBehaviour
         Invoke(nameof(AttackRaycast), attackDelay);
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.PlayOneShot(fistSwingSound);
-
         ChangeAnimationState(RIGHT_PUNCH);
     }
 
