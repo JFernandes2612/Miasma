@@ -94,6 +94,6 @@ public class Movement : MonoBehaviour
                 }
         }
 
-        isGrounded = false;
+        //isGrounded = false;
     }
 }

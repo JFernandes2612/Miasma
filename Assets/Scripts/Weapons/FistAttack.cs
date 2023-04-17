@@ -63,12 +63,13 @@ public class FistAttack : MonoBehaviour
         }
         SetAnimations();
     }
-    void HitTarget(Vector3 pos)
+    void HitTarget(Vector3 pos, GameObject hittable)
     {
         audioSource.pitch = 1;
         audioSource.PlayOneShot(fistHitSound);
 
         GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
+        GO.transform.parent = hittable.transform;
         Destroy(GO, 20);
     }
     void ResetAttack()
@@ -91,10 +92,13 @@ public class FistAttack : MonoBehaviour
         if (Physics.Raycast(cam.transform.position,
         cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
         {
-            HitTarget(hit.point);
+
 
             if (hit.transform.TryGetComponent<Enemy>(out Enemy T))
-            { T.TakeDamage(attackDamage); }
+            {
+                HitTarget(hit.point, T.gameObject);
+                T.TakeDamage(attackDamage);
+            }
         }
     }
     private void Attack()
