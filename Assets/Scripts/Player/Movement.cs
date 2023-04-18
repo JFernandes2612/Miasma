@@ -23,14 +23,14 @@ public class Movement : MonoBehaviour
 
     private Rigidbody rb;
 
-    private PlayerMovement playerMovement;
+    private PlayerInput playerMovement;
 
     private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = new PlayerMovement();
+        playerMovement = new PlayerInput();
         playerMovement.Enable();
         rb = GetComponent<Rigidbody>();
     }
@@ -69,8 +69,7 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxAirSpeed) + rb.velocity.y * Vector3.up;
         }
 
-        // Log current absolute horizontal speed
-        Debug.Log(new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude);
+
     }
 
     void Update()
@@ -80,11 +79,12 @@ public class Movement : MonoBehaviour
             isGrounded = false;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.contacts.Length > 0)
+        if (collision.contacts.Length > 0)
         {
             foreach (ContactPoint contact in collision.contacts)
                 if (contact.normal.y > 0.0f)
@@ -94,6 +94,6 @@ public class Movement : MonoBehaviour
                 }
         }
 
-        isGrounded = false;
+        //isGrounded = false;
     }
 }

@@ -7,7 +7,14 @@ public class Enemy : MonoBehaviour
 {
     private Transform playerTransform;
 
+    float currentHealth;
+    public float maxHealth;
     private NavMeshAgent agent;
+
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +26,22 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         agent.SetDestination(playerTransform.position);
+
+    }
+
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
     }
 }
