@@ -88,9 +88,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        Debug.Log("coyoteTimeCounter: " + coyoteTimeCounter);
-        Debug.Log("jumpBufferCounter: " + jumpBufferCounter);
-        Debug.Log("isGrounded: " + isGrounded());
+
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
         {
             coyoteTimeCounter = 0f;
