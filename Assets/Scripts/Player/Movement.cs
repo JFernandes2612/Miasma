@@ -35,6 +35,18 @@ public class Movement : MonoBehaviour
 
     private float distanceToGround;
 
+    private bool canDash = true;
+    private bool isDashing = false;
+
+    [SerializeField]
+    private float dashingPower = 24f;
+
+
+    [SerializeField]
+    private float dashTime = 0.3f;
+    [SerializeField]
+    private float dashCooldown = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +60,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         // Check player movement
+        if (isDashing) return;
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
 
         if (isGrounded())
@@ -95,10 +108,16 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxAirSpeed) + rb.velocity.y * Vector3.up;
         }
 
+        if (playerMovement.Player_Map.QuickStep.IsPressed() && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
     }
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
@@ -110,6 +129,17 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        canDash = false;
+        //rb.AddForce(moveInput * dashingPower, ForceMode.Impulse);
+        rb.AddForce(transform.forward * dashingPower, ForceMode.Impulse);
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
 
 
     bool isGrounded()

@@ -44,6 +44,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuickStep"",
+                    ""type"": ""Button"",
+                    ""id"": ""22473607-ce3e-4e1b-896c-48c0ec452bd8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fd292ea-7ee5-4f29-a9b2-10f5dcaa0b38"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuickStep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Map = asset.FindActionMap("Player_Map", throwIfNotFound: true);
         m_Player_Map_Movement = m_Player_Map.FindAction("Movement", throwIfNotFound: true);
         m_Player_Map_Attack = m_Player_Map.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Map_QuickStep = m_Player_Map.FindAction("QuickStep", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +204,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IPlayer_MapActions m_Player_MapActionsCallbackInterface;
     private readonly InputAction m_Player_Map_Movement;
     private readonly InputAction m_Player_Map_Attack;
+    private readonly InputAction m_Player_Map_QuickStep;
     public struct Player_MapActions
     {
         private @PlayerInput m_Wrapper;
         public Player_MapActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Map_Movement;
         public InputAction @Attack => m_Wrapper.m_Player_Map_Attack;
+        public InputAction @QuickStep => m_Wrapper.m_Player_Map_QuickStep;
         public InputActionMap Get() { return m_Wrapper.m_Player_Map; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +227,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
+                @QuickStep.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnQuickStep;
+                @QuickStep.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnQuickStep;
+                @QuickStep.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnQuickStep;
             }
             m_Wrapper.m_Player_MapActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +240,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @QuickStep.started += instance.OnQuickStep;
+                @QuickStep.performed += instance.OnQuickStep;
+                @QuickStep.canceled += instance.OnQuickStep;
             }
         }
     }
@@ -222,5 +251,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnQuickStep(InputAction.CallbackContext context);
     }
 }
