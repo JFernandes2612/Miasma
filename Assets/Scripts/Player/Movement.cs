@@ -19,13 +19,22 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float airAcceleration;
 
+    [SerializeField]
+    private float coyoteTime;
+
+    private float jumpBufferCounter;
+
+    [SerializeField]
+    private float jumpBufferTime = 0.2f;
+    private float coyoteTimeCounter;
     private Vector3 moveInput;
 
     private Rigidbody rb;
 
     private PlayerInput playerMovement;
 
-    private bool isGrounded;
+    private float distanceToGround;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +42,7 @@ public class Movement : MonoBehaviour
         playerMovement = new PlayerInput();
         playerMovement.Enable();
         rb = GetComponent<Rigidbody>();
+        distanceToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
     void FixedUpdate()
@@ -40,8 +50,10 @@ public class Movement : MonoBehaviour
         // Check player movement
         moveInput = playerMovement.Player_Map.Movement.ReadValue<Vector3>();
 
-        if (isGrounded)
+        if (isGrounded())
         {
+
+            coyoteTimeCounter = coyoteTime;
             if (moveInput != Vector3.zero)
             {
                 Vector3 inputSpeed = moveInput.normalized * baseMovementSpeed * acceleration;
@@ -53,9 +65,23 @@ public class Movement : MonoBehaviour
             }
 
             rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), baseMovementSpeed) + rb.velocity.y * Vector3.up;
+
         }
-        else if (moveInput != Vector3.zero)
+        else
         {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+
+        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
+        {
+            coyoteTimeCounter = 0f;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpBufferCounter = 0f;
+        }
+        if (moveInput != Vector3.zero)
+        {
+
             Vector3 wishDir = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
             float currentSpeed = Vector3.Dot(rb.velocity, wishDir);
 
@@ -69,31 +95,25 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxAirSpeed) + rb.velocity.y * Vector3.up;
         }
 
-
     }
 
     void Update()
     {
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isGrounded = false;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
 
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.contacts.Length > 0)
-        {
-            foreach (ContactPoint contact in collision.contacts)
-                if (contact.normal.y > 0.0f)
-                {
-                    isGrounded = true;
-                    return;
-                }
-        }
 
-        //isGrounded = false;
+
+    bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
     }
 }
