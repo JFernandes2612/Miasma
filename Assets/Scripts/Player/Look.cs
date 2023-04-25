@@ -16,6 +16,7 @@ public class Look : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        playerTransform.Rotate(Vector3.up);
     }
 
     // Update is called once per frame

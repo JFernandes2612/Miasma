@@ -346,10 +346,11 @@ MonoBehaviour:
   jumpForce: 10
   acceleration: 0.15
   airAcceleration: 0.1
-  coyoteTime: 0.5
-  jumpBufferTime: 0.2
-  dashingPower: 7
-  dashTime: 0.3
+  coyoteTime: 0.4
+  jumpBufferTime: 5
+  boxsize: {x: 0.5, y: 0.5, z: 0.5}
+  dashingPower: 25
+  dashTime: 0.1
   dashCooldown: 0.5
 --- !u!1001 &8555787339206770946
 PrefabInstance:

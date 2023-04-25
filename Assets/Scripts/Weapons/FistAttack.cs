@@ -92,8 +92,6 @@ public class FistAttack : MonoBehaviour
         if (Physics.Raycast(cam.transform.position,
         cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
         {
-
-
             if (hit.transform.TryGetComponent<Enemy>(out Enemy T))
             {
                 HitTarget(hit.point, T.gameObject);
