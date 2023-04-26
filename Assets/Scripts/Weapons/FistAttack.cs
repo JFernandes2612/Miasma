@@ -82,9 +82,7 @@ public class FistAttack : MonoBehaviour
         // If player is not attacking
         if (!isAttacking)
         {
-
             ChangeAnimationState(IDLE);
-
         }
     }
     void AttackRaycast()
@@ -92,7 +90,7 @@ public class FistAttack : MonoBehaviour
         if (Physics.Raycast(cam.transform.position,
         cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
         {
-            if (hit.transform.TryGetComponent<Enemy>(out Enemy T))
+            if (hit.transform.TryGetComponent<Entity>(out Entity T))
             {
                 HitTarget(hit.point, T.gameObject);
                 T.TakeDamage(attackDamage);
@@ -101,7 +99,6 @@ public class FistAttack : MonoBehaviour
     }
     private void Attack()
     {
-
         if (!readyToAttack || isAttacking) return;
 
         readyToAttack = false;

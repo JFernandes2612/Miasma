@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
     private Transform playerTransform;
-
-    float currentHealth;
-    public float maxHealth;
     private NavMeshAgent agent;
 
-    void Awake()
-    {
-        currentHealth = maxHealth;
-    }
+    private float playerDetectionRange = 10.0f;
+
+    private bool targetingPlayer = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,23 +22,15 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(playerTransform.position);
-
-    }
-
-
-    public void TakeDamage(float amount)
-    {
-        currentHealth -= amount;
-
-        if (currentHealth <= 0)
+        if (targetingPlayer || Vector3.Distance(playerTransform.position, transform.position) <= playerDetectionRange)
         {
-            Death();
+            targetingPlayer = true;
+            agent.SetDestination(playerTransform.position);
         }
     }
 
-    void Death()
+    override protected void Death()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }
