@@ -74,6 +74,8 @@ public class Movement : MonoBehaviour
             if (canQuickStep && playerMovement.Player_Map.QuickStep.IsPressed())
             {
                 StartCoroutine(QuickStep());
+                coyoteTimeCounter = 0f;
+                return;
             }
 
             GroundMove();
