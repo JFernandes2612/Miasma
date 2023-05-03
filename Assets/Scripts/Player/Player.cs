@@ -1,23 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Player : Entity
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    protected override void Death()
-    {
-        throw new System.NotImplementedException();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8aec5bef596e58b7f406bc8dbce8b003748e660ae3dd9bd3542bff2a7ab61d3
+size 368

@@ -1,36 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-public class Enemy : Entity
-{
-    private Transform playerTransform;
-    private NavMeshAgent agent;
-
-    private float playerDetectionRange = 10.0f;
-
-    private bool targetingPlayer = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (targetingPlayer || Vector3.Distance(playerTransform.position, transform.position) <= playerDetectionRange)
-        {
-            targetingPlayer = true;
-            agent.SetDestination(playerTransform.position);
-        }
-    }
-
-    override protected void Death()
-    {
-        Destroy(gameObject, 0.1f);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4a410fe16818073d7f086738c925787235787469365f0cee0048ef5b00c9c21
+size 895
