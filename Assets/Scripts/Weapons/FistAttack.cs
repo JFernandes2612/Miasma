@@ -48,7 +48,7 @@ public class FistAttack : MonoBehaviour
     public void ChangeAnimationState(string newState)
     {
         // STOP THE SAME ANIMATION FROM INTERRUPTING WITH ITSELF //
-        if (currentAnimationState == newState) return;
+        //if (currentAnimationState == newState) return;
 
         // PLAY THE ANIMATION //
         currentAnimationState = newState;
