@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a9e6a407c5a6f849a370354c78e15405eaffcf2f6d84468c8240a470b7d74431
-size 556
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+abstract public class Entity : MonoBehaviour
+{
+    private float currentHealth;
+
+    [SerializeField]
+    protected float maxHealth;
+
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        if (currentHealth > 0.0f)
+        {
+            currentHealth -= amount;
+
+            if (currentHealth <= 0.0f)
+            {
+                Death();
+            }
+        }
+    }
+
+    abstract protected void Death();
+}
