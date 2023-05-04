@@ -121,8 +121,9 @@ public class Movement : MonoBehaviour
         isAnimLocked = true;
         canQuickStep = false;
         Vector3 wishSpeed = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
-        rb.AddForce(wishSpeed * dashingPower, ForceMode.VelocityChange);
+        rb.velocity = wishSpeed * dashingPower;
         yield return new WaitForSeconds(dashTime);
+        rb.velocity = Vector3.zero;
         isAnimLocked = false;
         yield return new WaitForSeconds(dashCooldown);
         canQuickStep = true;
