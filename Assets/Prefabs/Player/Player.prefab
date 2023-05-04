@@ -210,8 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb4e27f027a51d4da99ffdbc6a91c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 8555787338855138807}
   mouseSensitivity: 500
+  baseFOV: 75
+  maxFOV: 90
 --- !u!1 &8555787338855138802
 GameObject:
   m_ObjectHideFlags: 0
