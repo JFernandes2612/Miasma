@@ -158,7 +158,19 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6468874369949653002}
           m_TargetAssemblyTypeName: Fracturable, Assembly-CSharp
-          m_MethodName: explodeFracturePieces
+          m_MethodName: ExplodeFracturePieces
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6468874369949653002}
+          m_TargetAssemblyTypeName: Fracturable, Assembly-CSharp
+          m_MethodName: ChangeFragmentsLayer
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -182,3 +194,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  fadeOutTime: 1
+  fadeOutTimeSteps: 100
