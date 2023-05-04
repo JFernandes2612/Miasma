@@ -19,6 +19,9 @@ public class Look : MonoBehaviour
     [SerializeField]
     private float maxFOV;
 
+    [SerializeField]
+    private float FOVVelocityRatio = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,6 @@ public class Look : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0.0f, 0.0f);
         playerTransform.Rotate(Vector3.up * mouseX);
 
-        GetComponent<Camera>().fieldOfView = Mathf.Min(baseFOV + new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z).magnitude / 2.0f, maxFOV);
+        GetComponent<Camera>().fieldOfView = Mathf.Min(baseFOV + new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z).magnitude * FOVVelocityRatio, maxFOV);
     }
 }
