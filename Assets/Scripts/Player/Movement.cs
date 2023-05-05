@@ -8,6 +8,9 @@ public class Movement : MonoBehaviour
     private float baseMovementSpeed;
 
     [SerializeField]
+    private float backMovementSpeed;
+
+    [SerializeField]
     private float maxAirSpeed;
 
     [SerializeField]
@@ -15,6 +18,9 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     private float acceleration;
+
+    [SerializeField]
+    private float deceleration;
 
     [SerializeField]
     private float airAcceleration;
@@ -153,18 +159,23 @@ public class Movement : MonoBehaviour
 
     private void GroundMove()
     {
+        float dynamicSpeedFactor = 1;
+
         if (moveInput != Vector3.zero)
         {
             //move
-            Vector3 inputSpeed = moveInput.normalized * baseMovementSpeed * acceleration;
-            rb.velocity += (inputSpeed.x * transform.right + inputSpeed.z * transform.forward);
+            Vector3 wishDir = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
+            dynamicSpeedFactor = (Vector3.Dot(wishDir, transform.forward) + 1.0f) / 2.0f;
+            rb.velocity += wishDir * acceleration * (1 + dynamicSpeedFactor);
         }
         else if (rb.velocity != Vector3.zero)
         {
-            //deccel
-            rb.velocity -= rb.velocity * acceleration;
+            //decelerate
+            rb.velocity -= rb.velocity * deceleration;
         }
 
-        rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), baseMovementSpeed) + rb.velocity.y * Vector3.up;
+        float maxSpeed = Mathf.Lerp(backMovementSpeed, baseMovementSpeed, dynamicSpeedFactor);
+
+        rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxSpeed) + rb.velocity.y * Vector3.up;
     }
 }
