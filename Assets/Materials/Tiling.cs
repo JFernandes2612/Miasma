@@ -5,9 +5,12 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Tiling : MonoBehaviour
 {
+    [SerializeField]
+    private float tilingFactor = 2.5f;
+
     void Start()
     {
-        GetComponent<Renderer>().sharedMaterial.mainTextureScale = new Vector2(transform.lossyScale.x / 2.5f, transform.lossyScale.z / 2.5f);
+        GetComponent<Renderer>().sharedMaterial.mainTextureScale = new Vector2(transform.lossyScale.x / tilingFactor, transform.lossyScale.z / tilingFactor);
     }
 
     // Update is called once per frame
@@ -16,7 +19,7 @@ public class Tiling : MonoBehaviour
 
         if (transform.hasChanged && Application.isEditor && !Application.isPlaying)
         {
-            GetComponent<Renderer>().sharedMaterial.mainTextureScale = new Vector2(transform.lossyScale.x / 2.5f, transform.lossyScale.z / 2.5f);
+            GetComponent<Renderer>().sharedMaterial.mainTextureScale = new Vector2(transform.lossyScale.x / tilingFactor, transform.lossyScale.z / tilingFactor);
             transform.hasChanged = false;
         }
 

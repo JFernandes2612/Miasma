@@ -44,6 +44,6 @@ public class Look : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0.0f, 0.0f);
         playerTransform.Rotate(Vector3.up * mouseX);
 
-        GetComponent<Camera>().fieldOfView = Mathf.Min(baseFOV + new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z).magnitude * FOVVelocityRatio, maxFOV);
+        GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, baseFOV + new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z).magnitude * FOVVelocityRatio, Time.deltaTime * 60.0f);
     }
 }
