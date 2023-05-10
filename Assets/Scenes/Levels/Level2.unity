@@ -2818,6 +2818,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 651745880}
     m_Modifications:
+    - target: {fileID: 963996978626764058, guid: 72069a771e2c5b3468102fbdcb7132e3,
+        type: 3}
+      propertyPath: m_Name
+      value: PedestalHigh
+      objectReference: {fileID: 0}
     - target: {fileID: 963996979969542415, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
@@ -2897,6 +2902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963996980676864360, guid: 72069a771e2c5b3468102fbdcb7132e3,
+        type: 3}
+      propertyPath: m_Name
+      value: PedestalLow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72069a771e2c5b3468102fbdcb7132e3, type: 3}
@@ -3157,6 +3167,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5310237178332963891, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5330540852397983443, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: FOVVelocityRatio
@@ -3245,7 +3260,7 @@ PrefabInstance:
     - target: {fileID: 7387874321772474950, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7387874321772474950, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
