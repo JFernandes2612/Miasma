@@ -2519,7 +2519,7 @@ GameObject:
   - component: {fileID: 1307069470122027015}
   - component: {fileID: 1307069470122027014}
   - component: {fileID: 1307069470122027017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fists
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -2583,7 +2583,8 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 8
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
+    type: 3}
   fistHitSound: {fileID: 8300000, guid: e1afc06cfe4a2594eb909386b7f336b9, type: 3}
   fistSwingSound: {fileID: 8300000, guid: 1863d32b114178e408c0564bac146015, type: 3}
 --- !u!82 &1307069470122027017
