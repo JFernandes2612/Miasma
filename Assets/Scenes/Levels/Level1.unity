@@ -1229,25 +1229,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1156936423}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &476913331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8555787338855138802, guid: 453145591c111ee4d9698503509ff9bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 8555787338838394922}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &476913338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476913331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1b64c72582f054cb55d4b735208a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!1 &481450908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,12 +3203,6 @@ Transform:
   m_Father: {fileID: 229609127}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1223005413 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6110505494763303316, guid: 453145591c111ee4d9698503509ff9bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 8555787338838394922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1229093910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,21 +6883,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 4300259105777662894, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_RendererIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300259105777662894, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300259105777662894, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_VolumeLayerMask.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4350248013009207381, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
@@ -6952,11 +6912,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4567109637908304575, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: FOVVelocityRatio
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4675442007135729796, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -7183,35 +7138,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 8555787338591706593, guid: 453145591c111ee4d9698503509ff9bb,
+    - target: {fileID: 8555787338591706592, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
-      propertyPath: m_Cameras.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338591706593, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_Cameras.Array.data[0]
-      value: 
-      objectReference: {fileID: 1223005413}
-    - target: {fileID: 8555787338591706593, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_VolumeLayerMask.m_Bits
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338591706593, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_VolumeFrameworkUpdateModeOption
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338591706595, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 255
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338591706598, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: FOVVelocityRatio
-      value: 0.5
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555787338591706605, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -7222,36 +7152,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338855138804, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: dashTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338855138804, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: jumpForce
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338855138804, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: acceleration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338855138804, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: dashingPower
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338855138804, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: deceleration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8555787338855138804, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: backMovementSpeed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8555787338855138807, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}

@@ -1,51 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4680255360974856630
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9161693705801420568}
-  - component: {fileID: 3630265107828778955}
-  m_Layer: 0
-  m_Name: FrictionlessBody
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9161693705801420568
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4680255360974856630}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014, y: 0.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8555787338855138807}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &3630265107828778955
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4680255360974856630}
-  m_Material: {fileID: 13400000, guid: 656c5a59a305e8245b8adfd6e16a90f8, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.6740154
-  m_Height: 1.8606534
-  m_Direction: 1
-  m_Center: {x: -0.06408477, y: -0.094292045, z: -0.05067408}
 --- !u!1 &4976665820790374179
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +64,7 @@ Transform:
   m_Children:
   - {fileID: 2686248780501874221}
   m_Father: {fileID: 8555787338855138807}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6110505494763303316
 Camera:
@@ -172,7 +126,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 1
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -203,7 +157,7 @@ MonoBehaviour:
   mouseSensitivity: 500
   baseFOV: 75
   maxFOV: 90
-  FOVVelocityRatio: 0.75
+  FOVVelocityRatio: 0.5
 --- !u!1 &8555787338591706605
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +191,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8555787338855138807}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8555787338591706595
 Camera:
@@ -270,7 +224,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 255
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -306,7 +260,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 6110505494763303316}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -338,7 +293,7 @@ MonoBehaviour:
   mouseSensitivity: 500
   baseFOV: 75
   maxFOV: 90
-  FOVVelocityRatio: 0.75
+  FOVVelocityRatio: 0.5
 --- !u!1 &8555787338855138802
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +308,7 @@ GameObject:
   - component: {fileID: 8555787338855138800}
   - component: {fileID: 8555787338855138803}
   - component: {fileID: 8555787338855138804}
+  - component: {fileID: 7431530674872168025}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -372,7 +328,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9161693705801420568}
   - {fileID: 7387874321772474950}
   - {fileID: 8555787338591706592}
   m_Father: {fileID: 0}
@@ -435,7 +390,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8555787338855138802}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 656c5a59a305e8245b8adfd6e16a90f8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -471,18 +426,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 10
-  backMovementSpeed: 0
+  backMovementSpeed: 5
   maxAirSpeed: 20
-  jumpForce: 10
-  acceleration: 0.15
-  deceleration: 0
+  jumpForce: 12
+  acceleration: 1
+  deceleration: 0.1
   airAcceleration: 0.1
   coyoteTime: 0.4
   jumpBufferTime: 0.2
   boxsize: {x: 0.5, y: 0.5, z: 0.5}
-  dashingPower: 25
+  dashingPower: 40
   dashTime: 0.1
   dashCooldown: 0.5
+--- !u!114 &7431530674872168025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555787338855138802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1b64c72582f054cb55d4b735208a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &8696352605748407150
 GameObject:
   m_ObjectHideFlags: 0
