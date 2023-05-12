@@ -26,7 +26,7 @@ public class Fracturable : Entity
         fracture.CauseFracture();
     }
 
-    public void ExplodeFracturePieces()
+    private void ExplodeFracturePieces()
     {
         float explosionRadius = Mathf.Max(Mathf.Max(transform.lossyScale.x, transform.lossyScale.y), transform.lossyScale.z);
         Collider[] objects = UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius);
@@ -40,30 +40,35 @@ public class Fracturable : Entity
         }
     }
 
-    public void ChangeFragmentsLayer() {
+    public void FragmentFadeOut() {
         gameObject.SetActive(true);
         GetComponent<Collider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;
         for (int child = 0; child < transform.parent.GetChild(1).childCount; child++) {
             transform.parent.GetChild(1).GetChild(child).gameObject.layer = LayerMask.NameToLayer("Fragment");
-            foreach (Material material in transform.parent.GetChild(1).GetChild(child).gameObject.GetComponent<Renderer>().materials)
-            {
-                StartCoroutine(FadeOut(material));
-            }
+            StartCoroutine(FadeOut(transform.parent.GetChild(1).GetChild(child).gameObject));
         }
+
+        ExplodeFracturePieces();
     }
 
-    IEnumerator FadeOut(Material material) {
+    private IEnumerator FadeOut(GameObject gameObject) {
+        Material[] materials = gameObject.GetComponent<Renderer>().materials;
+
         float time = 0;
         float step = fadeOutTime / fadeOutTimeSteps;
 
         while (time <= fadeOutTime + step)
         {
-            material.color = new Color(material.color.r, material.color.g, material.color.b, 1.0f - time/fadeOutTime);
+            foreach (Material material in materials)
+                material.color = new Color(material.color.r, material.color.g, material.color.b, 1.0f - time/fadeOutTime);
             time += step;
-            yield return new WaitForSecondsRealtime(step);
+            yield return new WaitForSeconds(step);
         }
 
-        material.color = new Color(material.color.r, material.color.g, material.color.b, 0);
+        foreach (Material material in materials)
+            material.color = new Color(material.color.r, material.color.g, material.color.b, 0);
+
+        Destroy(gameObject, 0.1f);
     }
 }
