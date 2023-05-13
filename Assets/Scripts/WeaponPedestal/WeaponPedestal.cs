@@ -18,9 +18,9 @@ public class WeaponPedestal : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
 
-        weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
+        weaponHolder = GameObject.Find("WeaponHolder");
     }
 
     void Update()
