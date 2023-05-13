@@ -15,6 +15,7 @@ public class WeaponPedestal : MonoBehaviour
     private GameObject weaponHolder;
 
     private bool gotWeapon = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
