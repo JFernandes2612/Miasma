@@ -16,13 +16,14 @@ public class FistAttack : MonoBehaviour
     [SerializeField]
     private float attackCooldown = 1f; // attack Speed
 
-    AudioSource audioSource;
+    // create fmod references
+    public FMODUnity.EventReference fistSwingEvent;
+    public FMODUnity.EventReference fistHitEvent;
+    
     public LayerMask attackLayer;
     Camera cam;
     Animator animator;
     public GameObject hitEffect;
-    public AudioClip fistHitSound;
-    public AudioClip fistSwingSound;
 
     private bool isAttacking = false;
     private bool readyToAttack = true;
@@ -38,7 +39,6 @@ public class FistAttack : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
         playerAttack.Enable();
@@ -65,8 +65,8 @@ public class FistAttack : MonoBehaviour
     }
     void HitTarget(Vector3 pos, GameObject hittable)
     {
-        audioSource.pitch = 1;
-        audioSource.PlayOneShot(fistHitSound);
+        // play fist hit event
+        FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
 
         GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
         GO.transform.parent = hittable.transform;
@@ -106,8 +106,8 @@ public class FistAttack : MonoBehaviour
 
         Invoke(nameof(ResetAttack), attackCooldown);
         Invoke(nameof(AttackRaycast), attackDelay);
-        audioSource.pitch = Random.Range(0.8f, 1.2f);
-        audioSource.PlayOneShot(fistSwingSound);
+        // play fist swing event
+        FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
         ChangeAnimationState(RIGHT_PUNCH);
     }
 

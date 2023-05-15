@@ -58,9 +58,7 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 5457896961210909680}
-  - {fileID: 7285887369573432127}
-  - {fileID: -457273862770207756}
-  m_RendererFeatureMap: adc0de57c6d2eee5f003a9795e58be4b3ffbedd8f5ab1c65f4d38234d86fa7f9
+  m_RendererFeatureMap: adc0de57c6d2eee5f003a9795e58be4b
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -94,7 +92,7 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
-  m_RenderingMode: 1
+  m_RenderingMode: 0
   m_DepthPrimingMode: 1
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
