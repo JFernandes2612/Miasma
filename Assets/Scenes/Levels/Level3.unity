@@ -1209,6 +1209,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -2086,7 +2091,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-976140
+  m_Name: pb_Mesh-22576
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2643,6 +2648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot1
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -3162,6 +3172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -4729,7 +4744,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1052550
+  m_Name: pb_Mesh-21830
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5803,6 +5818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpecialLoot
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -6337,6 +6357,7 @@ Transform:
   - {fileID: 1137508950}
   - {fileID: 215446045}
   - {fileID: 1855588230}
+  - {fileID: 1486868071}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6514,6 +6535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -7042,6 +7068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot2
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -7524,6 +7555,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot3
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -7597,7 +7633,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1778016710}
+    m_TransformParent: {fileID: 1486868071}
     m_Modifications:
     - target: {fileID: 3357164075178870901, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -7612,7 +7648,7 @@ PrefabInstance:
     - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -7724,6 +7760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -7858,7 +7899,7 @@ Transform:
   - {fileID: 395096206}
   - {fileID: 698880988}
   m_Father: {fileID: 1778016710}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1333168493
 GameObject:
@@ -8160,6 +8201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot1
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -8430,6 +8476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 8481205003178842970, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ba63f1a096a3943afe96bb97ef5831, type: 3}
 --- !u!4 &1379458414 stripped
@@ -8518,6 +8569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -8773,6 +8829,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 385312003}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1486868070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486868071}
+  m_Layer: 0
+  m_Name: NiceLoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486868071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486868070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 539150525}
+  m_Father: {fileID: 1125343595}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1493409557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9076,6 +9164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -9450,7 +9543,7 @@ PrefabInstance:
     - target: {fileID: 2415122262879990033, guid: a542868b7c5ecdf4b9439a9d3d97113b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2415122262879990033, guid: a542868b7c5ecdf4b9439a9d3d97113b,
         type: 3}
@@ -10185,6 +10278,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot2
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -10301,6 +10399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -10958,6 +11061,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot1
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -11284,7 +11392,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 539150525}
   - {fileID: 827632575}
   - {fileID: 1332965700}
   m_Father: {fileID: 1784097465}
@@ -11383,6 +11490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -11676,6 +11788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot2
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -11829,6 +11946,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -12764,6 +12886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot1
       objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -12842,6 +12969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
@@ -13146,6 +13278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loot3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468874369949652995, guid: 69f8f35eb06297f46a1221b96aac15c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6468874369949653004, guid: 69f8f35eb06297f46a1221b96aac15c5,
         type: 3}
