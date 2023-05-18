@@ -787,10 +787,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4587c5d74b2746bbc16e83a66cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
-  attackDelay: 0.5
-  attackDamage: 1
-  attackCooldown: 1
+  M1AttackRange: 3
+  M2AttackDelay: 0.5
+  M1AttackDelay: 0.7
+  M1AttackDamage: 1
+  M2AttackDamage: 2
+  M2LungeForce: 30
+  M2LungeTime: 0.5
+  M2AttackRange: 15
+  M2AttackCooldown: 3
   rapierSwingEvent:
     Guid:
       Data1: 0
@@ -807,8 +812,10 @@ MonoBehaviour:
     Path: 
   attackLayer:
     serializedVersion: 2
-    m_Bits: 0
-  hitEffect: {fileID: 0}
+    m_Bits: 8
+  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
+    type: 3}
+  playerRb: {fileID: 0}
 --- !u!1 &2513639248756819473
 GameObject:
   m_ObjectHideFlags: 0

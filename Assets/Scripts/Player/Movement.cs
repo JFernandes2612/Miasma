@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
     private float distanceToGround;
 
     private bool canQuickStep = true;
-    private bool isAnimLocked = false;
+    public bool isAnimLocked = false;
 
     [SerializeField]
     private float dashingPower = 24f;
