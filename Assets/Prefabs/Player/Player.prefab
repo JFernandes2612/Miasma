@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 250
   baseFOV: 75
-  FOVVelocityRatio: 0.7
+  FOVVelocityRatio: 1
 --- !u!1 &8555787338591706605
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 250
   baseFOV: 75
-  FOVVelocityRatio: 0.7
+  FOVVelocityRatio: 1
 --- !u!114 &7192955902230765403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ MonoBehaviour:
   boxsize: {x: 0.5, y: 0.5, z: 0.5}
   dashingPower: 40
   dashTime: 0.1
-  dashCooldown: 0.5
+  dashCooldown: 5
 --- !u!114 &7431530674872168025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1b64c72582f054cb55d4b735208a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 0
   maxHealth: 100
+  invincible: 0
 --- !u!1 &8696352605748407150
 GameObject:
   m_ObjectHideFlags: 0

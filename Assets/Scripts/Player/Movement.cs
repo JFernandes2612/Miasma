@@ -58,6 +58,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float dashCooldown = 1f;
 
+    private Player player;
+
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +68,7 @@ public class Movement : MonoBehaviour
         playerMovement.Enable();
         rb = GetComponent<Rigidbody>();
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     void FixedUpdate()
@@ -128,9 +131,11 @@ public class Movement : MonoBehaviour
         canQuickStep = false;
         Vector3 wishSpeed = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
         rb.velocity = wishSpeed * dashingPower;
+        player.setInvincible(true);
         yield return new WaitForSeconds(dashTime);
         rb.velocity = Vector3.zero;
         isAnimLocked = false;
+        player.setInvincible(false);
         yield return new WaitForSeconds(dashCooldown);
         canQuickStep = true;
     }
