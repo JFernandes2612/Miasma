@@ -59,6 +59,7 @@ public class GameController : MonoBehaviour
 
     public void ReloadLevel()
     {
+        GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().ResetWeapons();
         StartCoroutine(ReloadCurrentSceneAsync());
     }
 }

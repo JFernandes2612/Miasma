@@ -5,6 +5,13 @@ using UnityEngine;
 public class WeaponSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
+
+    public int numberOfWeapons = 0;
+
+    void Awake() {
+        numberOfWeapons = NumberOfWeapons();
+    }
+
     void Start()
     {
         SelectWeapon();
@@ -27,6 +34,23 @@ public class WeaponSwitching : MonoBehaviour
         {
             SelectWeapon();
         }
+    }
+
+    public void ResetWeapons() {
+        int i = 0;
+        foreach (Transform weapon in transform) {
+            if (i >= numberOfWeapons)
+            {
+                Destroy(weapon.gameObject);
+            }
+            i++;
+        }
+    }
+
+    public int NumberOfWeapons() {
+        int i = 0;
+        foreach (Transform weapon in transform) i++;
+        return i;
     }
 
     void SelectWeapon()
