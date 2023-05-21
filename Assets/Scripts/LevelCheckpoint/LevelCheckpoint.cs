@@ -11,8 +11,9 @@ public class LevelCheckpoint : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Player")
+        {
             unityEvent.Invoke();
-
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 }
