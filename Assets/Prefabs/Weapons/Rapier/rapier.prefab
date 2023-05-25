@@ -750,6 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2980445773546526171}
   - component: {fileID: 5074108626896266677}
+  - component: {fileID: 5100221792499094295}
   m_Layer: 0
   m_Name: rapier
   m_TagString: Untagged
@@ -816,6 +817,27 @@ MonoBehaviour:
   hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
     type: 3}
   playerRb: {fileID: 0}
+  COMBO_MAX_DELAY: 1.5
+--- !u!95 &5100221792499094295
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456567427421327201}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7ae4d7ab47274f4bb6193d0cabe1110, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2513639248756819473
 GameObject:
   m_ObjectHideFlags: 0

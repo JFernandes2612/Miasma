@@ -49,14 +49,16 @@ public class RapierAttack : MonoBehaviour
     private PlayerInput playerAttack;
     string currentAnimationState;
 
-    public const string IDLE = "Rapier_Idle";
-    public const string LUNGE = "Armature_Lunge";
+    private const string IDLE = "Idle";
+    private const string LUNGE_1 = "Lunge 1";
+    private const string LUNGE_2 = "Lunge 2";
+    private const string DOUBLE_LUNGE = "Double Lunge";
 
-    public const string DOUBLE_LUNGE = "Armature_DoubleLunge";
 
-    private const float COMBO_MAX_DELAY = 0.5f;
+    [SerializeField]
+    private float COMBO_MAX_DELAY = 0.5f;
 
-    private static int no_of_clicks = 0;
+    private static int comboStep = 0;
     private float lastClickedTime = 0;
     private bool isAttacking = false;
     private bool readyToLunge = true;
@@ -138,34 +140,21 @@ public class RapierAttack : MonoBehaviour
             }
         }
     }
-
+    public void ChangeAnimationState(string newState)
+    {
+        // STOP THE SAME ANIMATION FROM INTERRUPTING WITH ITSELF //
+        if (currentAnimationState == newState) return;
+        currentAnimationState = newState;
+        animator.CrossFadeInFixedTime(currentAnimationState, 0.2f);
+    }
 
     private void ResetCombo()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Lunge 1"))
-        {
-
-            animator.SetBool("first_combo_step", false);
-
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Lunge 2"))
-        {
-
-            animator.SetBool("second_combo_step", false);
-
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Double Lunge"))
-        {
-
-            animator.SetBool("third_combo_step", false);
-            no_of_clicks = 0;
-
-        }
-
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName(DOUBLE_LUNGE) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f) comboStep = 0;
         if (Time.time - lastClickedTime > COMBO_MAX_DELAY)
         {
-
-            no_of_clicks = 0;
+            Debug.Log("Combo Reset");
+            comboStep = 0;
         }
     }
 
@@ -174,31 +163,30 @@ public class RapierAttack : MonoBehaviour
         if (isAttacking) return;
 
         lastClickedTime = Time.time;
-        no_of_clicks++;
-        if (no_of_clicks == 1)
+        comboStep++;
+        if (comboStep == 1)
         {
-            animator.SetBool("first_combo_step", true);
-            animator.SetBool("third_combo_step", false);
-            animator.SetBool("second_combo_step", false);
+            ChangeAnimationState(LUNGE_1);
             StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
+            Debug.Log("first attack");
         }
-        if (no_of_clicks >= 2 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Lunge 1"))
+        if (comboStep >= 2 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_1))
         {
+
+            ChangeAnimationState(LUNGE_2);
+            Debug.Log("second attack");
             StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-            animator.SetBool("first_combo_step", false);
-            animator.SetBool("third_combo_step", false);
-            animator.SetBool("second_combo_step", true);
 
         }
-        if (no_of_clicks >= 3 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Lunge 2"))
+        if (comboStep >= 3 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_2))
         {
+            ChangeAnimationState(DOUBLE_LUNGE);
             StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay / 2));
             StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-            animator.SetBool("second_combo_step", false);
-            animator.SetBool("first_combo_step", false);
-            animator.SetBool("third_combo_step", true);
+            Debug.Log("third attack");
+
         }
-        no_of_clicks = Mathf.Clamp(no_of_clicks, 0, 3);
+        comboStep = Mathf.Clamp(comboStep, 0, 3);
 
 
         // play rapier swing event
@@ -227,7 +215,7 @@ public class RapierAttack : MonoBehaviour
 
         isAttacking = true;
 
-        animator.SetBool("first_combo_step", true);
+        animator.SetTrigger("FirstComboStep");
 
         // play rapier swing event
         //FMODUnity.RuntimeManager.PlayOneShot(rapierSwingEvent);
