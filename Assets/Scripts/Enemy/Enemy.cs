@@ -5,10 +5,15 @@ using UnityEngine.AI;
 
 public class Enemy : Entity
 {
+    public GameObject bullet;
+    public Transform bulletPoint;
+
+
     private Transform playerTransform;
     private NavMeshAgent agent;
     Animator animator;
     public int attackRange = 3;
+    public int chaseRange = 10;
 
 
     /*private float playerDetectionRange = 10.0f;
@@ -59,6 +64,13 @@ public class Enemy : Entity
         isAttacking = true;
         animator.SetBool("isAttacking", true);
         attackStart = Time.time;*/
+    }
+
+    public void Shoot()
+    {
+        Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 7, ForceMode.Impulse);
     }
 
     override protected void Death()
