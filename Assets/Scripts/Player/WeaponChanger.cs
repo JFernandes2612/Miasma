@@ -6,12 +6,12 @@ public class WeaponChanger : MonoBehaviour
 {
 
     [SerializeField]
-    private bool isMenuOpen;
+    private GameObject menu;
 
     // Start is called before the first frame update
     void Start()
     {
-        isMenuOpen = false;
+        
     }
 
     // Update is called once per frame
@@ -21,13 +21,13 @@ public class WeaponChanger : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            isMenuOpen = true;
+            menu.SetActive(true);
             Debug.Log(Input.mousePosition);
         }
         if (Input.GetKeyUp(KeyCode.F)){
             Cursor.visible = false;
+            menu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            isMenuOpen = false;
         }
     }
 }
