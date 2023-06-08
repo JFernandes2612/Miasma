@@ -70,7 +70,7 @@ public class Enemy : Entity
     {
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 7, ForceMode.Impulse);
+        //rb.AddForce(transform.up * 7, ForceMode.Impulse);
     }
 
     override protected void Death()
