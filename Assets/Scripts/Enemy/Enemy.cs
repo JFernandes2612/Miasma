@@ -12,7 +12,7 @@ public class Enemy : Entity
     private Transform playerTransform;
     private NavMeshAgent agent;
     Animator animator;
-    public int attackRange = 3;
+    public float attackRange = 3;
     public int chaseRange = 10;
 
 
