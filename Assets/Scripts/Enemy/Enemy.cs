@@ -69,7 +69,7 @@ public class Enemy : Entity
     public void Shoot()
     {
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 100f, ForceMode.Impulse);
         //rb.AddForce(transform.up * 7, ForceMode.Impulse);
     }
 

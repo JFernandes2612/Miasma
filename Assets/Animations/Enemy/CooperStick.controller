@@ -22,7 +22,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 06e25e2b44828d045bf3c2c0104d226a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6d06316d809b80545abd68865d6aa66f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -136,13 +136,25 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-837299208655250026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44626f3ceefe72242b16766cf7c96516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gunslinger
+  m_Name: CooperStick
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isAttacking
@@ -226,7 +238,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -5538986242899902451}
   m_StateMachineBehaviours:
-  - {fileID: 9161153340225834079}
+  - {fileID: -837299208655250026}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -235,7 +247,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6a9367156a7e6f34e8d3a6f5edbcb3e8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1dba5977282606b4a92ab934b1c84a20, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -405,17 +417,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f052e033c850a488e84070d5c02ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9161153340225834079
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 891b1794607b32f4eb1c15d5561ae5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
