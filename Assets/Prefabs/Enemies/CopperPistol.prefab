@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 8348406471915214367}
   m_Layer: 3
   m_Name: CopperPistol
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1228,7 +1228,7 @@ MonoBehaviour:
   bullet: {fileID: 535766191592275968, guid: a623e3df622bfa84289878fb2099a438, type: 3}
   bulletPoint: {fileID: 5626492582961565217}
   attackRange: 10
-  chaseRange: 15
+  chaseRange: 10
 --- !u!54 &8348406471915214366
 Rigidbody:
   m_ObjectHideFlags: 0

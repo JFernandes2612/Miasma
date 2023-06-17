@@ -11,6 +11,7 @@ public class PatrolBehaviour : StateMachineBehaviour
 
     Transform player;
     float chaseRange;
+    float rayCastRange = 20;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -39,6 +40,17 @@ public class PatrolBehaviour : StateMachineBehaviour
             animator.SetBool("isPatrolling", false);
         }
 
+        Vector3 direction = Vector3.forward;
+        Ray theRay = new Ray(agent.transform.position, agent.transform.TransformDirection(direction * rayCastRange));
+        //Debug.DrawRay(agent.transform.position, agent.transform.TransformDirection(direction * rayCastRange));
+
+        if (Physics.Raycast(theRay, out RaycastHit hit, rayCastRange))
+        {
+            if (hit.collider.tag == "enemy")
+            {
+                animator.SetBool("isChasing", true);
+            }
+        }
         float distance = Vector3.Distance(animator.transform.position, player.position);
         if (distance < chaseRange)
             animator.SetBool("isChasing", true);
@@ -49,6 +61,7 @@ public class PatrolBehaviour : StateMachineBehaviour
     {
         agent.SetDestination(agent.transform.position);
     }
+
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

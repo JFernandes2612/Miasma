@@ -689,7 +689,7 @@ GameObject:
   - component: {fileID: 4066309412172581860}
   m_Layer: 3
   m_Name: CopperStick
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   attackRange: 2
-  chaseRange: 10
+  chaseRange: 5
 --- !u!54 &4066309412172581787
 Rigidbody:
   m_ObjectHideFlags: 0
