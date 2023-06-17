@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 2980445773546526171}
   - component: {fileID: 5074108626896266677}
   - component: {fileID: 5100221792499094295}
+  - component: {fileID: 5462927737296690628}
   m_Layer: 0
   m_Name: rapier
   m_TagString: Untagged
@@ -788,36 +789,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4587c5d74b2746bbc16e83a66cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  M1AttackRange: 3
-  M2AttackDelay: 0.5
-  M1AttackDelay: 0.7
-  M1AttackDamage: 1
   M2AttackDamage: 2
+  M2AttackDelay: 0.5
   M2LungeForce: 30
   M2LungeTime: 0.5
   M2AttackRange: 15
   M2AttackCooldown: 3
-  rapierSwingEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  fistHitEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  M1AttackRange: 3
+  M1AttackDelay: 0.5
+  M1AttackDamage: 1
   attackLayer:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 0}
   hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
     type: 3}
   playerRb: {fileID: 0}
-  COMBO_MAX_DELAY: 1.5
 --- !u!95 &5100221792499094295
 Animator:
   serializedVersion: 5
@@ -838,6 +825,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5462927737296690628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456567427421327201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebeff42fae93214a8ae5429fc01ae9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2513639248756819473
 GameObject:
   m_ObjectHideFlags: 0

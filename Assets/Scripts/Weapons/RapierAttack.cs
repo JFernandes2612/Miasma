@@ -1,22 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 public class RapierAttack : MonoBehaviour
 {
+    // M2 PARAMETERS
     [SerializeField]
-    private float M1AttackRange = 3f;
+    private float M2AttackDamage = 2f;
 
     [SerializeField]
     private float M2AttackDelay = 1f;
-
-    [SerializeField]
-    private float M1AttackDelay = 1f;
-
-    [SerializeField]
-    private float M1AttackDamage = 1f;
-    [SerializeField]
-    private float M2AttackDamage = 2f;
 
     [SerializeField]
     private float M2LungeForce = 100f;
@@ -30,56 +23,78 @@ public class RapierAttack : MonoBehaviour
     [SerializeField]
     private float M2AttackCooldown = 3f;
 
-    private float M2attackCooldownCounter = 0;
+    private float M2attackCooldownCounter = 0f;
 
-    // create fmod references
-    public FMODUnity.EventReference rapierSwingEvent;
-    public FMODUnity.EventReference fistHitEvent;
-
-    public LayerMask attackLayer;
-    Camera cam;
-    Animator animator;
-    public GameObject hitEffect;
+    // M1 PARAMETERS
+    [SerializeField]
+    private float M1AttackRange = 3f;
 
     [SerializeField]
-    private Rigidbody playerRb;
+    private float M1AttackDelay = 0.3f;
 
-    private float attackTimer;
+    [SerializeField]
+    private float M1AttackDamage = 1f;
 
-    private PlayerInput playerAttack;
-    string currentAnimationState;
+    public LayerMask attackLayer;
+    public Animator animator;
+    Camera cam;
 
     private const string IDLE = "Idle";
     private const string LUNGE_1 = "Lunge 1";
     private const string LUNGE_2 = "Lunge 2";
     private const string DOUBLE_LUNGE = "Double Lunge";
 
+    public GameObject hitEffect;
+    //public FMODUnity.EventReference fistSwingEvent;
 
-    [SerializeField]
-    private float COMBO_MAX_DELAY = 0.5f;
-
-    private static int comboStep = 0;
-    private float lastClickedTime = 0;
     private bool isAttacking = false;
     private bool readyToLunge = true;
-
+    private PlayerInput playerAttack;
+    private int CountAttack;
 
     private Movement playerMovement;
 
+    [SerializeField]
+    private Rigidbody playerRb;
     void Awake()
     {
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
         playerAttack.Enable();
-        //get player rigidbody
+        CountAttack = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
 
 
     }
+    void OnEnable()
+    {
+        Debug.Log("Enabled Rapier");
+        playerAttack.Player_Map.Attack.performed += Attack_L1;
+        playerAttack.Player_Map.SpecialAttack.performed += SpecialAttack;
+    }
 
+    void OnDisable()
+    {
+        Debug.Log("Disabled Rapier");
+        playerAttack.Player_Map.Attack.performed -= Attack_L1;
+        playerAttack.Player_Map.SpecialAttack.performed -= SpecialAttack;
+    }
+
+    private IEnumerator ApplyForwardLunge(float attackDelay)
+    {
+        //apply force forwards
+        playerMovement.isAnimLocked = true;
+        yield return new WaitForSeconds(attackDelay);
+        playerRb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z) * M2LungeForce;
+        yield return new WaitForSeconds(M2LungeTime);
+        playerRb.velocity = Vector3.zero;
+        playerMovement.isAnimLocked = false;
+        ResetAttackPhase();
+
+    }
     private void HandleLungeCoolDown()
     {
         if (M2attackCooldownCounter > 0)
@@ -93,38 +108,31 @@ public class RapierAttack : MonoBehaviour
         }
     }
 
+    public void M1AttackHitBox()
+    {
+        StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
+    }
     private void Update()
     {
-        if (playerAttack.Player_Map.Attack.IsPressed())
+        if (CountAttack == 1)
         {
-            Attack();
-        }
-        if (playerAttack.Player_Map.SpecialAttack.IsPressed())
-        {
-            SpecialAttack();
+            animator.SetInteger("attackPhase", 1);
+            //StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
+            isAttacking = true;
         }
         HandleLungeCoolDown();
-        ResetCombo();
-
-
 
     }
+
     void HitTarget(Vector3 pos, GameObject hittable)
     {
-        // play fist hit event - to do: change to rapier hit event
-        FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
+        // play fist hit event
+        // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
 
         GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
         GO.transform.parent = hittable.transform;
         Destroy(GO, 20);
     }
-    private IEnumerator ResetAttackLockIn(float attackCooldown)
-    {
-        yield return new WaitForSeconds(attackCooldown);
-
-        isAttacking = false;
-    }
-
 
     private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
     {
@@ -140,73 +148,25 @@ public class RapierAttack : MonoBehaviour
             }
         }
     }
-    public void ChangeAnimationState(string newState)
+
+    private void Attack_L1(CallbackContext context)
     {
-        // STOP THE SAME ANIMATION FROM INTERRUPTING WITH ITSELF //
-        if (currentAnimationState == newState) return;
-        currentAnimationState = newState;
-        animator.CrossFadeInFixedTime(currentAnimationState, 0.2f);
-    }
 
-    private void ResetCombo()
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(DOUBLE_LUNGE) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f) comboStep = 0;
-        if (Time.time - lastClickedTime > COMBO_MAX_DELAY)
-        {
-            Debug.Log("Combo Reset");
-            comboStep = 0;
-        }
-    }
+        CountAttack++;
 
-    private void Attack()
-    {
-        if (isAttacking) return;
-
-        lastClickedTime = Time.time;
-        comboStep++;
-        if (comboStep == 1)
-        {
-            ChangeAnimationState(LUNGE_1);
-            StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-            Debug.Log("first attack");
-        }
-        if (comboStep >= 2 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_1))
-        {
-
-            ChangeAnimationState(LUNGE_2);
-            Debug.Log("second attack");
-            StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-
-        }
-        if (comboStep >= 3 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_2))
-        {
-            ChangeAnimationState(DOUBLE_LUNGE);
-            StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay / 2));
-            StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-            Debug.Log("third attack");
-
-        }
-        comboStep = Mathf.Clamp(comboStep, 0, 3);
-
-
-        // play rapier swing event
-        //FMODUnity.RuntimeManager.PlayOneShot(rapierSwingEvent);
+        // play fist swing event
+        //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
 
     }
 
-    private IEnumerator ApplyForwardLunge(float attackDelay)
+    private IEnumerator ResetAttackLockIn(float attackCooldown)
     {
-        //apply force forwards
-        playerMovement.isAnimLocked = true;
-        yield return new WaitForSeconds(attackDelay);
-        playerRb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z) * M2LungeForce;
-        yield return new WaitForSeconds(M2LungeTime);
-        playerRb.velocity = Vector3.zero;
-        playerMovement.isAnimLocked = false;
+        yield return new WaitForSeconds(attackCooldown);
 
+        isAttacking = false;
     }
 
-    private void SpecialAttack()
+    private void SpecialAttack(CallbackContext context)
     {
         if (isAttacking || !readyToLunge) return;
 
@@ -215,7 +175,7 @@ public class RapierAttack : MonoBehaviour
 
         isAttacking = true;
 
-        animator.SetTrigger("FirstComboStep");
+        animator.SetInteger("attackPhase", 1);
 
         // play rapier swing event
         //FMODUnity.RuntimeManager.PlayOneShot(rapierSwingEvent);
@@ -226,5 +186,49 @@ public class RapierAttack : MonoBehaviour
 
     }
 
+    public void CheckAttackPhase()
+    {
+        Debug.Log("CountAttack: " + CountAttack);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_1))
+        {
+            if (CountAttack > 1)
+            {
+                animator.SetInteger("attackPhase", 2);
+
+            }
+            else
+            {
+                ResetAttackPhase();
+            }
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_2))
+        {
+            if (CountAttack > 2)
+            {
+                animator.SetInteger("attackPhase", 3);
+
+            }
+            else
+            {
+                ResetAttackPhase();
+            }
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName(DOUBLE_LUNGE))
+        {
+            if (CountAttack >= 3)
+            {
+                ResetAttackPhase();
+            }
+
+        }
+
+    }
+
+    private void ResetAttackPhase()
+    {
+        animator.SetInteger("attackPhase", 0);
+        CountAttack = 0;
+        isAttacking = false;
+    }
 
 }
