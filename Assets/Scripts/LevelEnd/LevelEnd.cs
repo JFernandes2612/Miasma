@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelEnd : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other) {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().NextLevel();
+        if (other.gameObject.tag == "Player")
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().NextLevel();
     }
 }
