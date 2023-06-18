@@ -19,7 +19,7 @@ public class BroadswordAttack : MonoBehaviour
     private float smallSwingAttackRange = 2f;
 
     [SerializeField]
-    private float defendCooldown = 10f;
+    private float defendCooldown = 2.0f;
 
     public LayerMask attackLayer;
     public Animator animator;
@@ -32,6 +32,7 @@ public class BroadswordAttack : MonoBehaviour
     private PlayerInput playerAttack;
 
     private Movement playerMovement;
+    private Player playerScript;
 
     [SerializeField]
     private Rigidbody playerRb;
@@ -44,6 +45,7 @@ public class BroadswordAttack : MonoBehaviour
         playerAttack.Enable();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
+        playerScript = player.GetComponent<Player>();
         playerRb = player.GetComponent<Rigidbody>();
     }
 
@@ -66,14 +68,12 @@ public class BroadswordAttack : MonoBehaviour
         if (isAttacking) return;
 
         isAttacking = true;
-
-        Debug.Log("Defend not implemented");
-
-        // animator.SetInteger("attackPhase", 2);
+        animator.SetInteger("attack", 2);
+        playerScript.setInvincible(true);
 
         //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
 
-        StartCoroutine(ResetAttackLockIn(defendCooldown));
+        StartCoroutine(ResetDefendLockIn(defendCooldown));
     }
 
     private void Attack(CallbackContext context)
@@ -125,6 +125,13 @@ public class BroadswordAttack : MonoBehaviour
         else{
             Debug.LogWarning("Missing hit decal");
         }
+    }
+
+    private IEnumerator ResetDefendLockIn(float defendCooldown)
+    {
+        yield return new WaitForSeconds(defendCooldown);
+        playerScript.setInvincible(false);
+        ResetAttackPhase();
     }
 
     private IEnumerator ResetAttackLockIn(float attackCooldown)
