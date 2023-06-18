@@ -55,9 +55,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SpecialAttack"",
+                    ""name"": ""Special Attack"",
                     ""type"": ""Button"",
-                    ""id"": ""f35805d0-634d-480e-b31d-28b4fe089f2a"",
+                    ""id"": ""17514b2c-3bb1-4c7e-aeaa-f6b28837811f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -144,12 +144,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""189a25e9-c470-4927-8e38-0e91a71a6178"",
+                    ""id"": ""86ddcfa7-6613-43fd-a4a8-e5e6fe993b5b"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpecialAttack"",
+                    ""action"": ""Special Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -163,7 +163,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Map_Movement = m_Player_Map.FindAction("Movement", throwIfNotFound: true);
         m_Player_Map_Attack = m_Player_Map.FindAction("Attack", throwIfNotFound: true);
         m_Player_Map_QuickStep = m_Player_Map.FindAction("QuickStep", throwIfNotFound: true);
-        m_Player_Map_SpecialAttack = m_Player_Map.FindAction("SpecialAttack", throwIfNotFound: true);
+        m_Player_Map_SpecialAttack = m_Player_Map.FindAction("Special Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
