@@ -7,11 +7,11 @@ public class BroadswordAttack : MonoBehaviour
     [SerializeField]
     private float smallAttackCooldown = 2.3f;
     [SerializeField]
-    private float smallSwingLungeDelay = 1.2f;
+    private float smallSwingLungeDelay = 1.1f;
     [SerializeField]
     private float smallSwingLungeTime = 0.5f;
     [SerializeField]
-    private float smallSwingLungeForce = 30f;
+    private float smallSwingLungeForce = 10f;
     [SerializeField]
     private float smallSwingAttackDamage = 5.0f;
 
@@ -78,29 +78,19 @@ public class BroadswordAttack : MonoBehaviour
         // }
     }
 
-    void HitTarget(Vector3 pos, GameObject hittable)
+    private void SpecialAttack(CallbackContext context)
     {
-        // play fist hit event
-        // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
+        if (isAttacking) return;
 
-        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
-        GO.transform.parent = hittable.transform;
-        Destroy(GO, 20);
-    }
+        isAttacking = true;
 
-    private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
-    {
+        Debug.Log("Defend not implemented");
 
-        yield return new WaitForSeconds(attackDelay);
-        if (Physics.Raycast(cam.transform.position,
-        cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
-        {
-            if (hit.transform.TryGetComponent<Entity>(out Entity T))
-            {
-                HitTarget(hit.point, T.gameObject);
-                T.TakeDamage(attackDamage);
-            }
-        }
+        // animator.SetInteger("attackPhase", 2);
+
+        //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
+
+        StartCoroutine(ResetAttackLockIn(defendCooldown));
     }
 
     private void Attack(CallbackContext context)
@@ -126,26 +116,34 @@ public class BroadswordAttack : MonoBehaviour
         playerRb.velocity = Vector3.zero;
     }
 
+    private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
+    {
+        yield return new WaitForSeconds(attackDelay);
+        if (Physics.Raycast(cam.transform.position,
+        cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
+        {
+            if (hit.transform.TryGetComponent<Entity>(out Entity T))
+            {
+                HitTarget(hit.point, T.gameObject);
+                T.TakeDamage(attackDamage);
+            }
+        }
+    }
+
+    void HitTarget(Vector3 pos, GameObject hittable)
+    {
+        // play fist hit event
+        // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
+
+        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
+        GO.transform.parent = hittable.transform;
+        Destroy(GO, 20);
+    }
+
     private IEnumerator ResetAttackLockIn(float attackCooldown)
     {
         yield return new WaitForSeconds(attackCooldown);
         ResetAttackPhase();
-    }
-
-    private void SpecialAttack(CallbackContext context)
-    {
-        if (isAttacking) return;
-
-        isAttacking = true;
-
-        Debug.Log("Defend not implemented");
-
-        // animator.SetInteger("attackPhase", 2);
-
-        //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
-
-        StartCoroutine(ResetAttackLockIn(defendCooldown));
-
     }
 
     private void ResetAttackPhase()
