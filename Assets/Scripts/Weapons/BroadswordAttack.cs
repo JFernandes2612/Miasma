@@ -7,13 +7,16 @@ public class BroadswordAttack : MonoBehaviour
     [SerializeField]
     private float smallAttackCooldown = 2.3f;
     [SerializeField]
-    private float smallSwingLungeDelay = 1.1f;
+    private float smallSwingAttackDelay = 1.1f;
     [SerializeField]
     private float smallSwingLungeTime = 0.5f;
     [SerializeField]
-    private float smallSwingLungeForce = 10f;
+    private float smallSwingLungeForce = 20f;
     [SerializeField]
     private float smallSwingAttackDamage = 5.0f;
+
+    [SerializeField]
+    private float smallSwingAttackRange = 2f;
 
     [SerializeField]
     private float defendCooldown = 10f;
@@ -32,11 +35,6 @@ public class BroadswordAttack : MonoBehaviour
 
     [SerializeField]
     private Rigidbody playerRb;
-
-    // check these below
-
-    [SerializeField]
-    private float AttackRange = 2f;
 
     void Awake()
     {
@@ -61,21 +59,6 @@ public class BroadswordAttack : MonoBehaviour
         Debug.Log("Disabled Broadsword");
         playerAttack.Player_Map.Attack.performed -= Attack;
         playerAttack.Player_Map.SpecialAttack.performed -= SpecialAttack;
-    }
-
-    public void AttackHitBox()
-    {
-        // StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-    }
-
-    private void Update()
-    {
-        // if (CountAttack == 1)
-        // {
-        //     animator.SetInteger("attackPhase", 1);
-        //     //StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
-        //     isAttacking = true;
-        // }
     }
 
     private void SpecialAttack(CallbackContext context)
@@ -104,7 +87,8 @@ public class BroadswordAttack : MonoBehaviour
         //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
 
         StartCoroutine(ResetAttackLockIn(smallAttackCooldown));
-        StartCoroutine(ApplyForwardLunge(smallSwingLungeDelay, smallSwingLungeTime, smallSwingLungeForce));
+        StartCoroutine(ApplyForwardLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce));
+        StartCoroutine(AttackRaycast(smallSwingAttackRange, smallSwingAttackDamage, smallSwingAttackDelay));
     }
     
     private IEnumerator ApplyForwardLunge(float attackDelay, float lungeTime, float lungeForce)
@@ -118,9 +102,9 @@ public class BroadswordAttack : MonoBehaviour
 
     private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
     {
-        yield return new WaitForSeconds(attackDelay);
-        if (Physics.Raycast(cam.transform.position,
-        cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
+        // wait just until after the lunge
+        yield return new WaitForSeconds(attackDelay+0.01f);
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
         {
             if (hit.transform.TryGetComponent<Entity>(out Entity T))
             {
@@ -132,12 +116,15 @@ public class BroadswordAttack : MonoBehaviour
 
     void HitTarget(Vector3 pos, GameObject hittable)
     {
-        // play fist hit event
         // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
-
-        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
-        GO.transform.parent = hittable.transform;
-        Destroy(GO, 20);
+        if(hitEffect){
+            GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
+            GO.transform.parent = hittable.transform;
+            Destroy(GO, 20);
+        }
+        else{
+            Debug.LogWarning("Missing hit decal");
+        }
     }
 
     private IEnumerator ResetAttackLockIn(float attackCooldown)

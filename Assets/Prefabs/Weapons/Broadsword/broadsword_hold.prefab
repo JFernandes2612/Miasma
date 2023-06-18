@@ -1232,7 +1232,7 @@ GameObject:
   - component: {fileID: -6028490120947408928}
   - component: {fileID: 45793002027920299}
   m_Layer: 0
-  m_Name: Broadsword_hold
+  m_Name: broadsword_hold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,19 +1288,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05e3c91ec1af0f4aa573d712d303761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallSwingLungeDelay: 0
-  smallSwingLungeTime: 2
-  smallSwingLungeForce: 300
-  smallSwingAttackDamage: 300
+  smallAttackCooldown: 2.3
+  smallSwingAttackDelay: 1.1
+  smallSwingLungeTime: 0.5
+  smallSwingLungeForce: 10
+  smallSwingAttackDamage: 5
+  smallSwingAttackRange: 2
+  defendCooldown: 10
   attackLayer:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 0}
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
+    type: 3}
   playerRb: {fileID: 0}
-  AttackCooldown: 2
-  AttackRange: 2
-  SpecialCooldown: 3
 --- !u!1 &4575099450702498432
 GameObject:
   m_ObjectHideFlags: 0

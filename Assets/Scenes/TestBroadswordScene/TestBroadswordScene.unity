@@ -467,7 +467,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-58988
+  m_Name: pb_Mesh-776534
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -769,7 +769,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-108982
+  m_Name: pb_Mesh-776478
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3023,6 +3023,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 45793002027920299, guid: 899d6a49f7b4dc648a9f014e31bbc747,
         type: 3}
+      propertyPath: attackLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 45793002027920299, guid: 899d6a49f7b4dc648a9f014e31bbc747,
+        type: 3}
       propertyPath: smallAttackCooldown
       value: 2.3
       objectReference: {fileID: 0}
@@ -3230,6 +3235,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2697611425819131157, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2784631917255363920, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
@@ -3244,6 +3254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921654717201844704, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2966929135744383631, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -3578,7 +3593,7 @@ PrefabInstance:
     - target: {fileID: 8555787338855138801, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8555787338855138802, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
