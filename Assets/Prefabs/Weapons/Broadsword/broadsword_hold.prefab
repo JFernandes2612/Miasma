@@ -1230,7 +1230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3874614934632005730}
   - component: {fileID: -6028490120947408928}
-  - component: {fileID: 6810924504451378564}
+  - component: {fileID: 45793002027920299}
   m_Layer: 0
   m_Name: Broadsword_hold
   m_TagString: Untagged
@@ -1276,7 +1276,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &6810924504451378564
+--- !u!114 &45793002027920299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1285,32 +1285,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 4507739759998294744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d88ed086ebf46489b628880cbd11c5, type: 3}
+  m_Script: {fileID: 11500000, guid: d05e3c91ec1af0f4aa573d712d303761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
-  attackDelay: 0.5
-  attackDamage: 1
-  attackCooldown: 1
-  fistSwingEvent:
-    Guid:
-      Data1: 1028781785
-      Data2: 1109904222
-      Data3: -101338213
-      Data4: 528257956
-    Path: event:/fist/fist_swing
-  fistHitEvent:
-    Guid:
-      Data1: 1800715388
-      Data2: 1201193143
-      Data3: 1313722524
-      Data4: -1624444645
-    Path: event:/fist/fist_hit
+  smallSwingLungeDelay: 0
+  smallSwingLungeTime: 2
+  smallSwingLungeForce: 300
+  smallSwingAttackDamage: 300
   attackLayer:
     serializedVersion: 2
-    m_Bits: 8
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
+    m_Bits: 0
+  animator: {fileID: 0}
+  hitEffect: {fileID: 0}
+  playerRb: {fileID: 0}
+  AttackCooldown: 2
+  AttackRange: 2
+  SpecialCooldown: 3
 --- !u!1 &4575099450702498432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,7 +1832,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6046780420856912566}
-  m_LocalRotation: {x: 0.00000006657903, y: 6.123234e-17, z: 6.1232336e-17, w: 1}
+  m_LocalRotation: {x: 0, y: -0.21066798, z: 0, w: 0.97755766}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -1850,7 +1840,7 @@ Transform:
   - {fileID: 218018965660108894}
   m_Father: {fileID: 3874614934632005730}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -24.323, z: 0}
 --- !u!1 &6053059583850257458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,14 +2094,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6857873403357780270}
-  m_LocalRotation: {x: 1.0987708e-11, y: -0.00000008146034, z: 1, w: -4.26929e-14}
+  m_LocalRotation: {x: 0, y: -0.21066798, z: 0, w: 0.97755766}
   m_LocalPosition: {x: 0.0000005935526, y: -0.0000000058790244, z: -0.00000066780643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3874614934632005730}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -24.323, z: 0}
 --- !u!137 &7429647178572485234
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -2448,14 +2438,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596914930374786855}
-  m_LocalRotation: {x: 1.0987708e-11, y: -0.00000008146034, z: 1, w: -4.26929e-14}
+  m_LocalRotation: {x: 0, y: -0.21066798, z: 0, w: 0.97755766}
   m_LocalPosition: {x: 0.0000005935526, y: -0.0000000058790244, z: -0.00000066780643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3874614934632005730}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -24.323, z: 0}
 --- !u!137 &519694176999288917
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
