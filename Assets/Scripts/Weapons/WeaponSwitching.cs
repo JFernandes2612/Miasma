@@ -44,7 +44,10 @@ public class WeaponSwitching : MonoBehaviour
             menu.SetActive(true);
             Vector3 pos = Input.mousePosition;
 
-            if (pos.x < 405 && pos.y > 250 ){
+            float middleX = (Screen.width / 2);
+            float middleY = (Screen.height / 2);
+
+            if (pos.x < middleX - 30 && pos.y > middleY + 25 ){
                 if (availableWeapons.Contains(Weapon.Fists)){
                     currentWeapon = Weapon.Fists;
                     if (previousSelectedWeapon != currentWeapon)
@@ -52,7 +55,7 @@ public class WeaponSwitching : MonoBehaviour
                         SelectWeapon("fists(Clone)");
                     }
                 }
-            }else if(pos.x > 405 && pos.x < 450 && pos.y > 250 ){
+            }else if(pos.x > middleX - 30 && pos.x < middleX + 30 && pos.y > middleY + 25 ){
                  if (availableWeapons.Contains(Weapon.Rapier)){
                     currentWeapon = Weapon.Rapier;
                     if (previousSelectedWeapon != currentWeapon)
@@ -60,7 +63,7 @@ public class WeaponSwitching : MonoBehaviour
                         SelectWeapon("rapier(Clone)");
                     }
                  }
-            }else if(pos.x > 450 && pos.y > 250 ){
+            }else if(pos.x > middleX + 30 && pos.y > middleY + 25 ){
                 if (availableWeapons.Contains(Weapon.BroadSword)){
                     currentWeapon = Weapon.BroadSword;
                     if (previousSelectedWeapon != currentWeapon)
@@ -68,7 +71,7 @@ public class WeaponSwitching : MonoBehaviour
                         SelectWeapon("broadsword(Clone)");
                     }
                 }
-            }else if(pos.x > 470 && pos.y < 250  && pos.y > 200){
+            }else if(pos.x > middleX + 30 && pos.y < middleY + 25  && pos.y > middleY - 25){
                 if (availableWeapons.Contains(Weapon.Daggers)){
                     currentWeapon = Weapon.Daggers;
                     if (previousSelectedWeapon != currentWeapon)
