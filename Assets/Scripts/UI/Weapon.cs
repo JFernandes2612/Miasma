@@ -54,7 +54,6 @@ public class Weapon : MonoBehaviour
                 toggleWeapons("Daggers");*/
                 break;
             default:
-                Debug.Log("???");
                 toggleWeaponWheelOptions("");
                 toggleAttacks("");
                 toggleWeapons("NoWeapon");

@@ -23,6 +23,7 @@ public class WeaponSwitching : MonoBehaviour
 
     void Start()
     {
+        menu.SetActive(false);
         updateCurrentWeapon();
     }
 
