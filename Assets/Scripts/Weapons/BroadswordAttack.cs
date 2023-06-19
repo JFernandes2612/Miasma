@@ -5,11 +5,11 @@ using static UnityEngine.InputSystem.InputAction;
 public class BroadswordAttack : MonoBehaviour
 {
     [SerializeField]
-    private float smallAttackCooldown = 2.3f;
+    private float smallAttackCooldown = 3.2f;
     [SerializeField]
     private float smallSwingAttackDelay = 1.1f;
     [SerializeField]
-    private float smallSwingLungeTime = 0.5f;
+    private float smallSwingLungeTime = 3.0f;
     [SerializeField]
     private float smallSwingLungeForce = 20f;
     [SerializeField]
