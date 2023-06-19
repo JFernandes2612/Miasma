@@ -8,13 +8,10 @@ public class WeaponSwitching : MonoBehaviour
 
     public int numberOfWeapons = 0;
 
-    void Awake() {
-        numberOfWeapons = NumberOfWeapons();
-    }
-
     void Start()
     {
         SelectWeapon();
+        numberOfWeapons = NumberOfWeapons();
     }
 
 
@@ -45,6 +42,7 @@ public class WeaponSwitching : MonoBehaviour
             }
             i++;
         }
+        numberOfWeapons = NumberOfWeapons();
     }
 
     public int NumberOfWeapons() {

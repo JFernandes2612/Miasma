@@ -13587,6 +13587,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2025396608}
     m_Modifications:
+    - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: enemyDependency.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[0]
+      value: 
+      objectReference: {fileID: 658450391}
+    - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[1]
+      value: 
+      objectReference: {fileID: 1773781925}
+    - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[2]
+      value: 
+      objectReference: {fileID: 2116423573}
     - target: {fileID: 8481205003178842969, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
       propertyPath: m_RootOrder
@@ -21622,6 +21642,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 44a7f3c8a8e36284c8d6292e652281ad, type: 2}
+    - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
+        type: 3}
+      propertyPath: enemyDependency.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[0]
+      value: 
+      objectReference: {fileID: 930556224}
+    - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[1]
+      value: 
+      objectReference: {fileID: 945371580}
+    - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[2]
+      value: 
+      objectReference: {fileID: 332976923}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
