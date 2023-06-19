@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
 
     private Player player;
 
-
+    private float slowAmount = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +70,17 @@ public class Movement : MonoBehaviour
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
+
+    public void SlowPlayer()
+    {
+        baseMovementSpeed = baseMovementSpeed * slowAmount;
+    }
+
+    public void UnSlowPlayer()
+    {
+        baseMovementSpeed = baseMovementSpeed / slowAmount;
+    }
+
 
     void FixedUpdate()
     {
