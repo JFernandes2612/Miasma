@@ -126,7 +126,7 @@ public class DaggerAttack : Weapon
 
         if (context.started)
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE)) return;
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE) || canStartCharge) return;
             canStartCharge = true;
             playerMovement.SlowPlayer();
 
@@ -151,8 +151,9 @@ public class DaggerAttack : Weapon
 
             float compensationHeight = 1f;
             Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + compensationHeight, transform.position.z);
-            Quaternion currentRotation = transform.rotation;
-            StartCoroutine(SpawnDaggerProjectiles(numDaggersToSpawn, spawnPos, currentRotation));
+
+            Quaternion newRotation = Quaternion.Euler(90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            StartCoroutine(SpawnDaggerProjectiles(numDaggersToSpawn, spawnPos, newRotation));
 
         }
     }
