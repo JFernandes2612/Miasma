@@ -12,7 +12,7 @@ public class DaggerAttack : Weapon
     [SerializeField]
     private float M2ExecuteRange = 15f;
 
-    private float M2AttackRange = 2f;
+    private float M2AttackRange = 4f;
 
     [SerializeField]
     private float M2AttackDelay = 0.8f;
@@ -59,7 +59,7 @@ public class DaggerAttack : Weapon
         playerAttack.Enable();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerLook = cam.GetComponent<Look>();
-        noPosEffectLook = GameObject.Find("NoPosEffectCamera").GetComponent<Look>();
+        noPosEffectLook = GameObject.Find("WeaponCameraNoPosEffects").GetComponent<Look>();
         playerMovement = player.GetComponent<Movement>();
     }
 
@@ -161,18 +161,25 @@ public class DaggerAttack : Weapon
     {
         playerLook.LockCamera();
         noPosEffectLook.LockCamera();
+        playerMovement.isAnimLocked = true;
         yield return new WaitForSeconds(executeDelay);
+
+        playerMovement.transform.position = enemy.transform.position - enemy.transform.forward * 1.5f;
+        playerMovement.transform.rotation = Quaternion.LookRotation(enemy.transform.forward);
+
         if (Physics.Raycast(cam.transform.position,
         cam.transform.forward, out RaycastHit hit, M2AttackRange, attackLayer))
         {
             if (hit.transform.TryGetComponent<Enemy>(out Enemy T))
             {
                 HitTarget(hit.point, T.gameObject);
-                T.TakeDamage(M2AttackDamage);
+
             }
         }
+        enemy.TakeDamage(M2AttackDamage);
         playerLook.UnlockCamera();
         noPosEffectLook.UnlockCamera();
+        playerMovement.isAnimLocked = false;
 
 
     }
@@ -198,9 +205,6 @@ public class DaggerAttack : Weapon
                     //teleport to behind enemy
                     T.Freeze();
                     animator.SetTrigger("backStab");
-                    playerMovement.transform.position = T.transform.position - T.transform.forward * 1.6f;
-                    playerMovement.transform.rotation = Quaternion.LookRotation(T.transform.forward);
-                    //play animation
 
                     StartCoroutine(performExecute(M2AttackDelay, T));
 

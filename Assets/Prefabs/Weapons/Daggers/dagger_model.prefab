@@ -2730,7 +2730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7041781479196203185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.7, z: 0}
+  m_LocalPosition: {x: -0.202, y: -1.446, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2779,9 +2779,9 @@ MonoBehaviour:
     m_Bits: 8
   cam: {fileID: 0}
   M2AttackDamage: 1000
-  M2ExecuteRange: 50
+  M2ExecuteRange: 300
   M2AttackDelay: 0.5
-  M2AttackCooldown: 5
+  M2AttackCooldown: 10
   M1AttackRange: 3
   M1AttackDelay: 0.3
   M1AttackDamage: 1
