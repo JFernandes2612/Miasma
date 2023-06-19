@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.77/win64" 1687179644
+<REAPER_PROJECT 0.1 "6.77/win64" 1687180970
   <NOTES 0 2
   >
   RIPPLE 0
@@ -16,8 +16,8 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 0.5
-  ZOOM 319.72783252991303 0 0
+  CURSOR 0
+  ZOOM 633.44675578071769 0 0
   VZOOMEX 6 0
   USE_REC_CFG 0
   RECMODE 1
@@ -30,11 +30,10 @@
   >
   <APPLYFX_CFG
   >
-  RENDER_FILE ""
-  RENDER_PATTERN ""
-  RENDER_FMT 0 2 0
+  RENDER_FILE "C:\Users\diogo\OneDrive\Ambiente de Trabalho\Uni\4 ano\2 semestre\DDJD\Miasma\Assets\AudioIntegration\miasma-reaper\dash.wav"
+  RENDER_FMT 0 2 48000
   RENDER_1X 0
-  RENDER_RANGE 1 0 0 18 1000
+  RENDER_RANGE 0 0 1.408 18 1000
   RENDER_RESAMPLE 3 0 1
   RENDER_ADDTOPROJ 0
   RENDER_STEMS 0
@@ -103,7 +102,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -123,7 +122,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {490350BD-71C3-4C32-8A36-9FB3A175C0B0}
       IID 1
       NAME metalFootstep.wav
@@ -138,7 +137,7 @@
     >
   >
   <TRACK {87250319-AA28-45E9-A0B0-B865B737AD7D}
-    NAME ""
+    NAME "Whoosh Sound Effect"
     PEAKCOL 16576
     BEAT -1
     AUTOMODE 0
@@ -149,7 +148,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -160,6 +159,29 @@
     PERF 0
     MIDIOUT -1
     MAINSEND 1 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 1.40884871029259
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {6186492B-36ED-4B9C-B5E2-949DA4B77743}
+      IID 5
+      NAME "Whoosh Sound Effect.mp3"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 0 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {B17EA67F-64BE-4295-832B-002B74C984E8}
+      <SOURCE MP3
+        FILE "C:\Users\diogo\Downloads\Whoosh Sound Effect.mp3" 1
+      >
+      SM 0 0 + 0.065339238 0.065339238 -0.20271581 + 1.00822999 0.551399421 + 1.40884871 0.952018141
+    >
   >
   <TRACK {3CBDDF42-CF93-4C61-BB0B-4C8D0ACB119E}
     NAME ""
