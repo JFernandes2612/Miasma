@@ -29,6 +29,11 @@ public class Enemy : Entity
         }
     }
 
+    public void Freeze()
+    {
+        agent.isStopped = true;
+    }
+
     override protected void Death()
     {
         Destroy(gameObject, 0.1f);

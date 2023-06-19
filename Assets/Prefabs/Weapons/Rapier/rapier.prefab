@@ -767,7 +767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2456567427421327201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.033, y: -1.526, z: -0.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -789,6 +789,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4587c5d74b2746bbc16e83a66cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
+    type: 3}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  cam: {fileID: 0}
   M2AttackDamage: 2
   M2AttackDelay: 0.5
   M2LungeForce: 30
@@ -798,12 +804,6 @@ MonoBehaviour:
   M1AttackRange: 3
   M1AttackDelay: 0.5
   M1AttackDamage: 1
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  animator: {fileID: 0}
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
   playerRb: {fileID: 0}
 --- !u!95 &5100221792499094295
 Animator:
