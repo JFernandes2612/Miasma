@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 public class FistAttack : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class FistAttack : MonoBehaviour
     // create fmod references
     public FMODUnity.EventReference fistSwingEvent;
     public FMODUnity.EventReference fistHitEvent;
-    
+
     public LayerMask attackLayer;
     Camera cam;
     Animator animator;
@@ -55,12 +56,23 @@ public class FistAttack : MonoBehaviour
         animator.CrossFadeInFixedTime(currentAnimationState, 0.2f);
     }
 
+    void OnEnable()
+    {
+        Debug.Log("Enabled Fists");
+        playerAttack.Player_Map.Attack.performed += Attack;
+
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("Disabled Fists");
+        playerAttack.Player_Map.Attack.performed -= Attack;
+
+    }
+
     private void Update()
     {
-        if (playerAttack.Player_Map.Attack.IsPressed())
-        {
-            Attack();
-        }
+
         SetAnimations();
     }
     void HitTarget(Vector3 pos, GameObject hittable)
@@ -97,8 +109,10 @@ public class FistAttack : MonoBehaviour
             }
         }
     }
-    private void Attack()
+
+    private void Attack(CallbackContext ctx)
     {
+        Debug.Log("FIST Attack");
         if (!readyToAttack || isAttacking) return;
 
         readyToAttack = false;

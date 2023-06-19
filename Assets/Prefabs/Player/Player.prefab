@@ -2806,6 +2806,7 @@ MonoBehaviour:
   coyoteTime: 0.4
   jumpBufferTime: 0.2
   boxsize: {x: 0.5, y: 0.5, z: 0.5}
+  isAnimLocked: 0
   canQuickStep: 1
   dashingPower: 40
   dashTime: 0.1
@@ -2855,6 +2856,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3929357287514626975}
+  - {fileID: 2697611425819131157}
+  - {fileID: 2921654717201844704}
   m_Father: {fileID: 7387874321772474950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
