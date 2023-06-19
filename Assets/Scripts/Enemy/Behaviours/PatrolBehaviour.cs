@@ -41,8 +41,12 @@ public class PatrolBehaviour : StateMachineBehaviour
         }
 
         Vector3 direction = Vector3.forward;
-        Ray theRay = new Ray(agent.transform.position, agent.transform.TransformDirection(direction * rayCastRange));
-        //Debug.DrawRay(agent.transform.position, agent.transform.TransformDirection(direction * rayCastRange));
+
+        Vector3 newPosition = agent.transform.position;
+        newPosition.y += 1f;
+
+        Ray theRay = new Ray(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
+        Debug.DrawRay(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
 
         if (Physics.Raycast(theRay, out RaycastHit hit, rayCastRange))
         {

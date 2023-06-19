@@ -69,8 +69,41 @@ public class Enemy : Entity
     public void Shoot()
     {
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 100f, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 50f, ForceMode.Impulse);
         //rb.AddForce(transform.up * 7, ForceMode.Impulse);
+    }
+
+    public void SniperShoot()
+    {
+        Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 50f, ForceMode.Impulse);
+        //rb.AddForce(transform.up * 7, ForceMode.Impulse);
+    }
+
+    public void ShootgunShoot()
+    {
+        Vector3 bulletPos = bulletPoint.position;
+        Rigidbody r1 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+        r1.AddForce(transform.forward * 50f, ForceMode.Impulse);
+        bulletPos.y += 0.05f;
+        Rigidbody r2 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+        r2.AddForce(transform.forward * 50f + transform.up * 10f, ForceMode.Impulse);
+        bulletPos.y += -0.1f;
+        Rigidbody r3 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+        r3.AddForce(transform.forward * 50f + transform.up * -10f, ForceMode.Impulse);
+        bulletPos.y += 0.05f;
+        bulletPos.x += 0.05f;
+        Rigidbody r4 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+        r4.AddForce(transform.forward * 50f + transform.right * 10f, ForceMode.Impulse);
+        bulletPos.x += -0.1f;
+        Rigidbody r5 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+        r5.AddForce(transform.forward * 50f + transform.right * -10f, ForceMode.Impulse);
+
+        Destroy(r1, 1);
+        Destroy(r2, 1);
+        Destroy(r3, 1);
+        Destroy(r4, 1);
+        Destroy(r5, 1);
     }
 
     override protected void Death()
