@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
 
     private float distanceToGround;
 
-    private bool canQuickStep = true;
+    public bool canQuickStep = true;
     private bool isAnimLocked = false;
 
     [SerializeField]
