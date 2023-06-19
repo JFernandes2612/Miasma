@@ -65,6 +65,7 @@ public class Weapon : MonoBehaviour
     }
 
 
+
     void toggleChip(WeaponSwitching.Weapon weapon, string name){
         if (weaponChanger.availableWeapons.Contains(weapon)){
             foreach (Transform child in chips.transform){

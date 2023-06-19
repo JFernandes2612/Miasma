@@ -57,7 +57,7 @@ public class WeaponSwitching : MonoBehaviour
                     currentWeapon = Weapon.Rapier;
                     if (previousSelectedWeapon != currentWeapon)
                     {
-                        SelectWeapon("Rapier");
+                        SelectWeapon("rapier(Clone)");
                     }
                  }
             }else if(pos.x > 450 && pos.y > 250 ){
@@ -65,7 +65,7 @@ public class WeaponSwitching : MonoBehaviour
                     currentWeapon = Weapon.BroadSword;
                     if (previousSelectedWeapon != currentWeapon)
                     {
-                        SelectWeapon("BroadSword");
+                        SelectWeapon("broadsword(Clone)");
                     }
                 }
             }else if(pos.x > 470 && pos.y < 250  && pos.y > 200){
@@ -73,7 +73,7 @@ public class WeaponSwitching : MonoBehaviour
                     currentWeapon = Weapon.Daggers;
                     if (previousSelectedWeapon != currentWeapon)
                     {
-                        SelectWeapon("Daggers");
+                        SelectWeapon("daggers(Clone)");
                     }
                 }
             }
@@ -110,33 +110,26 @@ public class WeaponSwitching : MonoBehaviour
                 switch(weapon.name){
                     case "fists(Clone)":
                         currentWeapon = Weapon.Fists;
-                        if (previousSelectedWeapon != currentWeapon)
-                        {
-                            SelectWeapon("fists(Clone)");
-                        }
+            
                         break;
-                    case "Rapier":
+                    case "rapier(Clone)":
                         currentWeapon = Weapon.Rapier;
-                        if (previousSelectedWeapon != currentWeapon)
-                        {
-                            SelectWeapon("Rapier");
-                        }
+               
                         break;
-                    case "BroadSword":
+                    case "broadsword(Clone)":
                         currentWeapon = Weapon.BroadSword;
-                        if (previousSelectedWeapon != currentWeapon)
-                        {
-                            SelectWeapon("BroadSword");
-                        }
+          
                         break;
-                    case "Dagger":
+                    case "daggers(Clone)":
                         currentWeapon = Weapon.Daggers;
-                        if (previousSelectedWeapon != currentWeapon)
-                        {
-                            SelectWeapon("Daggers");
-                        }
+      
                         break;    
                 }
+
+                if (previousSelectedWeapon != currentWeapon)
+                        {
+                            SelectWeapon("weapon.name");
+                        }
             }
         }
     }
@@ -149,13 +142,13 @@ public class WeaponSwitching : MonoBehaviour
                 case "fists(Clone)":
                     availableWeapons.Add(Weapon.Fists);
                     break;
-                case "Rapier":
+                case "rapier(Clone)":
                     availableWeapons.Add(Weapon.Rapier);
                     break;
-                case "BroadSword":
+                case "broadsword(Clone)":
                     availableWeapons.Add(Weapon.BroadSword);
                     break;
-                case "Dagger":
+                case "daggers(Clone)":
                     availableWeapons.Add(Weapon.Daggers);
                     break;    
             }
