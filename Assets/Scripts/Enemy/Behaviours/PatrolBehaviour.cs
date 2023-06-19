@@ -46,7 +46,7 @@ public class PatrolBehaviour : StateMachineBehaviour
 
         if (Physics.Raycast(theRay, out RaycastHit hit, rayCastRange))
         {
-            if (hit.collider.tag == "enemy")
+            if (hit.collider.tag == "Player")
             {
                 animator.SetBool("isChasing", true);
             }
