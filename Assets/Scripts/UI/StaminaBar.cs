@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
 
+    private float currentStamina = 1;
 
     [SerializeField]
     private Movement movement;
@@ -20,13 +21,17 @@ public class StaminaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!movement.canQuickStep){
-            GetComponent<Slider>().value = 0;
+        if (!movement.canQuickStep && GetComponent<Slider>().value == 1){
+            currentStamina = 0;
         }
-        else
+        else if (movement.canQuickStep)
         {
-            GetComponent<Slider>().value = 1;
+            currentStamina = 1;
+        }else{
+            currentStamina += Time.deltaTime / (movement.dashCooldown + movement.dashTime);
         }
         
+        GetComponent<Slider>().value = currentStamina;
     }
+
 }
