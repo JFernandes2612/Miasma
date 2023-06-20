@@ -10,14 +10,12 @@ public class PatrolBehaviour : StateMachineBehaviour
     NavMeshAgent agent;
 
     Transform player;
-    float chaseRange;
-    float rayCastRange = 20;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
         Transform wayPointsObject = GameObject.FindGameObjectWithTag("WayPoints").transform;
-        chaseRange = animator.GetComponent<Enemy>().chaseRange;
         foreach (Transform t in wayPointsObject)
         {
             wayPoints.Add(t);
@@ -26,6 +24,7 @@ public class PatrolBehaviour : StateMachineBehaviour
         agent.SetDestination(wayPoints[0].position);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -40,23 +39,9 @@ public class PatrolBehaviour : StateMachineBehaviour
             animator.SetBool("isPatrolling", false);
         }
 
-        Vector3 direction = Vector3.forward;
+        bool canSeePlayer = animator.GetComponent<FieldOfView>().canSeePlayer;
 
-        Vector3 newPosition = agent.transform.position;
-        newPosition.y += 1f;
-
-        Ray theRay = new Ray(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
-        Debug.DrawRay(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
-
-        if (Physics.Raycast(theRay, out RaycastHit hit, rayCastRange))
-        {
-            if (hit.collider.tag == "Player")
-            {
-                animator.SetBool("isChasing", true);
-            }
-        }
-        float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance < chaseRange)
+        if (canSeePlayer)
             animator.SetBool("isChasing", true);
     }
 
@@ -78,4 +63,5 @@ public class PatrolBehaviour : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+
 }

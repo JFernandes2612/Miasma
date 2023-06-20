@@ -5,78 +5,68 @@ using UnityEngine.AI;
 
 public class Enemy : Entity
 {
+    public int enemyHP = 100;
     public GameObject bullet;
     public Transform bulletPoint;
 
 
     private Transform playerTransform;
     private NavMeshAgent agent;
-    Animator animator;
+    public Animator animator;
     public float attackRange = 3;
     public int chaseRange = 10;
 
-
-    /*private float playerDetectionRange = 10.0f;
-
-    private bool targetingPlayer = false;
-   private bool isAttacking = false;
-    private float attackStart = 0;*/
-
+    private Vector3 directionToPlayer;
+    float timer;
     // Start is called before the first frame update
     void Start()
     {
-        /*agent = GetComponent<NavMeshAgent>();
+        timer = 0;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        animator = GetComponent<Animator>();*/
+        directionToPlayer = (playerTransform.position - transform.position).normalized;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange)
-        {
-            Attack();
-        } 
+        timer += Time.deltaTime;
+        directionToPlayer = (playerTransform.position - transform.position).normalized;
+        directionToPlayer.y += -0.1f;
 
-        if (Time.time - attackStart >= 3)
+        if (timer > 4 && enemyHP > 0)
         {
-            //animator.SetBool("isAttacking", false);
-            //isAttacking = false;
+            timer = 0;
+            TakeDamage(20);
         }
-        
-        
-        if (!isAttacking && (targetingPlayer || Vector3.Distance(playerTransform.position, transform.position) <= playerDetectionRange))
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        enemyHP -= damageAmount;
+        if(enemyHP <= 0)
         {
-            targetingPlayer = true;
-            agent.SetDestination(playerTransform.position);
-            Walk();
-        }*/
-    }
-
-    void Walk()
-    {
-        //animator.SetBool("isWalking", true);
-    }
-
-    void Attack()
-    {
-        /*animator.SetBool("isWalking", false);
-        isAttacking = true;
-        animator.SetBool("isAttacking", true);
-        attackStart = Time.time;*/
+            animator.SetTrigger("isDying");
+            GetComponent<CapsuleCollider>().enabled = false;
+            Death();
+        }
+        else
+        {
+            animator.SetTrigger("isHit");
+        }
     }
 
     public void Shoot()
     {
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 50f, ForceMode.Impulse);
+        rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
         //rb.AddForce(transform.up * 7, ForceMode.Impulse);
     }
 
     public void SniperShoot()
     {
+
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 50f, ForceMode.Impulse);
+        rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
         //rb.AddForce(transform.up * 7, ForceMode.Impulse);
     }
 
@@ -84,30 +74,30 @@ public class Enemy : Entity
     {
         Vector3 bulletPos = bulletPoint.position;
         Rigidbody r1 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r1.AddForce(transform.forward * 50f, ForceMode.Impulse);
+        r1.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
         bulletPos.y += 0.05f;
         Rigidbody r2 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r2.AddForce(transform.forward * 50f + transform.up * 10f, ForceMode.Impulse);
+        r2.AddForce(directionToPlayer * 50f + transform.up * 10f, ForceMode.Impulse);
         bulletPos.y += -0.1f;
         Rigidbody r3 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r3.AddForce(transform.forward * 50f + transform.up * -10f, ForceMode.Impulse);
+        r3.AddForce(directionToPlayer * 50f + transform.up * -10f, ForceMode.Impulse);
         bulletPos.y += 0.05f;
         bulletPos.x += 0.05f;
         Rigidbody r4 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r4.AddForce(transform.forward * 50f + transform.right * 10f, ForceMode.Impulse);
+        r4.AddForce(directionToPlayer * 50f + transform.right * 10f, ForceMode.Impulse);
         bulletPos.x += -0.1f;
         Rigidbody r5 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r5.AddForce(transform.forward * 50f + transform.right * -10f, ForceMode.Impulse);
+        r5.AddForce(directionToPlayer * 50f + transform.right * -10f, ForceMode.Impulse);
 
-        Destroy(r1, 1);
-        Destroy(r2, 1);
-        Destroy(r3, 1);
-        Destroy(r4, 1);
-        Destroy(r5, 1);
+        Destroy(r1, 2);
+        Destroy(r2, 2);
+        Destroy(r3, 2);
+        Destroy(r4, 2);
+        Destroy(r5, 2);
     }
 
     override protected void Death()
     {
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, 10);
     }
 }

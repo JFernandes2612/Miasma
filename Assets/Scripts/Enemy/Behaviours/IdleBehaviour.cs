@@ -10,14 +10,12 @@ public class IdleBehaviour : StateMachineBehaviour
     NavMeshAgent agent;
 
     Transform player;
-    float chaseRange;
-    float rayCastRange = 20;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        chaseRange = animator.GetComponent<Enemy>().chaseRange;
         agent = animator.GetComponent<NavMeshAgent>();
     }
 
@@ -30,14 +28,9 @@ public class IdleBehaviour : StateMachineBehaviour
             animator.SetBool("isPatrolling", true);
         }
 
-        Vector3 direction = Vector3.forward;
-        Vector3 newPosition = agent.transform.position;
-        newPosition.y += 1f;
-        Ray theRay = new Ray(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
-        Debug.DrawRay(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
-        
-        float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance < chaseRange)
+        bool canSeePlayer = animator.GetComponent<FieldOfView>().canSeePlayer;
+
+        if (canSeePlayer)
             animator.SetBool("isChasing", true);
     }
 
