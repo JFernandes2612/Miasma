@@ -16,6 +16,8 @@ public class Look : MonoBehaviour
     [SerializeField]
     private float baseFOV;
 
+    private bool isLocked = false;
+
     [SerializeField]
     private float FOVVelocityRatio = 0.5f;
 
@@ -29,9 +31,21 @@ public class Look : MonoBehaviour
         playerRb = player.GetComponent<Rigidbody>();
     }
 
+    public void LockCamera()
+    {
+        isLocked = true;
+    }
+
+    public void UnlockCamera()
+    {
+        isLocked = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isLocked) return;
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
