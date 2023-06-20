@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1479469663863049152}
   - component: {fileID: 604625799943163106}
   - component: {fileID: 7633353915450508481}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 8555787338591706595}
+  m_Camera: {fileID: 6110505494763303316}
   m_PlaneDistance: 0.1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2727618704256067097}
   - component: {fileID: 5542036968867012750}
   - component: {fileID: 7686933965403059510}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BroadSwordChip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 2366365328237126394}
   - component: {fileID: 7266851699102892054}
   - component: {fileID: 556627979050902016}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 9128215630444419250}
   - component: {fileID: 6416450607530977270}
   - component: {fileID: 9077856408894130699}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fists
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 9071327357616813549}
   - component: {fileID: 8284465085468563992}
   - component: {fileID: 5358790364737435881}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: StaminaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151445368079131362}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RMB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 5752740054913360304}
   - component: {fileID: 3864582869542838307}
   - component: {fileID: 1849080186374334981}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 3153224845028295117}
   - component: {fileID: 5150555614614308484}
   - component: {fileID: 5984653336388986437}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: NoWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 412102144885379177}
   - component: {fileID: 3468212978431826734}
   - component: {fileID: 6704919968715487359}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 2999097844924255155}
   - component: {fileID: 4467579118042829519}
   - component: {fileID: 9140481423697550102}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BroadSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110894072048902950}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 1657258540500602563}
   - component: {fileID: 5782180494701434602}
   - component: {fileID: 917433124731821614}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: FistSelected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 7564602604588101539}
   - component: {fileID: 8085631016236236901}
   - component: {fileID: 7282175297436486188}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BroadSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130158828703496977}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50423812536559327}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Selected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,7 +1228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9055439185416451987}
   - component: {fileID: 90560341190438308}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RMB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1747782571035616641}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Chips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 4389861291716284069}
   - component: {fileID: 6201386628367304082}
   - component: {fileID: 6477352780868622902}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fists
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 2896822700367260978}
   - component: {fileID: 2214723399363542734}
   - component: {fileID: 2481206653549472012}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1541,7 +1541,7 @@ GameObject:
   - component: {fileID: 1483949640659400652}
   - component: {fileID: 9129679124712893658}
   - component: {fileID: 2441492586131772277}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1617,7 @@ GameObject:
   - component: {fileID: 144347800738216753}
   - component: {fileID: 6455311343035744262}
   - component: {fileID: 8658777921673318691}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 7440327549330132275}
   - component: {fileID: 6269625728126301906}
   - component: {fileID: 4114846088120822208}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RapierChip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1767,7 +1767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5362337319410464275}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1806,7 +1806,7 @@ GameObject:
   - component: {fileID: 2172063186155285836}
   - component: {fileID: 4128009532492538628}
   - component: {fileID: 5621734070523935387}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1882,7 @@ GameObject:
   - component: {fileID: 6161021873110243666}
   - component: {fileID: 4677060937313098591}
   - component: {fileID: 2771415725728835902}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 3740374301192157860}
   - component: {fileID: 1620181581027597037}
   - component: {fileID: 2885531875347719052}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2034,7 +2034,7 @@ GameObject:
   - component: {fileID: 3692073504208589879}
   - component: {fileID: 3519150927161699199}
   - component: {fileID: 5594290904891773092}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: WeaponWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2110,7 +2110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7358579760406468107}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2149,7 +2149,7 @@ GameObject:
   - component: {fileID: 3936094276967336968}
   - component: {fileID: 8758259294449222895}
   - component: {fileID: 1781189910510909338}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Rapier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2225,7 +2225,7 @@ GameObject:
   - component: {fileID: 5496306748712018787}
   - component: {fileID: 7037204160608637713}
   - component: {fileID: 3995684044264963468}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,7 +2251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 178.721}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: 3.0000305}
+  m_AnchoredPosition: {x: 70, y: 3}
   m_SizeDelta: {x: 140, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7037204160608637713
@@ -2327,7 +2327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8138604515039945994}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2369,7 +2369,7 @@ GameObject:
   - component: {fileID: 8053941787888874231}
   - component: {fileID: 2821403420161426456}
   - component: {fileID: 1906894895431220163}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BroadSwordSelected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2445,7 +2445,7 @@ GameObject:
   - component: {fileID: 4708886511032532302}
   - component: {fileID: 6864064762265178291}
   - component: {fileID: 2693079870410024631}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,7 +2580,7 @@ GameObject:
   - component: {fileID: 3413846668795027002}
   - component: {fileID: 2745194000998272563}
   - component: {fileID: 1846176938135482723}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Attacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2661,7 +2661,7 @@ GameObject:
   - component: {fileID: 6677755250355753193}
   - component: {fileID: 8381300741203428781}
   - component: {fileID: 472765551895409379}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,6 +2797,7 @@ GameObject:
   - component: {fileID: 6110505494763303316}
   - component: {fileID: 4300259105777662894}
   - component: {fileID: 4567109637908304575}
+  - component: {fileID: 3324445320635675011}
   m_Layer: 8
   m_Name: NoPosEffectCamera
   m_TagString: Untagged
@@ -2851,7 +2852,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2883,7 +2884,7 @@ MonoBehaviour:
   m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -2911,6 +2912,23 @@ MonoBehaviour:
   mouseSensitivity: 250
   baseFOV: 75
   FOVVelocityRatio: 1
+--- !u!114 &3324445320635675011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527134174776342084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ca92fdfa6c6948c439cb845856ad62ff, type: 2}
 --- !u!1 &7840128826848012597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,7 +2940,7 @@ GameObject:
   - component: {fileID: 818540146406285376}
   - component: {fileID: 2693372256879691924}
   - component: {fileID: 4669317463434867783}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Rapier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2997,7 +3015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457672010124594106}
   - component: {fileID: 5911191426114987459}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: LMB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3088,7 +3106,7 @@ GameObject:
   - component: {fileID: 496297467026055784}
   - component: {fileID: 4157416970809255416}
   - component: {fileID: 4593041867715466843}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: FistChip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3516,7 +3534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925679865235701623}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: LMB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3556,7 +3574,7 @@ GameObject:
   - component: {fileID: 3227794408974956158}
   - component: {fileID: 7705482181314762512}
   - component: {fileID: 8156205066049482782}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RapierSelected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3632,7 +3650,7 @@ GameObject:
   - component: {fileID: 1125400041966824806}
   - component: {fileID: 612924843167460862}
   - component: {fileID: 4695378952706251865}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
