@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class WeaponUI : MonoBehaviour
@@ -17,20 +18,129 @@ public class WeaponUI : MonoBehaviour
     private GameObject weapons;
     [SerializeField]
     private GameObject chips;
+    [SerializeField]
+    private GameObject LMBCoolDown;
+    [SerializeField]
+    private GameObject LMBCombo;
+
+    [SerializeField]
+    private GameObject RMBCoolDown;
+    [SerializeField]
+    private GameObject RMBCombo;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        LMBCoolDown.SetActive(false);
+        RMBCoolDown.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        updateLMBCooldown();
+        updateRMBCooldown();
+        updateIcons();
+    }
+
+    void updateLMBCooldown(){
+         switch(weaponChanger.currentWeapon){
+            case WeaponSwitching.Weapon.Fists:
+                FistAttack script = weaponChanger.currentWeaponObject.GetComponent<FistAttack>();
+                if (script == null) return;
+                if (script.isLMBCooldown()){
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf){
+                        LMBCoolDown.GetComponent<Slider>().value = 1;
+                        LMBCoolDown.SetActive(true);
+                    }
+                    else{
+                        
+                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / script.getLMBCooldown();
+                    }
+
+                }else{
+                    LMBCoolDown.GetComponent<Slider>().value = 0;
+                    LMBCoolDown.SetActive(false);
+                }
+                break;
+            case WeaponSwitching.Weapon.Rapier:
+                RapierAttack scriptRapier= weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
+                if (scriptRapier == null) return;
+                if (scriptRapier.isLMBCooldown()){
+                    LMBCombo.SetActive(true);
+                    LMBCombo.GetComponent<TMPro.TextMeshProUGUI>().text = scriptRapier.getAttackPhase() + "X";
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf){
+                        LMBCoolDown.GetComponent<Slider>().value = 1;
+                        LMBCoolDown.SetActive(true);
+                    }
+                    else{
+                        
+                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / scriptRapier.getLMBCooldown();
+                    }
+                }else{
+                    LMBCoolDown.GetComponent<Slider>().value = 0;
+                    LMBCoolDown.SetActive(false);
+                    LMBCombo.SetActive(false);
+                }
+                break;
+            case WeaponSwitching.Weapon.BroadSword:
+
+                break;
+            case WeaponSwitching.Weapon.Daggers:
+          
+                break;
+            default:
+                break;
+        }
+       
+    }
+
+
+    void updateRMBCooldown(){
+         switch(weaponChanger.currentWeapon){
+            case WeaponSwitching.Weapon.Fists:
+                break;
+            case WeaponSwitching.Weapon.Rapier:
+                RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
+                if (scriptRapier == null) return;
+                if (scriptRapier.isRMBCooldown()){
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf){
+                        RMBCoolDown.GetComponent<Slider>().value = 1;
+                        RMBCoolDown.SetActive(true);
+                    }
+                    else{
+                        
+                        RMBCoolDown.GetComponent<Slider>().value = scriptRapier.getRMBCooldown();
+                    }
+
+                }else{
+                    RMBCoolDown.GetComponent<Slider>().value = 0;
+                    RMBCoolDown.SetActive(false);
+                }
+                break;
+            case WeaponSwitching.Weapon.BroadSword:
+
+                break;
+            case WeaponSwitching.Weapon.Daggers:
+          
+                break;
+            default:
+        
+                break;
+        }
+       
+    }
+
+
+    void updateChips(){
         toggleChip(WeaponSwitching.Weapon.Fists,"FistChip");
         toggleChip(WeaponSwitching.Weapon.Rapier,"RapierChip");
         toggleChip(WeaponSwitching.Weapon.BroadSword,"BroadSwordChip");
         toggleChip(WeaponSwitching.Weapon.Daggers,"DaggersChip");
+    }
+
+    void updateIcons(){
+        updateChips();
 
         switch(weaponChanger.currentWeapon){
             case WeaponSwitching.Weapon.Fists:
@@ -59,10 +169,7 @@ public class WeaponUI : MonoBehaviour
                 toggleWeapons("NoWeapon");
                 break;
         }
-
-        
     }
-
 
 
     void toggleChip(WeaponSwitching.Weapon weapon, string name){
@@ -100,7 +207,8 @@ public class WeaponUI : MonoBehaviour
             if (child.name == name){
                 child.gameObject.SetActive(true);
             }else{
-                child.gameObject.SetActive(false);
+                if (child.name != "LMB"&& child.name != "RMB"){
+                child.gameObject.SetActive(false);}
             }
         }
     }

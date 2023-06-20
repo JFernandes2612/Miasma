@@ -11,6 +11,7 @@ public class WeaponSwitching : MonoBehaviour
     public Weapon currentWeapon = Weapon.None;
     private  Weapon previousSelectedWeapon;
     public List<Weapon> availableWeapons;
+    public GameObject currentWeaponObject;
 
     public enum Weapon {Fists, Rapier, BroadSword, Daggers, None};
 
@@ -107,6 +108,7 @@ public class WeaponSwitching : MonoBehaviour
         foreach (Transform weapon in transform)
         {
             if (weapon.gameObject.activeSelf){
+                currentWeaponObject = weapon.gameObject;
                 switch(weapon.name){
                     case "fists(Clone)":
                         currentWeapon = Weapon.Fists;
@@ -133,7 +135,7 @@ public class WeaponSwitching : MonoBehaviour
             }
         }
     }
-
+    
     void updateAvailableWeapons(){
         availableWeapons = new List<Weapon>();
         foreach (Transform weapon in transform)

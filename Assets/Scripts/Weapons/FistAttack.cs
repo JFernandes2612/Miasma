@@ -35,6 +35,23 @@ public class FistAttack : Weapon
         playerAttack.Enable();
     }
 
+    public override  float getLMBCooldown(){
+        return attackDelay*2;
+    }
+
+    public override  float getRMBCooldown(){
+        return 0;
+    }
+
+    public override  bool isLMBCooldown(){
+    return isAttacking;
+    }
+
+    public override  bool isRMBCooldown(){
+        return false;
+    }
+
+
 
     public void ChangeAnimationState(string newState)
     {

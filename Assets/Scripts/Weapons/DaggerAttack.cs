@@ -51,6 +51,23 @@ public class DaggerAttack : Weapon
     private bool canStartCharge = true;
 
     private const string IDLE = "Idle";
+
+    public override  float getRMBCooldown(){
+        return M2AttackCooldown + M2AttackDelay;
+    }
+
+    public override  float getLMBCooldown(){
+        return M1AttackDelay;
+    }
+
+    public override  bool isRMBCooldown(){
+        return !readyToM2;
+    }
+
+    public override  bool isLMBCooldown(){
+        return isAttacking && readyToM2;
+    }
+
     void Awake()
     {
         animator = GetComponent<Animator>();
