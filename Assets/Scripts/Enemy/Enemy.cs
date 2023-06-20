@@ -31,6 +31,7 @@ public class Enemy : Entity
         directionToPlayer = (playerTransform.position - transform.position).normalized;
 
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         prevAnimatorSpeed = animator.speed;
         prevAgentSpeed = agent.speed;
     }
