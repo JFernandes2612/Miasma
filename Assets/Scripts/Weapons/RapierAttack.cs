@@ -9,7 +9,7 @@ public class RapierAttack : Weapon
     private float M2AttackDamage = 2f;
 
     [SerializeField]
-    private float M2AttackDelay = 1f;
+    private float M2AttackDelay = 1.8f;
 
     [SerializeField]
     private float M2LungeForce = 100f;
