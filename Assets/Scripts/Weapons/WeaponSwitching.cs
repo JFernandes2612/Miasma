@@ -129,13 +129,13 @@ public class WeaponSwitching : MonoBehaviour
                 }
 
                 if (previousSelectedWeapon != currentWeapon)
-                        {
-                            SelectWeapon("weapon.name");
-                        }
+                    {
+                        SelectWeapon("weapon.name");
+                    }
             }
         }
     }
-    
+
     void updateAvailableWeapons(){
         availableWeapons = new List<Weapon>();
         foreach (Transform weapon in transform)
