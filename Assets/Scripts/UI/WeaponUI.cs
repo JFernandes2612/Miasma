@@ -72,7 +72,7 @@ public class WeaponUI : MonoBehaviour
                     }
                     else{
                         
-                        LMBCoolDown.GetComponent<Slider>().value = script.getLMBCooldown();
+                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / script.getLMBCooldown();
                     }
 
                 }else{
