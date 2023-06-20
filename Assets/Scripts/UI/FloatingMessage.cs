@@ -27,7 +27,6 @@ public class FloatingMessage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
         textObject.text = textMessage;
         if (textPulse){
             if (!waiting){
@@ -37,9 +36,6 @@ public class FloatingMessage : MonoBehaviour
 
 
     private Color GenerateRandomColor(){
-        
-        
-
         return new Vector4(
             Random.Range(0f,1f),    //red
             Random.Range(0f,1f),    //green
@@ -50,7 +46,7 @@ public class FloatingMessage : MonoBehaviour
     private IEnumerator SetColorAfterDelay()
     {
         waiting = true;
-        yield return new WaitForSeconds( 1f + 0.5f * (float)System.Math.Sin(time)); 
+        yield return new WaitForSeconds(1f + Random.Range(0f, 1f));
         textObject.color = GenerateRandomColor();
 
         System.Random random = new System.Random();
@@ -61,7 +57,7 @@ public class FloatingMessage : MonoBehaviour
         textObject.fontSharedMaterial.SetFloat("_OutlineWidth", 0.05f);
         textObject.fontSharedMaterial.SetColor("_OutlineColor", Color.white);
         textObject.gameObject.SetActive(true);
-        
+
         waiting = false;
     }
 
