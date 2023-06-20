@@ -4,6 +4,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class BroadswordAttack : MonoBehaviour
 {
+    // For both attacks
     [SerializeField]
     private float attackCooldown = 3.2f;
     [SerializeField]
@@ -11,22 +12,24 @@ public class BroadswordAttack : MonoBehaviour
     [SerializeField]
     private float attackRange = 3f;
 
+    // First attack
     [SerializeField]
-    private float smallSwingAttackDelay = 1.1f;
+    private float smallSwingAttackDelay = 1.1f; // Time between the input action and applying the lunge force
     [SerializeField]
-    private float smallSwingLungeTime = 3.0f;
+    private float smallSwingLungeTime = 3.0f; // Time the lunge force is applied for
     [SerializeField]
-    private float smallSwingLungeForce = 20f;
+    private float smallSwingLungeForce = 20f; // Lunge force
+
+    // Second attack
+    [SerializeField]
+    private float upperSwingAttackDelay = 1.1f; // Time between the input action and applying the lunge force
+    [SerializeField]
+    private float upperSwingLungeTime = 5.0f; // Time the lunge force is applied for
+    [SerializeField]
+    private float upperSwingLungeForce = 30f; // Lunge force
 
     [SerializeField]
-    private float upperSwingAttackDelay = 1.1f;
-    [SerializeField]
-    private float upperSwingLungeTime = 5.0f;
-    [SerializeField]
-    private float upperSwingLungeForce = 30f;
-
-    [SerializeField]
-    private float defendDuration = 2.0f;
+    private float defendDuration = 2.0f; // Invincibility duration (animation is reset at the end)
 
     public LayerMask attackLayer;
     public Animator animator;
@@ -35,9 +38,9 @@ public class BroadswordAttack : MonoBehaviour
     public GameObject hitEffect;
     //public FMODUnity.EventReference fistSwingEvent;
 
-    private bool isAttacking = false;
+    private bool isAttacking = false; // tells us if we're locked in an attack/defense animation
     private PlayerInput playerAttack;
-    private int CountAttack;
+    private int CountAttack; // 0 or 1 (first attack or second attack)
 
     private Movement playerMovement;
     private Player playerScript;
@@ -91,6 +94,7 @@ public class BroadswordAttack : MonoBehaviour
 
         isAttacking = true;
         Vector3 lungeDirection;
+        // lunge direction changes depending on the attack, and so does the lunge time, delay and force
         if (CountAttack == 0)
         {
             animator.SetInteger("attack", 1);
@@ -112,6 +116,7 @@ public class BroadswordAttack : MonoBehaviour
         StartCoroutine(AttackRaycast(attackRange, attackDamage, smallSwingAttackDelay));
     }
 
+    // Applies a force with direction direction for lungetime seconds, after a delay of attackDelay seconds
     private IEnumerator ApplyLunge(float attackDelay, float lungeTime, float lungeForce, Vector3 lungeDirection)
     {
         //apply force forwards
@@ -123,7 +128,7 @@ public class BroadswordAttack : MonoBehaviour
 
     private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
     {
-        // wait just until after the lunge
+        // wait until just after the lunge
         yield return new WaitForSeconds(attackDelay+0.01f);
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
         {
