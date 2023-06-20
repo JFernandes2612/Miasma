@@ -5,25 +5,40 @@ using UnityEngine.Events;
 
 public class ScreenMessage : MonoBehaviour
 {
-    [SerializeField]
-    private UnityEvent startEvents;
+    private FloatingMessage floatingMessage;
 
     [SerializeField]
-    private UnityEvent endEvents;
-    // Start is called before the first frame update
+    private float delay;
+
+    [SerializeField]
+    private bool pulse;
+
+    [SerializeField]
+    private string text;
+
+    private bool triggered = false;
+
+    private void Start() {
+        floatingMessage = GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !triggered)
         {
             StartCoroutine(RunEvents());
         }
     }
 
-    IEnumerator RunEvents() 
+    IEnumerator RunEvents()
     {
-        startEvents.Invoke();
-        yield return new WaitForSeconds(0.5f);
-        endEvents.Invoke();
+        triggered = true;
+        floatingMessage.SetPulse(pulse);
+        floatingMessage.SetText(text);
+        floatingMessage.SetActive(true);
+        floatingMessage.FadeIn();
+        yield return new WaitForSeconds(delay);
+        floatingMessage.FadeOut();
+        gameObject.SetActive(false);
     }
 }
