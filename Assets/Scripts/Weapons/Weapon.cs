@@ -22,6 +22,7 @@ public abstract class Weapon : MonoBehaviour
         GO.transform.parent = hittable.transform;
         Destroy(GO, 20);
     }
+
     protected IEnumerator ResetAttackLockIn(float attackCooldown)
     {
         yield return new WaitForSeconds(attackCooldown);

@@ -1737,7 +1737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-931558
+  m_Name: pb_Mesh-3208
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7762,6 +7762,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 961019970691796949, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.569
+      objectReference: {fileID: 0}
+    - target: {fileID: 961019970691796949, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.16
+      objectReference: {fileID: 0}
     - target: {fileID: 963793205718262402, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
@@ -8046,6 +8056,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.2228948
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404313264643875862, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.052465122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404313264643875862, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.016270323
       objectReference: {fileID: 0}
     - target: {fileID: 1404313264643875862, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -11260,7 +11280,7 @@ PrefabInstance:
     - target: {fileID: 7017948174034795598, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7028904354830050053, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -11996,6 +12016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555787338855138801, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555787338855138802, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}

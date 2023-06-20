@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class BroadswordAttack : MonoBehaviour
+public class BroadswordAttack : Weapon
 {
     [SerializeField]
     private float smallAttackCooldown = 2.3f;
@@ -21,15 +21,7 @@ public class BroadswordAttack : MonoBehaviour
     [SerializeField]
     private float defendCooldown = 2.0f;
 
-    public LayerMask attackLayer;
-    public Animator animator;
-    Camera cam;
-
-    public GameObject hitEffect;
     //public FMODUnity.EventReference fistSwingEvent;
-
-    private bool isAttacking = false;
-    private PlayerInput playerAttack;
 
     private Movement playerMovement;
     private Player playerScript;
@@ -51,32 +43,47 @@ public class BroadswordAttack : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("Enabled Broadsword");
-        playerAttack.Player_Map.Attack.performed += Attack;
-        playerAttack.Player_Map.SpecialAttack.performed += SpecialAttack;
+
+        playerAttack.Player_Map.Attack.performed += Attack_M1;
+        playerAttack.Player_Map.SpecialAttack.performed += Attack_M2;
     }
 
     void OnDisable()
     {
-        Debug.Log("Disabled Broadsword");
-        playerAttack.Player_Map.Attack.performed -= Attack;
-        playerAttack.Player_Map.SpecialAttack.performed -= SpecialAttack;
+
+        playerAttack.Player_Map.Attack.performed -= Attack_M1;
+        playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
     }
 
-    private void SpecialAttack(CallbackContext context)
+
+    private IEnumerator ApplyForwardLunge(float attackDelay)
     {
-        if (isAttacking) return;
+        //apply force forwards
+        playerMovement.isAnimLocked = true;
+        yield return new WaitForSeconds(attackDelay);
+        playerRb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z) * smallSwingLungeForce;
+        yield return new WaitForSeconds(smallSwingLungeTime);
+        playerRb.velocity = Vector3.zero;
+        playerMovement.isAnimLocked = false;
+        ResetAttackPhase();
 
-        isAttacking = true;
-        animator.SetInteger("attack", 2);
-        playerScript.setInvincible(true);
-
-        //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
-
-        StartCoroutine(ResetDefendLockIn(defendCooldown));
     }
 
-    private void Attack(CallbackContext context)
+
+    private IEnumerator ResetDefendLockIn(float defendCooldown)
+    {
+        yield return new WaitForSeconds(defendCooldown);
+        playerScript.setInvincible(false);
+        ResetAttackPhase();
+    }
+
+    private void ResetAttackPhase()
+    {
+        animator.SetInteger("attack", 0);
+        isAttacking = false;
+    }
+
+    public override void Attack_M1(CallbackContext context)
     {
         if (isAttacking) return;
 
@@ -87,62 +94,20 @@ public class BroadswordAttack : MonoBehaviour
         //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
 
         StartCoroutine(ResetAttackLockIn(smallAttackCooldown));
-        StartCoroutine(ApplyForwardLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce));
+        StartCoroutine(ApplyForwardLunge(smallSwingAttackDelay));
         StartCoroutine(AttackRaycast(smallSwingAttackRange, smallSwingAttackDamage, smallSwingAttackDelay));
     }
-    
-    private IEnumerator ApplyForwardLunge(float attackDelay, float lungeTime, float lungeForce)
-    {
-        //apply force forwards
-        yield return new WaitForSeconds(attackDelay);
-        playerRb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z) * lungeForce;
-        yield return new WaitForSeconds(lungeTime);
-        playerRb.velocity = Vector3.zero;
-    }
 
-    private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
+    public override void Attack_M2(CallbackContext context)
     {
-        // wait just until after the lunge
-        yield return new WaitForSeconds(attackDelay+0.01f);
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
-        {
-            if (hit.transform.TryGetComponent<Entity>(out Entity T))
-            {
-                HitTarget(hit.point, T.gameObject);
-                T.TakeDamage(attackDamage);
-            }
-        }
-    }
+        if (isAttacking) return;
 
-    void HitTarget(Vector3 pos, GameObject hittable)
-    {
-        // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
-        if(hitEffect){
-            GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
-            GO.transform.parent = hittable.transform;
-            Destroy(GO, 20);
-        }
-        else{
-            Debug.LogWarning("Missing hit decal");
-        }
-    }
+        isAttacking = true;
+        animator.SetInteger("attack", 2);
+        playerScript.setInvincible(true);
 
-    private IEnumerator ResetDefendLockIn(float defendCooldown)
-    {
-        yield return new WaitForSeconds(defendCooldown);
-        playerScript.setInvincible(false);
-        ResetAttackPhase();
-    }
+        //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
 
-    private IEnumerator ResetAttackLockIn(float attackCooldown)
-    {
-        yield return new WaitForSeconds(attackCooldown);
-        ResetAttackPhase();
-    }
-
-    private void ResetAttackPhase()
-    {
-        animator.SetInteger("attack", 0);
-        isAttacking = false;
+        StartCoroutine(ResetDefendLockIn(defendCooldown));
     }
 }
