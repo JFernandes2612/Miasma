@@ -17,13 +17,22 @@ public class Enemy : Entity
     public int chaseRange = 10;
 
     private Vector3 directionToPlayer;
+
     float timer;
+    float freezeTimer;
+
+    float prevAnimatorSpeed;
+    float prevAgentSpeed;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         directionToPlayer = (playerTransform.position - transform.position).normalized;
+
+        animator = GetComponent<Animator>();
+        prevAnimatorSpeed = animator.speed;
+        prevAgentSpeed = agent.speed;
     }
 
     // Update is called once per frame
@@ -116,10 +125,34 @@ public class Enemy : Entity
         Destroy(shotEffect.gameObject, 0.1f);
     }
 
+    public void Freeze()
+    {
+        StartCoroutine(PauseAnimation());
+    }
+
     override protected void Death()
     {
         //Play Enemy Dying Sound
 
         Destroy(gameObject, 10);
+    }
+
+    private IEnumerator PauseAnimation()
+    {
+
+        animator = GetComponent<Animator>();
+        prevAnimatorSpeed = animator.speed;
+        prevAgentSpeed = agent.speed;
+
+        // Pause the animation
+        animator.speed = 0f;
+        agent.speed = 0f;
+
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5f);
+
+        // Resume the animation
+        animator.speed = prevAnimatorSpeed;
+        agent.speed = prevAgentSpeed;
     }
 }
