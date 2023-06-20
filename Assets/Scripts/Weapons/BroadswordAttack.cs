@@ -5,24 +5,28 @@ using static UnityEngine.InputSystem.InputAction;
 public class BroadswordAttack : MonoBehaviour
 {
     [SerializeField]
-    private float smallAttackCooldown = 3.2f;
+    private float attackCooldown = 3.2f;
+    [SerializeField]
+    private float attackDamage = 5.0f;
+    [SerializeField]
+    private float attackRange = 3f;
+
     [SerializeField]
     private float smallSwingAttackDelay = 1.1f;
     [SerializeField]
     private float smallSwingLungeTime = 3.0f;
     [SerializeField]
     private float smallSwingLungeForce = 20f;
-    [SerializeField]
-    private float smallSwingAttackDamage = 5.0f;
 
     [SerializeField]
-    private float smallSwingAttackRange = 2f;
+    private float upperSwingAttackDelay = 1.1f;
+    [SerializeField]
+    private float upperSwingLungeTime = 5.0f;
+    [SerializeField]
+    private float upperSwingLungeForce = 30f;
 
     [SerializeField]
     private float defendDuration = 2.0f;
-
-    [SerializeField]
-    private float defendAnimationDuration = 0.5f;
 
     public LayerMask attackLayer;
     public Animator animator;
@@ -33,6 +37,7 @@ public class BroadswordAttack : MonoBehaviour
 
     private bool isAttacking = false;
     private PlayerInput playerAttack;
+    private int CountAttack;
 
     private Movement playerMovement;
     private Player playerScript;
@@ -46,6 +51,7 @@ public class BroadswordAttack : MonoBehaviour
         cam = Camera.main;
         playerAttack = new PlayerInput();
         playerAttack.Enable();
+        CountAttack = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerScript = player.GetComponent<Player>();
@@ -84,21 +90,33 @@ public class BroadswordAttack : MonoBehaviour
         if (isAttacking) return;
 
         isAttacking = true;
-        animator.SetInteger("attack", 1);
+        Vector3 lungeDirection;
+        if (CountAttack == 0)
+        {
+            animator.SetInteger("attack", 1);
+            lungeDirection = new Vector3(transform.forward.x, 0, transform.forward.z);
+            StartCoroutine(ApplyLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce, lungeDirection));
+        }
+        else if (CountAttack == 1)
+        {
+            animator.SetInteger("attack", 2);
+            lungeDirection = new Vector3(0, 1, transform.forward.z);
+            StartCoroutine(ApplyLunge(upperSwingAttackDelay, upperSwingLungeTime, upperSwingLungeForce, lungeDirection));
+        }
 
         // play fist swing event
         //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
 
-        StartCoroutine(ResetAttackLockIn(smallAttackCooldown));
-        StartCoroutine(ApplyForwardLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce));
-        StartCoroutine(AttackRaycast(smallSwingAttackRange, smallSwingAttackDamage, smallSwingAttackDelay));
+        CountAttack = (CountAttack + 1) % 2;
+        StartCoroutine(ResetAttackLockIn(attackCooldown));
+        StartCoroutine(AttackRaycast(attackRange, attackDamage, smallSwingAttackDelay));
     }
-    
-    private IEnumerator ApplyForwardLunge(float attackDelay, float lungeTime, float lungeForce)
+
+    private IEnumerator ApplyLunge(float attackDelay, float lungeTime, float lungeForce, Vector3 lungeDirection)
     {
         //apply force forwards
         yield return new WaitForSeconds(attackDelay);
-        playerRb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z) * lungeForce;
+        playerRb.velocity = lungeDirection * lungeForce;
         yield return new WaitForSeconds(lungeTime);
         playerRb.velocity = Vector3.zero;
     }
