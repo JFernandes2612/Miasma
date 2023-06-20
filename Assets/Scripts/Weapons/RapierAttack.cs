@@ -33,7 +33,7 @@ public class RapierAttack : Weapon
     private float M1AttackDelay = 0.3f;
 
     private float M1CountDownTimer = 0f;
-    private float M1AnimationDuration = 1.5f;
+    private float M1AnimationDuration = 1.6f;
     [SerializeField]
     private float M1AttackDamage = 1f;
 
@@ -222,7 +222,6 @@ public class RapierAttack : Weapon
             if (CountAttack > 2)
             {
                 animator.SetInteger("attackPhase", 3);
-
 
             }
             else
