@@ -47,7 +47,9 @@ public class WeaponUI : MonoBehaviour
             LMBCoolDown.SetActive(false);
             RMBCoolDown.GetComponent<Slider>().value = 0;
             RMBCoolDown.SetActive(false);
-            LMBCoolDown.SetActive(false);
+            LMBCombo.SetActive(false);
+            LMBCharging.SetActive(false);
+            LMBCharging.GetComponent<Slider>().value = 0;
 
             lastWeapon = weaponChanger.currentWeapon;
         }
@@ -70,7 +72,7 @@ public class WeaponUI : MonoBehaviour
                     }
                     else{
                         
-                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / script.getLMBCooldown();
+                        LMBCoolDown.GetComponent<Slider>().value = script.getLMBCooldown();
                     }
 
                 }else{
