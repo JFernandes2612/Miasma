@@ -127,11 +127,6 @@ public class WeaponSwitching : MonoBehaviour
       
                         break;    
                 }
-
-                if (previousSelectedWeapon != currentWeapon)
-                    {
-                        SelectWeapon("weapon.name");
-                    }
             }
         }
     }
