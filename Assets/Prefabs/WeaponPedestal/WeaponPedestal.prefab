@@ -24427,6 +24427,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Press <color=yellow><b>E</b></color> to collect
       objectReference: {fileID: 0}
+    - target: {fileID: 6110268021100535394, guid: f7543a6b3b801d4439e5bef59f37e713,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6110268021100535708, guid: f7543a6b3b801d4439e5bef59f37e713,
         type: 3}
       propertyPath: m_Pivot.x

@@ -111,8 +111,6 @@ public class FloatingMessage : MonoBehaviour
                 i = true;
                 continue;
             }
-            if (i)
-                break;
             alpha -= 0.04f;
             yield return new WaitForSeconds(0.01f);
         }
@@ -133,6 +131,14 @@ public class FloatingMessage : MonoBehaviour
     public void SetText(string text)
     {
         textMessage = text;
+    }
+
+    public void Reset() {
+        ResetToDefault();
+        fadingIn = false;
+        active = false;
+        alpha = 0.0f;
+        textPulse = true;
     }
 
     public void ResetToDefault()

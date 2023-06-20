@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
     {
         saveRedPoints = GameObject.Find("Player").GetComponent<Player>().GetRedPoints();
         saveYellowPoints = GameObject.Find("Player").GetComponent<Player>().GetYellowPoints();
+        GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>().Reset();
         StartCoroutine(LoadNextSceneAsync());
     }
 
@@ -52,6 +53,7 @@ public class GameController : MonoBehaviour
         GameObject.Find("Player").GetComponent<Player>().SetYellowPoints(saveYellowPoints);
         GameObject.Find("Player").GetComponent<Player>().SetRedPoints(saveRedPoints);
         GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().ResetWeapons();
+        GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>().Reset();
         StartCoroutine(ReloadCurrentSceneAsync());
     }
 }
