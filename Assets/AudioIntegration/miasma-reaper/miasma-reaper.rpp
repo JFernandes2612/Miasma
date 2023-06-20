@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.77/win64" 1687282449
+<REAPER_PROJECT 0.1 "6.77/win64" 1687282630
   <NOTES 0 2
   >
   RIPPLE 0
@@ -16,7 +16,7 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 0
+  CURSOR 0.5
   ZOOM 161.3803937921885 0 0
   VZOOMEX 6 0
   USE_REC_CFG 0
@@ -102,7 +102,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -122,7 +122,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 0
+      SEL 1
       IGUID {ACDA12D8-3AA3-4EDF-BE64-58465DC68BD9}
       IID 9
       NAME metalFootstep.wav
@@ -148,7 +148,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -168,7 +168,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {6186492B-36ED-4B9C-B5E2-949DA4B77743}
       IID 5
       NAME "Whoosh Sound Effect.mp3"
