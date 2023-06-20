@@ -17,10 +17,6 @@ public class WeaponSwitching : MonoBehaviour
 
     public int numberOfWeapons = 0;
 
-    void Awake() {
-        numberOfWeapons = NumberOfWeapons();
-    }
-
     void Start()
     {
         menu.SetActive(false);
