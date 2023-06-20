@@ -8,7 +8,7 @@ public class AttackBehaviour : StateMachineBehaviour
     Transform player;
     NavMeshAgent agent;
     float attackRange;
-    float rayCastRange = 20;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -26,14 +26,6 @@ public class AttackBehaviour : StateMachineBehaviour
         if (distance > attackRange*1.5)
             animator.SetBool("isAttacking", false);
 
-        Vector3 direction = Vector3.forward;
-
-        Vector3 newPosition = agent.transform.position;
-        newPosition.y += 1f;
-
-        Ray theRay = new Ray(newPosition, agent.transform.TransformDirection(direction * rayCastRange));
-        //Debug.DrawLine(theRay.origin, theRay.origin + theRay.direction * rayCastRange, Color.red);
-
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -41,16 +33,4 @@ public class AttackBehaviour : StateMachineBehaviour
     {
         
     }
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

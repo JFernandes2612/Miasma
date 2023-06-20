@@ -8,7 +8,7 @@ public class Enemy : Entity
     public int enemyHP = 100;
     public GameObject bullet;
     public Transform bulletPoint;
-
+    public ParticleSystem shotEffectPrefab;
 
     private Transform playerTransform;
     private NavMeshAgent agent;
@@ -36,12 +36,14 @@ public class Enemy : Entity
         if (timer > 4 && enemyHP > 0)
         {
             timer = 0;
-            TakeDamage(20);
+            //TakeDamage(20);
         }
     }
 
     public void TakeDamage(int damageAmount)
     {
+        //Play Enemy Getting Hit Sound
+
         enemyHP -= damageAmount;
         if(enemyHP <= 0)
         {
@@ -57,21 +59,35 @@ public class Enemy : Entity
 
     public void Shoot()
     {
+        //Play PistolShoot Sound
+
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
-        //rb.AddForce(transform.up * 7, ForceMode.Impulse);
+        Destroy(rb, 3);
+
+        ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
+        shotEffect.Play();
+        Destroy(shotEffect.gameObject, 0.1f);
     }
 
     public void SniperShoot()
     {
+        //Play SniperShoot Sound
 
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
-        //rb.AddForce(transform.up * 7, ForceMode.Impulse);
+        Destroy(rb, 3);
+
+        ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
+        shotEffect.Play();
+        Destroy(shotEffect.gameObject, 0.1f);
     }
 
     public void ShootgunShoot()
     {
+
+        //Play ShootgunShoot Sound
+
         Vector3 bulletPos = bulletPoint.position;
         Rigidbody r1 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
         r1.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
@@ -89,15 +105,21 @@ public class Enemy : Entity
         Rigidbody r5 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
         r5.AddForce(directionToPlayer * 50f + transform.right * -10f, ForceMode.Impulse);
 
-        Destroy(r1, 2);
-        Destroy(r2, 2);
-        Destroy(r3, 2);
-        Destroy(r4, 2);
-        Destroy(r5, 2);
+        Destroy(r1, 3);
+        Destroy(r2, 3);
+        Destroy(r3, 3);
+        Destroy(r4, 3);
+        Destroy(r5, 3);
+
+        ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
+        shotEffect.Play();
+        Destroy(shotEffect.gameObject, 0.1f);
     }
 
     override protected void Death()
     {
+        //Play Enemy Dying Sound
+
         Destroy(gameObject, 10);
     }
 }
