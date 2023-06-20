@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
 
     private GameObject player;
 
+    private int saveYellowPoints = 0;
+    private int saveRedPoints = 0;
+
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
         GameObject.FindGameObjectWithTag("Player").transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
@@ -39,11 +42,15 @@ public class GameController : MonoBehaviour
 
     public void NextLevel()
     {
+        saveRedPoints = GameObject.Find("Player").GetComponent<Player>().GetRedPoints();
+        saveYellowPoints = GameObject.Find("Player").GetComponent<Player>().GetYellowPoints();
         StartCoroutine(LoadNextSceneAsync());
     }
 
     public void ReloadLevel()
     {
+        GameObject.Find("Player").GetComponent<Player>().SetYellowPoints(saveYellowPoints);
+        GameObject.Find("Player").GetComponent<Player>().SetRedPoints(saveRedPoints);
         GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().ResetWeapons();
         StartCoroutine(ReloadCurrentSceneAsync());
     }
