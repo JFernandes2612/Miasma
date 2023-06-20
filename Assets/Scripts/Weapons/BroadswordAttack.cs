@@ -71,7 +71,6 @@ public class BroadswordAttack : MonoBehaviour
         if (isAttacking) return;
 
         isAttacking = true;
-        Debug.Log("invincible");
         animator.SetInteger("attack", 3);
         playerScript.setInvincible(true);
 
@@ -134,7 +133,6 @@ public class BroadswordAttack : MonoBehaviour
     private IEnumerator ResetDefendLockIn(float defendDuration)
     {
         yield return new WaitForSeconds(defendDuration);
-        Debug.Log("stopped invincible");
         playerScript.setInvincible(false);
         ResetAttackPhase();
     }
