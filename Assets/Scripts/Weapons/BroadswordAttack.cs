@@ -19,7 +19,10 @@ public class BroadswordAttack : MonoBehaviour
     private float smallSwingAttackRange = 2f;
 
     [SerializeField]
-    private float defendCooldown = 2.0f;
+    private float defendDuration = 2.0f;
+
+    [SerializeField]
+    private float defendAnimationDuration = 0.5f;
 
     public LayerMask attackLayer;
     public Animator animator;
@@ -68,12 +71,13 @@ public class BroadswordAttack : MonoBehaviour
         if (isAttacking) return;
 
         isAttacking = true;
-        animator.SetInteger("attack", 2);
+        Debug.Log("invincible");
+        animator.SetInteger("attack", 3);
         playerScript.setInvincible(true);
 
         //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
 
-        StartCoroutine(ResetDefendLockIn(defendCooldown));
+        StartCoroutine(ResetDefendLockIn(defendDuration));
     }
 
     private void Attack(CallbackContext context)
@@ -127,9 +131,10 @@ public class BroadswordAttack : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetDefendLockIn(float defendCooldown)
+    private IEnumerator ResetDefendLockIn(float defendDuration)
     {
-        yield return new WaitForSeconds(defendCooldown);
+        yield return new WaitForSeconds(defendDuration);
+        Debug.Log("stopped invincible");
         playerScript.setInvincible(false);
         ResetAttackPhase();
     }
