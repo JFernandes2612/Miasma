@@ -21,6 +21,7 @@ public class WeaponPedestal : MonoBehaviour
         player = GameObject.Find("Player");
 
         weaponHolder = GameObject.Find("WeaponHolder");
+
     }
 
     void Update()
