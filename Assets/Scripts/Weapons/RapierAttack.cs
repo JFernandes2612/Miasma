@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class RapierAttack : MonoBehaviour
+public class RapierAttack : Weapon
 {
     // M2 PARAMETERS
     [SerializeField]
@@ -35,21 +35,13 @@ public class RapierAttack : MonoBehaviour
     [SerializeField]
     private float M1AttackDamage = 1f;
 
-    public LayerMask attackLayer;
-    public Animator animator;
-    Camera cam;
-
     private const string IDLE = "Idle";
     private const string LUNGE_1 = "Lunge 1";
     private const string LUNGE_2 = "Lunge 2";
     private const string DOUBLE_LUNGE = "Double Lunge";
 
-    public GameObject hitEffect;
     //public FMODUnity.EventReference fistSwingEvent;
 
-    private bool isAttacking = false;
-    private bool readyToLunge = true;
-    private PlayerInput playerAttack;
     private int CountAttack;
 
     private Movement playerMovement;
@@ -71,16 +63,16 @@ public class RapierAttack : MonoBehaviour
     }
     void OnEnable()
     {
-        Debug.Log("Enabled Rapier");
-        playerAttack.Player_Map.Attack.performed += Attack_L1;
-        playerAttack.Player_Map.SpecialAttack.performed += SpecialAttack;
+
+        playerAttack.Player_Map.Attack.performed += Attack_M1;
+        playerAttack.Player_Map.SpecialAttack.performed += Attack_M2;
     }
 
     void OnDisable()
     {
-        Debug.Log("Disabled Rapier");
-        playerAttack.Player_Map.Attack.performed -= Attack_L1;
-        playerAttack.Player_Map.SpecialAttack.performed -= SpecialAttack;
+
+        playerAttack.Player_Map.Attack.performed -= Attack_M1;
+        playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
     }
 
     private IEnumerator ApplyForwardLunge(float attackDelay)
@@ -103,7 +95,7 @@ public class RapierAttack : MonoBehaviour
         }
         else
         {
-            readyToLunge = true;
+            readyToM2 = true;
 
         }
     }
@@ -112,6 +104,7 @@ public class RapierAttack : MonoBehaviour
     {
         StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
     }
+
     private void Update()
     {
         if (CountAttack == 1)
@@ -124,32 +117,8 @@ public class RapierAttack : MonoBehaviour
 
     }
 
-    void HitTarget(Vector3 pos, GameObject hittable)
-    {
-        // play fist hit event
-        // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
 
-        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
-        GO.transform.parent = hittable.transform;
-        Destroy(GO, 20);
-    }
-
-    private IEnumerator AttackRaycast(float attackRange, float attackDamage, float attackDelay)
-    {
-
-        yield return new WaitForSeconds(attackDelay);
-        if (Physics.Raycast(cam.transform.position,
-        cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
-        {
-            if (hit.transform.TryGetComponent<Entity>(out Entity T))
-            {
-                HitTarget(hit.point, T.gameObject);
-                T.TakeDamage(attackDamage);
-            }
-        }
-    }
-
-    private void Attack_L1(CallbackContext context)
+    public override void Attack_M1(CallbackContext context)
     {
 
         CountAttack++;
@@ -159,18 +128,12 @@ public class RapierAttack : MonoBehaviour
 
     }
 
-    private IEnumerator ResetAttackLockIn(float attackCooldown)
+
+    public override void Attack_M2(CallbackContext context)
     {
-        yield return new WaitForSeconds(attackCooldown);
+        if (isAttacking || !readyToM2) return;
 
-        isAttacking = false;
-    }
-
-    private void SpecialAttack(CallbackContext context)
-    {
-        if (isAttacking || !readyToLunge) return;
-
-        readyToLunge = false;
+        readyToM2 = false;
         M2attackCooldownCounter = M2AttackCooldown;
 
         isAttacking = true;
@@ -230,5 +193,6 @@ public class RapierAttack : MonoBehaviour
         CountAttack = 0;
         isAttacking = false;
     }
+
 
 }

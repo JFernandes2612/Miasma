@@ -6850,6 +6850,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81876767}
     m_Modifications:
+    - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: enemyDependency.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[0]
+      value: 
+      objectReference: {fileID: 1090984101}
     - target: {fileID: 8481205003178842969, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
       propertyPath: m_RootOrder
@@ -10800,6 +10810,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCheckpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
+        type: 3}
+      propertyPath: enemyDependency.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
+        type: 3}
+      propertyPath: enemyDependency.Array.data[0]
+      value: 
+      objectReference: {fileID: 1936416027}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
