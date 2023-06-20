@@ -25,8 +25,11 @@ public class WeaponUI : MonoBehaviour
 
     [SerializeField]
     private GameObject RMBCoolDown;
-    [SerializeField]
-    private GameObject RMBCombo;
+
+      [SerializeField]
+    private GameObject LMBCharging;
+
+    private WeaponSwitching.Weapon lastWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +41,26 @@ public class WeaponUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(lastWeapon != weaponChanger.currentWeapon){
+            LMBCoolDown.GetComponent<Slider>().value = 0;
+            LMBCoolDown.SetActive(false);
+            RMBCoolDown.GetComponent<Slider>().value = 0;
+            RMBCoolDown.SetActive(false);
+            LMBCombo.SetActive(false);
+            LMBCharging.SetActive(false);
+            LMBCharging.GetComponent<Slider>().value = 0;
+
+            lastWeapon = weaponChanger.currentWeapon;
+        }
+
         updateLMBCooldown();
         updateRMBCooldown();
         updateIcons();
     }
 
     void updateLMBCooldown(){
+
          switch(weaponChanger.currentWeapon){
             case WeaponSwitching.Weapon.Fists:
                 FistAttack script = weaponChanger.currentWeaponObject.GetComponent<FistAttack>();
@@ -55,7 +72,7 @@ public class WeaponUI : MonoBehaviour
                     }
                     else{
                         
-                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / script.getLMBCooldown();
+                        LMBCoolDown.GetComponent<Slider>().value = script.getLMBCooldown();
                     }
 
                 }else{
@@ -84,10 +101,25 @@ public class WeaponUI : MonoBehaviour
                 }
                 break;
             case WeaponSwitching.Weapon.BroadSword:
-
                 break;
             case WeaponSwitching.Weapon.Daggers:
-          
+                DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
+                if (scriptDagger == null) return;
+                if (scriptDagger.isCharging()){
+                    if (LMBCharging.GetComponent<Slider>().value == 0 || !LMBCharging.activeSelf){
+                        LMBCharging.GetComponent<Slider>().value = 1;
+                        LMBCharging.SetActive(true);
+                    }
+                    else{
+                        if (scriptDagger.getChargeUp() < 1){
+                            LMBCharging.GetComponent<Slider>().value = scriptDagger.getChargeUp();
+                        }
+                    }
+
+                }else{
+                    LMBCharging.GetComponent<Slider>().value = 0;
+                    LMBCharging.SetActive(false);
+                }
                 break;
             default:
                 break;
@@ -122,7 +154,22 @@ public class WeaponUI : MonoBehaviour
 
                 break;
             case WeaponSwitching.Weapon.Daggers:
-          
+                DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
+                if (scriptDagger == null) return;
+                if (scriptDagger.isRMBCooldown()){
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf){
+                        RMBCoolDown.GetComponent<Slider>().value = 1;
+                        RMBCoolDown.SetActive(true);
+                    }
+                    else{
+                        
+                        RMBCoolDown.GetComponent<Slider>().value = scriptDagger.getRMBCooldown();
+                    }
+
+                }else{
+                    RMBCoolDown.GetComponent<Slider>().value = 0;
+                    RMBCoolDown.SetActive(false);
+                }
                 break;
             default:
         
@@ -159,9 +206,9 @@ public class WeaponUI : MonoBehaviour
                 toggleWeapons("BroadSword");
                 break;
             case WeaponSwitching.Weapon.Daggers:
-                /*toggleWeaponWheelOptions("DaggersSelected");
+                toggleWeaponWheelOptions("DaggersSelected");
                 toggleAttacks("Daggers");
-                toggleWeapons("Daggers");*/
+                toggleWeapons("Daggers");
                 break;
             default:
                 toggleWeaponWheelOptions("");
