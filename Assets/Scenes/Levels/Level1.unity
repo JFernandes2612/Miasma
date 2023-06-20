@@ -2063,7 +2063,7 @@ PrefabInstance:
     - target: {fileID: 3014426446191926380, guid: a38963161ea648f4f8b3543c15f715f9,
         type: 3}
       propertyPath: delay
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3014426446191926380, guid: a38963161ea648f4f8b3543c15f715f9,
         type: 3}
@@ -4943,7 +4943,7 @@ PrefabInstance:
     - target: {fileID: 3014426446191926380, guid: a38963161ea648f4f8b3543c15f715f9,
         type: 3}
       propertyPath: delay
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3014426446191926380, guid: a38963161ea648f4f8b3543c15f715f9,
         type: 3}
@@ -8211,6 +8211,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2185006344334009264, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2185161785520811626, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
@@ -8230,6 +8235,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416976384356330129, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2539194588859194454, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -8340,6 +8390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864582869542838307, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3865046012321717437, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -8456,11 +8511,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -48
       objectReference: {fileID: 0}
-    - target: {fileID: 5752740054913360304, guid: 453145591c111ee4d9698503509ff9bb,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 8555787338838394923}
     - target: {fileID: 5799934515310238356, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
@@ -8838,9 +8888,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453145591c111ee4d9698503509ff9bb, type: 3}
---- !u!20 &8555787338838394923 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6110505494763303316, guid: 453145591c111ee4d9698503509ff9bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 8555787338838394922}
-  m_PrefabAsset: {fileID: 0}
