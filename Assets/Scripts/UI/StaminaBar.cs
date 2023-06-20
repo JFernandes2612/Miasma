@@ -15,24 +15,27 @@ public class StaminaBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentStamina);
 
-        if (!movement.canQuickStep && GetComponent<Slider>().value == 1){
+
+        if (!movement.canQuickStep && GetComponent<Slider>().value == 1)
+        {
             currentStamina = 0;
         }
         else if (movement.canQuickStep)
         {
             currentStamina = 1;
-        }else{
+        }
+        else
+        {
             currentStamina += Time.deltaTime / (movement.dashCooldown + movement.dashTime);
         }
-        
+
         GetComponent<Slider>().value = currentStamina;
     }
 
