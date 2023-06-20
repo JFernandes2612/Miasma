@@ -21,6 +21,8 @@ public class StaminaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(currentStamina);
+
         if (!movement.canQuickStep && GetComponent<Slider>().value == 1){
             currentStamina = 0;
         }

@@ -142,8 +142,8 @@ public class RapierAttack : Weapon
 
     public override void Attack_M1(CallbackContext context)
     {
-
-        CountAttack++;
+        if (CountAttack < 3){
+        CountAttack++;}
 
         // play fist swing event
         //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
