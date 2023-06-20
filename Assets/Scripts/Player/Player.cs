@@ -1,23 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    [ReadOnlyAttribute]
+    [SerializeField]
+    private bool invincible = false;
 
+    new void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(transform.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void setInvincible(bool value) {
+        invincible = value;
+    }
 
+    public new void TakeDamage(float damage) {
+        if (!invincible)
+            base.TakeDamage(damage);
     }
 
     protected override void Death()
     {
-        throw new System.NotImplementedException();
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            Destroy(gameObject);
+        Awake();
     }
 }

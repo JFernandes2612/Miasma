@@ -16,8 +16,7 @@ public class Look : MonoBehaviour
     [SerializeField]
     private float baseFOV;
 
-    [SerializeField]
-    private float maxFOV;
+    private bool isLocked = false;
 
     [SerializeField]
     private float FOVVelocityRatio = 0.5f;
@@ -32,9 +31,21 @@ public class Look : MonoBehaviour
         playerRb = player.GetComponent<Rigidbody>();
     }
 
+    public void LockCamera()
+    {
+        isLocked = true;
+    }
+
+    public void UnlockCamera()
+    {
+        isLocked = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isLocked) return;
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -44,6 +55,6 @@ public class Look : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0.0f, 0.0f);
         playerTransform.Rotate(Vector3.up * mouseX);
 
-        GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, baseFOV + new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z).magnitude * FOVVelocityRatio, Time.deltaTime * 60.0f);
+        GetComponent<Camera>().fieldOfView = Mathf.MoveTowards(GetComponent<Camera>().fieldOfView, baseFOV + Mathf.Pow(new Vector3(playerRb.velocity.x, 0, playerRb.velocity.z).magnitude, 1.3f) * FOVVelocityRatio, Time.deltaTime * 100.0f);
     }
 }

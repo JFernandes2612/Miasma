@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
     private float distanceToGround;
 
     private bool canQuickStep = true;
-    private bool isAnimLocked = false;
+    public bool isAnimLocked = false;
 
     [SerializeField]
     private float dashingPower = 24f;
@@ -58,7 +58,9 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float dashCooldown = 1f;
 
+    private Player player;
 
+    private float slowAmount = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +68,19 @@ public class Movement : MonoBehaviour
         playerMovement.Enable();
         rb = GetComponent<Rigidbody>();
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
+
+    public void SlowPlayer()
+    {
+        baseMovementSpeed = baseMovementSpeed * slowAmount;
+    }
+
+    public void UnSlowPlayer()
+    {
+        baseMovementSpeed = baseMovementSpeed / slowAmount;
+    }
+
 
     void FixedUpdate()
     {
@@ -128,9 +142,11 @@ public class Movement : MonoBehaviour
         canQuickStep = false;
         Vector3 wishSpeed = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
         rb.velocity = wishSpeed * dashingPower;
+        player.setInvincible(true);
         yield return new WaitForSeconds(dashTime);
         rb.velocity = Vector3.zero;
         isAnimLocked = false;
+        player.setInvincible(false);
         yield return new WaitForSeconds(dashCooldown);
         canQuickStep = true;
     }
