@@ -38,6 +38,8 @@ public class FloatingMessage : MonoBehaviour
 
     private Color GenerateRandomColor(){
         
+        
+
         return new Vector4(
             Random.Range(0f,1f),    //red
             Random.Range(0f,1f),    //green
@@ -55,8 +57,11 @@ public class FloatingMessage : MonoBehaviour
         int randomFont = random.Next(0, fonts.Length);
         textObject.font = fonts[randomFont];
 
-       
-
+        textObject.gameObject.SetActive(false);
+        textObject.fontSharedMaterial.SetFloat("_OutlineWidth", 0.05f);
+        textObject.fontSharedMaterial.SetColor("_OutlineColor", Color.white);
+        textObject.gameObject.SetActive(true);
+        
         waiting = false;
     }
 
