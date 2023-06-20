@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.77/win64" 1687193860
+<REAPER_PROJECT 0.1 "6.77/win64" 1687280014
   <NOTES 0 2
   >
   RIPPLE 0
@@ -96,13 +96,13 @@
     BEAT -1
     AUTOMODE 0
     VOLPAN 1 0 -1 -1 1
-    MUTESOLO 0 0 0
+    MUTESOLO 0 2 0
     IPHASE 0
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -122,17 +122,17 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 0
-      IGUID {490350BD-71C3-4C32-8A36-9FB3A175C0B0}
-      IID 1
+      SEL 1
+      IGUID {ACDA12D8-3AA3-4EDF-BE64-58465DC68BD9}
+      IID 9
       NAME metalFootstep.wav
       VOLPAN 1 0 1 -1
       SOFFS 0
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
-      GUID {31753E17-ED5C-4612-A98A-C9862B174DF5}
+      GUID {A71E93F0-F052-47FE-AC74-1B5D40A83811}
       <SOURCE WAVE
-        FILE "C:\Users\diogo\OneDrive\Ambiente de Trabalho\Uni\4 ano\2 semestre\DSMD\P2Test\Assets\metalFootstep.wav"
+        FILE "metalFootstep.wav"
       >
     >
   >
@@ -189,13 +189,13 @@
     BEAT -1
     AUTOMODE 0
     VOLPAN 1 0 -1 -1 1
-    MUTESOLO 0 2 0
+    MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -238,7 +238,7 @@
       FADEIN 1.1 0.01 1.814469 1 1 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {47FB5C9C-2AE5-4189-9697-02864F80B141}
       IID 8
       NAME "pure pink noise.mp3"
