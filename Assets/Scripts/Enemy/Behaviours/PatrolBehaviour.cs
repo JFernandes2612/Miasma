@@ -23,7 +23,7 @@ public class PatrolBehaviour : StateMachineBehaviour
 
 
         agent = animator.GetComponent<NavMeshAgent>();
-        agent.SetDestination(wayPoints[0].position);
+        agent.SetDestination(wayPoints[Random.Range(0, wayPoints.Count)].position);
 
     }
 

@@ -28,8 +28,15 @@ public class Enemy : Entity
     void Start()
     {
         timer = 0;
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        directionToPlayer = (playerTransform.position - transform.position).normalized;
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        
+        if (playerTransform != null)
+        {
+            directionToPlayer = (playerTransform.position - transform.position).normalized;
+        }
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -41,8 +48,11 @@ public class Enemy : Entity
     void Update()
     {
         timer += Time.deltaTime;
-        directionToPlayer = (playerTransform.position - transform.position).normalized;
-        directionToPlayer.y += -0.1f;
+        if (playerTransform != null)
+        {
+            directionToPlayer = (playerTransform.position - transform.position).normalized;
+            directionToPlayer.y += -0.1f;
+        }
 
         if (timer > 5 && currentHealth > 0)
         {
@@ -73,26 +83,34 @@ public class Enemy : Entity
     {
         //Play PistolShoot Sound
 
-        Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
-        Destroy(rb, 3);
 
-        ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
-        shotEffect.Play();
-        Destroy(shotEffect.gameObject, 0.1f);
+        if (playerTransform != null)
+        {
+            Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
+            Destroy(rb, 3);
+
+            ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
+            shotEffect.Play();
+            Destroy(shotEffect.gameObject, 0.1f);
+        }
     }
 
     public void SniperShoot()
     {
         //Play SniperShoot Sound
 
-        Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
-        Destroy(rb, 3);
 
-        ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
-        shotEffect.Play();
-        Destroy(shotEffect.gameObject, 0.1f);
+        if (playerTransform != null)
+        {
+            Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
+            Destroy(rb, 3);
+
+            ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
+            shotEffect.Play();
+            Destroy(shotEffect.gameObject, 0.1f);
+        }
     }
 
     public void ShootgunShoot()
@@ -100,32 +118,36 @@ public class Enemy : Entity
 
         //Play ShootgunShoot Sound
 
-        Vector3 bulletPos = bulletPoint.position;
-        Rigidbody r1 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r1.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
-        bulletPos.y += 0.05f;
-        Rigidbody r2 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r2.AddForce(directionToPlayer * 50f + transform.up * 10f, ForceMode.Impulse);
-        bulletPos.y += -0.1f;
-        Rigidbody r3 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r3.AddForce(directionToPlayer * 50f + transform.up * -10f, ForceMode.Impulse);
-        bulletPos.y += 0.05f;
-        bulletPos.x += 0.05f;
-        Rigidbody r4 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r4.AddForce(directionToPlayer * 50f + transform.right * 10f, ForceMode.Impulse);
-        bulletPos.x += -0.1f;
-        Rigidbody r5 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r5.AddForce(directionToPlayer * 50f + transform.right * -10f, ForceMode.Impulse);
 
-        Destroy(r1, 3);
-        Destroy(r2, 3);
-        Destroy(r3, 3);
-        Destroy(r4, 3);
-        Destroy(r5, 3);
+        if (playerTransform != null)
+        {
+            Vector3 bulletPos = bulletPoint.position;
+            Rigidbody r1 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+            r1.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
+            bulletPos.y += 0.05f;
+            Rigidbody r2 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+            r2.AddForce(directionToPlayer * 50f + transform.up * 10f, ForceMode.Impulse);
+            bulletPos.y += -0.1f;
+            Rigidbody r3 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+            r3.AddForce(directionToPlayer * 50f + transform.up * -10f, ForceMode.Impulse);
+            bulletPos.y += 0.05f;
+            bulletPos.x += 0.05f;
+            Rigidbody r4 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+            r4.AddForce(directionToPlayer * 50f + transform.right * 10f, ForceMode.Impulse);
+            bulletPos.x += -0.1f;
+            Rigidbody r5 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
+            r5.AddForce(directionToPlayer * 50f + transform.right * -10f, ForceMode.Impulse);
 
-        ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
-        shotEffect.Play();
-        Destroy(shotEffect.gameObject, 0.1f);
+            Destroy(r1, 3);
+            Destroy(r2, 3);
+            Destroy(r3, 3);
+            Destroy(r4, 3);
+            Destroy(r5, 3);
+
+            ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
+            shotEffect.Play();
+            Destroy(shotEffect.gameObject, 0.1f);
+        }
     }
 
     public void Freeze()
