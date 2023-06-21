@@ -18,13 +18,6 @@ public class GameController : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
     }
 
-    private void Update() {
-        if (SceneManager.GetActiveScene().buildIndex == 7) {
-            if (GameObject.FindWithTag("Enemy") == null)
-                GameObject.FindWithTag("GameEnd").SetActive(true);
-        }
-    }
-
     IEnumerator LoadNextSceneAsync()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);

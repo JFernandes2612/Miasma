@@ -22,7 +22,6 @@ public class StaminaBar : MonoBehaviour
     void Update()
     {
 
-
         if (!movement.canQuickStep && GetComponent<Slider>().value == 1)
         {
             currentStamina = 0;
