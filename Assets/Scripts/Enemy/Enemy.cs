@@ -9,6 +9,7 @@ public class Enemy : Entity
     public GameObject bullet;
     public Transform bulletPoint;
     public ParticleSystem shotEffectPrefab;
+    public int extraDamage = 0;
 
     private Transform playerTransform;
     private NavMeshAgent agent;
