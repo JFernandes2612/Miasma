@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
+    [ReadOnlyAttribute]
     [SerializeField]
     private bool invincible = false;
 
@@ -20,7 +21,7 @@ public class Player : Entity
     public FMODUnity.EventReference backgroundEvent;
     private FMOD.Studio.EventInstance backgroundInstance;
 
-    private static bool started = false;
+    private bool started = false;
 
     public void AddRedPoints(int points)
     {

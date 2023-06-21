@@ -48,9 +48,6 @@ public class RapierAttack : Weapon
 
     private int CountAttack;
 
-    public FMODUnity.EventReference attackEffectsEvent; 
-    private FMOD.Studio.EventInstance attackEffectsInstance;
-
     public int getAttackPhase()
     {
         return CountAttack;
@@ -93,7 +90,7 @@ public class RapierAttack : Weapon
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
         rapierCollider = GameObject.Find("MarineRapier").GetComponent<BoxCollider>();
-        attackEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(attackEffectsEvent);
+
 
     }
     void OnEnable()
@@ -176,7 +173,6 @@ public class RapierAttack : Weapon
 
     public override void Attack_M1(CallbackContext context)
     {
-        attackEffectsInstance.start();
         if (CountAttack < 3)
         {
             CountAttack++;
