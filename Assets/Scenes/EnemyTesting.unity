@@ -4308,6 +4308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniBossRed
       objectReference: {fileID: 0}
+    - target: {fileID: 2345940883054271553, guid: e2e8d739ba925994a8dbefefc4772109,
+        type: 3}
+      propertyPath: attackRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2345940883054271557, guid: e2e8d739ba925994a8dbefefc4772109,
         type: 3}
       propertyPath: m_RootOrder
@@ -6915,6 +6920,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1386311222855013088, guid: b22562b34bfeee6478efde65799dd6d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1492824302791267889, guid: b22562b34bfeee6478efde65799dd6d2,
         type: 3}
       propertyPath: playerRef
@@ -6988,6 +6998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RedEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594479376150921334, guid: 7ca13071bfa2e9b40b1e427aa681b2af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2345940883054271557, guid: 7ca13071bfa2e9b40b1e427aa681b2af,
         type: 3}
@@ -7123,6 +7138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2895329834911936241, guid: bc654298e9215f74598a91ebb66ae629,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc654298e9215f74598a91ebb66ae629, type: 3}
 --- !u!4 &3940313527905579193 stripped
@@ -7202,6 +7222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PinkEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105055584136178430, guid: 412d5cdb0b45d8845870d6b56f1af3fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412d5cdb0b45d8845870d6b56f1af3fe, type: 3}
