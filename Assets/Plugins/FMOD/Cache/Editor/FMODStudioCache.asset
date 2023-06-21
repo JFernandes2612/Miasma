@@ -11,11 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638194994646879537
+  lastModified: 638228196722489665
   FileSizes:
   - Name: Desktop
     Value: 810
@@ -31,11 +31,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638194994646859452
+  lastModified: 638228196722479662
   FileSizes:
   - Name: Desktop
     Value: 17568
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   EditorBanks:
   - {fileID: -6613069694995871054}
   - {fileID: -5154455204758545794}
@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: -5154455204758545794}
   StringsBanks:
   - {fileID: -6613069694995871054}
-  cacheTime: 638194994646879537
+  cacheTime: 638228196722489665
   cacheVersion: 131603
 --- !u!114 &5106518268026656517
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/fist/fist_swing
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   Path: event:/fist/fist_swing
   Guid:
     Data1: 1028781785
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/fist/fist_hit
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   Path: event:/fist/fist_hit
   Guid:
     Data1: 1800715388
