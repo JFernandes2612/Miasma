@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 7266851699102892054}
   - component: {fileID: 556627979050902016}
   m_Layer: 9
-  m_Name: Text (TMP)
+  m_Name: OnScreenMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1524,7 +1524,7 @@ RectTransform:
   m_Children:
   - {fileID: 5227081395106900593}
   m_Father: {fileID: 8555787338855138807}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2271,7 +2271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4866473678216099244
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2288,7 +2288,7 @@ RectTransform:
   - {fileID: 5371559016858682810}
   - {fileID: 4414551107987247732}
   m_Father: {fileID: 8555787338855138807}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6296,8 +6296,8 @@ Transform:
   - {fileID: 8555787338591706592}
   - {fileID: 117097356128539643}
   - {fileID: 3104928812697901029}
-  - {fileID: 2416976384356330129}
   - {fileID: 4866473678216099244}
+  - {fileID: 2416976384356330129}
   - {fileID: 5464449842942406827}
   m_Father: {fileID: 0}
   m_RootOrder: 0

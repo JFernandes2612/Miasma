@@ -14486,13 +14486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1340684019}
-  backgroundEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
 --- !u!1 &1340684018
 GameObject:
   m_ObjectHideFlags: 0
@@ -23241,6 +23234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 797582347484615934, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_Name
+      value: OnScreenMessage
       objectReference: {fileID: 0}
     - target: {fileID: 940579065638578582, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
