@@ -13,9 +13,14 @@ public class GameController : MonoBehaviour
     private int saveYellowPoints = 0;
     private int saveRedPoints = 0;
 
+    public FMODUnity.EventReference backgroundEvent;
+    private FMOD.Studio.EventInstance backgroundInstance;
+
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
         GameObject.FindGameObjectWithTag("Player").transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+        backgroundInstance = FMODUnity.RuntimeManager.CreateInstance(backgroundEvent);
+        backgroundInstance.start();
     }
 
     private void Update() {
