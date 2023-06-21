@@ -24,6 +24,10 @@ public class Enemy : Entity
 
     float prevAnimatorSpeed;
     float prevAgentSpeed;
+
+    public FMODUnity.EventReference lightsaberEffect;
+    private FMOD.Studio.EventInstance lightsaberInstance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,8 @@ public class Enemy : Entity
         agent = GetComponent<NavMeshAgent>();
         prevAnimatorSpeed = animator.speed;
         prevAgentSpeed = agent.speed;
+
+        lightsaberInstance = FMODUnity.RuntimeManager.CreateInstance(lightsaberEffect);
     }
 
     // Update is called once per frame
@@ -164,5 +170,10 @@ public class Enemy : Entity
         // Resume the animation
         animator.speed = prevAnimatorSpeed;
         agent.speed = prevAgentSpeed;
+    }
+
+    public void PlayLightsaberEffect()
+    {
+        lightsaberInstance.start();
     }
 }
