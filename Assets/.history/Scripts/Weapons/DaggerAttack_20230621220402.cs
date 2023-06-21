@@ -53,9 +53,6 @@ public class DaggerAttack : Weapon
 
     private const string DAGGER_THROW = "Dagger Throw";
 
-    public FMODUnity.EventReference attackEffectsEvent; 
-    private FMOD.Studio.EventInstance attackEffectsInstance;
-
     public override float getRMBCooldown()
     {
         return M2attackCooldownCounter / M2AttackCooldown;
@@ -88,7 +85,6 @@ public class DaggerAttack : Weapon
 
     void Awake()
     {
-        attackEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(attackEffectsEvent);
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -202,11 +198,11 @@ public class DaggerAttack : Weapon
         if (context.started)
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE) || canStartCharge) return;
-            attackEffectsInstance.start();
             canStartCharge = true;
             playerMovement.SlowPlayer();
             // start charging up attack
             animator.SetBool("isCharging", true);
+
         }
         else if (context.canceled)
         {

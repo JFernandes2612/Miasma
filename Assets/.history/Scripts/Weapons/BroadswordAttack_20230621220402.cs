@@ -48,12 +48,8 @@ public class BroadswordAttack : Weapon
 
     private Camera noWeaponEffectsCam;
 
-    public FMODUnity.EventReference attackEffectsEvent; 
-    private FMOD.Studio.EventInstance attackEffectsInstance;
-
     void Awake()
     {
-        attackEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(attackEffectsEvent);
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -122,7 +118,6 @@ public class BroadswordAttack : Weapon
 
     public override void Attack_M1(CallbackContext context)
     {
-        attackEffectsInstance.start();
         if (isAttacking && CountAttack == 0) return;
         if (CountAttack < 3) CountAttack++;
 

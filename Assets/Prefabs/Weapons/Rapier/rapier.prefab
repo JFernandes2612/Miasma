@@ -803,6 +803,13 @@ MonoBehaviour:
   M1AttackRange: 7
   M1AttackDelay: 0.5
   M1AttackDamage: 1
+  attackEffectsEvent:
+    Guid:
+      Data1: 1278017161
+      Data2: 1133174297
+      Data3: 1460596353
+      Data4: -451953005
+    Path: event:/Attacks/Attack
   playerRb: {fileID: 0}
 --- !u!95 &5100221792499094295
 Animator:

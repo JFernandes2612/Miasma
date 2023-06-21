@@ -202,11 +202,11 @@ public class DaggerAttack : Weapon
         if (context.started)
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE) || canStartCharge) return;
-            attackEffectsInstance.start();
             canStartCharge = true;
             playerMovement.SlowPlayer();
             // start charging up attack
             animator.SetBool("isCharging", true);
+
         }
         else if (context.canceled)
         {
@@ -234,6 +234,7 @@ public class DaggerAttack : Weapon
             StartCoroutine(SpawnDaggerProjectiles(numDaggersToSpawn, spawnPos, newRotation));
 
         }
+        attackEffectsInstance.start();
     }
 
     IEnumerator performExecute(float executeDelay, Enemy enemy)
