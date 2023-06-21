@@ -13,10 +13,7 @@ public class Player : Entity
 
     private int yellowPoints = 0;
 
-    private FMODHelper fmodHelper = new FMODHelper();
-    public FMODUnity.EventReference moveEffectsEvent; // wind + lightsaberish effects
-    private FMOD.Studio.EventInstance moveEffectsInstance;
-    FMOD.Studio.PARAMETER_ID speedID;
+    private Movement movementScript;
 
     public void AddRedPoints(int points)
     {
@@ -51,10 +48,7 @@ public class Player : Entity
         base.Awake();
         DontDestroyOnLoad(transform.gameObject);
 
-        // create fmod instances, and get speed parameter ID
-        moveEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(moveEffectsEvent);
-        moveEffectsInstance.start();
-        speedID = fmodHelper.GetParameterID(moveEffectsInstance, "speed");
+        movementScript = GetComponent<Movement>(); // for changing movement sound effects on death
     }
 
     public void setInvincible(bool value)
@@ -70,7 +64,7 @@ public class Player : Entity
 
     protected override void Death()
     {
-        moveEffectsInstance.setParameterByID(speedID, 0.0f);
+        movementScript.SetFmodSpeed(0.0f);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
         if (SceneManager.GetActiveScene().buildIndex == 0)
             Destroy(gameObject);

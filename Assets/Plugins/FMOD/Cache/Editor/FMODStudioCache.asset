@@ -155,13 +155,41 @@ MonoBehaviour:
   - {fileID: 1990543774551462802}
   - {fileID: -8924002068450195133}
   - {fileID: 8148450322758957095}
+  - {fileID: 201742690306839357}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7723812583777605861}
   StringsBanks:
   - {fileID: 6294208581512736429}
-  cacheTime: 638229684018516431
+  cacheTime: 638229697521229752
   cacheVersion: 131603
+--- !u!114 &201742690306839357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment/CheckpointChime
+  m_EditorClassIdentifier: 
+  Path: event:/Environment/CheckpointChime
+  Guid:
+    Data1: 120960690
+    Data2: 1191170762
+    Data3: -837242959
+    Data4: -1390004812
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1990543774551462802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,10 +286,10 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638229684018516431
+  lastModified: 638229697521229752
   FileSizes:
   - Name: Desktop
-    Value: 1118
+    Value: 1176
   Exists: 1
 --- !u!114 &7723812583777605861
 MonoBehaviour:
@@ -278,10 +306,10 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638229684018486428
+  lastModified: 638229697521159709
   FileSizes:
   - Name: Desktop
-    Value: 245504
+    Value: 255392
   Exists: 1
 --- !u!114 &8148450322758957095
 MonoBehaviour:

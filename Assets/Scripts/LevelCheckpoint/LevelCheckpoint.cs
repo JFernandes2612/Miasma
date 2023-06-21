@@ -14,8 +14,12 @@ public class LevelCheckpoint : MonoBehaviour
 
     private FloatingMessage floatingMessage;
 
+    public FMODUnity.EventReference checkpointEvent; // wind + lightsaberish effects
+    private FMOD.Studio.EventInstance checkpointInstance;
+
     private void Start() {
         floatingMessage = GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>();
+        checkpointInstance = FMODUnity.RuntimeManager.CreateInstance(checkpointEvent);
     }
 
     private bool checkEnemyDependency() {
@@ -38,6 +42,7 @@ public class LevelCheckpoint : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             unityEvent.Invoke();
+            checkpointInstance.start();
             gameObject.SetActive(false);
         }
     }

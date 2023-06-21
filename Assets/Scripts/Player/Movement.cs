@@ -96,6 +96,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log(fmodHelper.GetParameterValueByID(moveEffectsInstance, speedID));
         if (isAnimLocked) return;
 
         if (isGrounded())
@@ -210,7 +211,7 @@ public class Movement : MonoBehaviour
         SetFmodSpeed(rb.velocity.magnitude);
     }
 
-    private void SetFmodSpeed(float speedValue){
+    public void SetFmodSpeed(float speedValue){
         // speed parameter cap
         if(speedValue > 20.0f){
             speedValue = 20.0f;
