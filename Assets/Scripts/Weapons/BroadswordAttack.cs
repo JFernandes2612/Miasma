@@ -48,7 +48,7 @@ public class BroadswordAttack : Weapon
 
     private Camera noWeaponEffectsCam;
 
-    public FMODUnity.EventReference attackEffectsEvent; 
+    public FMODUnity.EventReference attackEffectsEvent;
     private FMOD.Studio.EventInstance attackEffectsInstance;
 
     void Awake()
@@ -116,13 +116,14 @@ public class BroadswordAttack : Weapon
 
     public void UpdateCountDownTimer()
     {
+        attackEffectsInstance.start();
         isAttacking = true;
         attackCooldownCounter = animationsDuration;
     }
 
     public override void Attack_M1(CallbackContext context)
     {
-        attackEffectsInstance.start();
+
         if (isAttacking && CountAttack == 0) return;
         if (CountAttack < 3) CountAttack++;
 
@@ -236,11 +237,11 @@ public class BroadswordAttack : Weapon
 
     public override void enableScript()
     {
-        throw new System.NotImplementedException();
+        OnEnable();
     }
 
     public override void disableScript()
     {
-        throw new System.NotImplementedException();
+        OnDisable();
     }
 }
