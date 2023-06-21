@@ -16,7 +16,7 @@ public class StickCollisionDetection : MonoBehaviour
             if (player != null)
             {
                 // Call the TakeDamage function on the Player object
-                player.TakeDamage(damage);
+                player.TakeDamage(damage + transform.root.gameObject.GetComponent<Enemy>().extraDamage);
             }
         }
 
