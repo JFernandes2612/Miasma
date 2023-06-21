@@ -456,7 +456,7 @@ PrefabInstance:
     - target: {fileID: 963996979969542415, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 869996674}
     - target: {fileID: 963996979969542415, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
@@ -466,12 +466,12 @@ PrefabInstance:
     - target: {fileID: 963996979969542416, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 869996674}
     - target: {fileID: 963996979969542419, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 869996674}
     - target: {fileID: 963996979969542421, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
@@ -696,8 +696,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Version: 1
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
@@ -903,8 +903,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &86628248
 MeshCollider:
@@ -1907,8 +1907,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!1 &221743378
 GameObject:
@@ -2893,11 +2893,11 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes:
+  m_BoneNameHashes: 
   m_RootBoneNameHash: 0
   m_BonesAABB: []
   m_VariableBoneCountWeights:
-    m_Data:
+    m_Data: 
   m_MeshCompression: 0
   m_IsReadable: 1
   m_KeepVertices: 1
@@ -2971,59 +2971,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0.5, y: 0.49999997, z: 0.5}
     m_Extent: {x: 0.5, y: 0.49999997, z: 0.5}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh:
-  m_BakedTriangleCollisionMesh:
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 10.6624975
   m_MeshOptimizationFlags: 1
@@ -3031,7 +3031,7 @@ Mesh:
     serializedVersion: 2
     offset: 0
     size: 0
-    path:
+    path: 
 --- !u!1001 &380615499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3439,17 +3439,17 @@ PrefabInstance:
     - target: {fileID: 963996979969542415, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 975846398}
     - target: {fileID: 963996979969542416, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 975846398}
     - target: {fileID: 963996979969542419, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 975846398}
     - target: {fileID: 963996979969542421, guid: 72069a771e2c5b3468102fbdcb7132e3,
         type: 3}
@@ -3615,7 +3615,7 @@ PrefabInstance:
     - target: {fileID: 8649352534406900469, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: f8a865e96117afb48b2bc3c6f82c1671, type: 2}
     - target: {fileID: 8649352534406900471, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
@@ -4557,7 +4557,7 @@ PrefabInstance:
     - target: {fileID: 2415122262879990035, guid: a542868b7c5ecdf4b9439a9d3d97113b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 811f42c3bf6c83b45972fb69ed88d79a, type: 2}
     - target: {fileID: 2415122262879990046, guid: a542868b7c5ecdf4b9439a9d3d97113b,
         type: 3}
@@ -4587,8 +4587,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1013f74858726ae499085882ed6d7c7b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 10000000
   fadeOutTime: 1
@@ -4603,8 +4603,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91fc9178a0b0c3d4bb8b6d91b16d9893, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   triggerOptions:
     triggerType: 1
     minimumCollisionForce: 0
@@ -4641,7 +4641,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument:
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   currentRefractureCount: 0
@@ -5963,8 +5963,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
@@ -6145,7 +6145,7 @@ PrefabInstance:
     - target: {fileID: 8649352534406900469, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: f8a865e96117afb48b2bc3c6f82c1671, type: 2}
     - target: {fileID: 8649352534406900471, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
@@ -6280,11 +6280,11 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes:
+  m_BoneNameHashes: 
   m_RootBoneNameHash: 0
   m_BonesAABB: []
   m_VariableBoneCountWeights:
-    m_Data:
+    m_Data: 
   m_MeshCompression: 0
   m_IsReadable: 1
   m_KeepVertices: 0
@@ -6358,59 +6358,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: -0.7685776, y: 0.38108695, z: 0.32499886}
     m_Extent: {x: 1.05, y: 0.100000024, z: 1.05}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh:
-  m_BakedTriangleCollisionMesh:
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
   m_MeshMetrics[0]: 1.3350886
   m_MeshMetrics[1]: 31.279232
   m_MeshOptimizationFlags: 1
@@ -6418,7 +6418,7 @@ Mesh:
     serializedVersion: 2
     offset: 0
     size: 0
-    path:
+    path: 
 --- !u!1001 &878494727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6743,8 +6743,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &962802059
 MeshCollider:
@@ -6869,11 +6869,11 @@ Mesh:
     channels: []
     fullWeights: []
   m_BindPose: []
-  m_BoneNameHashes:
+  m_BoneNameHashes: 
   m_RootBoneNameHash: 0
   m_BonesAABB: []
   m_VariableBoneCountWeights:
-    m_Data:
+    m_Data: 
   m_MeshCompression: 0
   m_IsReadable: 1
   m_KeepVertices: 0
@@ -6947,59 +6947,59 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: -0.7685776, y: 0.38108695, z: 0.32499886}
     m_Extent: {x: 1.05, y: 0.100000024, z: 1.05}
   m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh:
-  m_BakedTriangleCollisionMesh:
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
   m_MeshMetrics[0]: 1.3350886
   m_MeshMetrics[1]: 31.279232
   m_MeshOptimizationFlags: 1
@@ -7007,7 +7007,7 @@ Mesh:
     serializedVersion: 2
     offset: 0
     size: 0
-    path:
+    path: 
 --- !u!1 &980761562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,8 +7053,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &980761565
 MeshCollider:
@@ -7494,74 +7494,6 @@ Transform:
   - {fileID: 683275126}
   m_Father: {fileID: 1772251652}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1041872539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1041872542}
-  - component: {fileID: 1041872541}
-  - component: {fileID: 1041872540}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1041872540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041872539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1041872541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041872539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1041872542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041872539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1056472037
 PrefabInstance:
@@ -8984,8 +8916,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!1 &1257718616
 GameObject:
@@ -9206,8 +9138,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &1271518666
 MeshCollider:
@@ -9289,7 +9221,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -9519,7 +9451,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1899704957}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -9959,8 +9891,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2551060421d116c4890eefabf2af253f, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1340684019}
 --- !u!1001 &1339778167
 PrefabInstance:
@@ -10395,22 +10327,22 @@ PrefabInstance:
     - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
       propertyPath: enemyDependency.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 556917195}
     - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
       propertyPath: enemyDependency.Array.data[1]
-      value:
+      value: 
       objectReference: {fileID: 134495370}
     - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
       propertyPath: enemyDependency.Array.data[2]
-      value:
+      value: 
       objectReference: {fileID: 651825787}
     - target: {fileID: 718445763104013925, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
       propertyPath: enemyDependency.Array.data[3]
-      value:
+      value: 
       objectReference: {fileID: 297799554}
     - target: {fileID: 8481205003178842969, guid: 69ba63f1a096a3943afe96bb97ef5831,
         type: 3}
@@ -10708,8 +10640,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &1424093981
 MeshCollider:
@@ -10820,8 +10752,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &1425169761
 MeshCollider:
@@ -11378,8 +11310,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!1001 &1499279023
 PrefabInstance:
@@ -11456,7 +11388,7 @@ PrefabInstance:
     - target: {fileID: 8649352534406900469, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: f8a865e96117afb48b2bc3c6f82c1671, type: 2}
     - target: {fileID: 8649352534406900471, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
@@ -11747,7 +11679,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: enemyDependency.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 1271626289}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -11762,7 +11694,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 606449137}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -13038,22 +12970,22 @@ PrefabInstance:
     - target: {fileID: 346062905948117946, guid: 152c413dfe39f0647b0a86b09a422da1,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 351541425}
     - target: {fileID: 346062905948117947, guid: 152c413dfe39f0647b0a86b09a422da1,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 351541425}
     - target: {fileID: 346062905948117948, guid: 152c413dfe39f0647b0a86b09a422da1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 0973a1668b0343440a2e0ce4efba57c8, type: 2}
     - target: {fileID: 346062905948117949, guid: 152c413dfe39f0647b0a86b09a422da1,
         type: 3}
       propertyPath: m_Mesh
-      value:
+      value: 
       objectReference: {fileID: 351541425}
     - target: {fileID: 346062905948117950, guid: 152c413dfe39f0647b0a86b09a422da1,
         type: 3}
@@ -13179,7 +13111,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -13193,8 +13125,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!64 &1659063169
 MeshCollider:
@@ -13758,7 +13690,7 @@ PrefabInstance:
     - target: {fileID: 8649352534406900469, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: f8a865e96117afb48b2bc3c6f82c1671, type: 2}
     - target: {fileID: 8649352534406900471, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
@@ -14491,7 +14423,7 @@ PrefabInstance:
     - target: {fileID: 2415122262879990035, guid: a542868b7c5ecdf4b9439a9d3d97113b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: 811f42c3bf6c83b45972fb69ed88d79a, type: 2}
     - target: {fileID: 2415122262879990046, guid: a542868b7c5ecdf4b9439a9d3d97113b,
         type: 3}
@@ -14527,8 +14459,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91fc9178a0b0c3d4bb8b6d91b16d9893, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   triggerOptions:
     triggerType: 0
     minimumCollisionForce: 1
@@ -14566,7 +14498,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument:
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   currentRefractureCount: 0
@@ -14596,8 +14528,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1013f74858726ae499085882ed6d7c7b, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 10000000
   fadeOutTime: 1
@@ -14677,7 +14609,7 @@ PrefabInstance:
     - target: {fileID: 8649352534406900469, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: f8a865e96117afb48b2bc3c6f82c1671, type: 2}
     - target: {fileID: 8649352534406900471, guid: bf60ac92aed1eae40ba9e25c10e5f810,
         type: 3}
@@ -15372,7 +15304,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 566116310}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -15704,7 +15636,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: enemyDependency.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 1011891897}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -15719,7 +15651,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1271518669}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -16278,7 +16210,7 @@ PrefabInstance:
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value:
+      value: 
       objectReference: {fileID: 1741746860}
     - target: {fileID: 4926853438723348863, guid: 774aa395a24557d459d4e507051f6699,
         type: 3}
@@ -16716,8 +16648,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!1001 &2050586014
 PrefabInstance:
@@ -16978,8 +16910,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023246633648e104983c3dcad590e24d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   tilingFactor: 2.5
 --- !u!1 &2111235291
 GameObject:
