@@ -61,7 +61,7 @@ public class Player : Entity
     protected override void Death()
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
             Destroy(gameObject);
         Awake();
     }
