@@ -4894,7 +4894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 200
+  maxHealth: 10
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   shotEffectPrefab: {fileID: 0}
@@ -5221,7 +5221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28f1b24c87fe5540beba9493be538da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
 --- !u!1 &1594479376258611660
 GameObject:
   m_ObjectHideFlags: 0
