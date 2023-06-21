@@ -106,6 +106,12 @@ public class WeaponSwitching : MonoBehaviour
     }
 
     void updateCurrentWeapon(){
+
+        if (transform.childCount == 1 || transform.childCount == 0){
+            currentWeapon = Weapon.None;
+            currentWeaponObject = null;
+        }
+
         foreach (Transform weapon in transform)
         {
             if (weapon.gameObject.activeSelf){
