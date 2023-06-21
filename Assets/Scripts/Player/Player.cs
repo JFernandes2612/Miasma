@@ -72,7 +72,7 @@ public class Player : Entity
         deathEffectsInstance.start();
         movementScript.SetFmodSpeed(0.0f);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
             Destroy(gameObject);
         Awake();
     }
