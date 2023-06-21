@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e2d00381ae69a4c9556efdcfd54988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 0
   maxHealth: 100
   enemyHP: 100
   bullet: {fileID: 535766191592275968, guid: a623e3df622bfa84289878fb2099a438, type: 3}
@@ -190,7 +191,7 @@ MonoBehaviour:
     m_Bits: 256
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1
   canSeePlayer: 0
   playerRef: {fileID: 0}
 --- !u!1 &8623663348144281234
