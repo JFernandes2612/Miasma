@@ -27,6 +27,7 @@ public class WeaponUI : MonoBehaviour
     private GameObject RMBCoolDown;
 
     [SerializeField]
+    [SerializeField]
     private GameObject LMBCharging;
 
     private WeaponSwitching.WeaponEnum lastWeapon;
@@ -42,6 +43,8 @@ public class WeaponUI : MonoBehaviour
     void Update()
     {
 
+        if (lastWeapon != weaponChanger.currentWeapon)
+        {
         if (lastWeapon != weaponChanger.currentWeapon)
         {
             LMBCoolDown.GetComponent<Slider>().value = 0;
@@ -62,12 +65,18 @@ public class WeaponUI : MonoBehaviour
 
     void updateLMBCooldown()
     {
+    void updateLMBCooldown()
+    {
 
         switch (weaponChanger.currentWeapon)
         {
             case WeaponSwitching.WeaponEnum.Fists:
                 FistAttack script = weaponChanger.currentWeaponObject.GetComponent<FistAttack>();
                 if (script == null) return;
+                if (script.isLMBCooldown())
+                {
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
+                    {
                 if (script.isLMBCooldown())
                 {
                     if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
@@ -84,6 +93,9 @@ public class WeaponUI : MonoBehaviour
                 }
                 else
                 {
+                }
+                else
+                {
                     LMBCoolDown.GetComponent<Slider>().value = 0;
                     LMBCoolDown.SetActive(false);
                 }
@@ -93,8 +105,12 @@ public class WeaponUI : MonoBehaviour
                 if (scriptRapier == null) return;
                 if (scriptRapier.isLMBCooldown())
                 {
+                if (scriptRapier.isLMBCooldown())
+                {
                     LMBCombo.SetActive(true);
                     LMBCombo.GetComponent<TMPro.TextMeshProUGUI>().text = scriptRapier.getAttackPhase() + "X";
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
+                    {
                     if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
                     {
                         LMBCoolDown.GetComponent<Slider>().value = 1;
@@ -105,6 +121,9 @@ public class WeaponUI : MonoBehaviour
 
                         LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / scriptRapier.getLMBCooldown();
                     }
+                }
+                else
+                {
                 }
                 else
                 {
@@ -144,9 +163,17 @@ public class WeaponUI : MonoBehaviour
                 {
                     if (LMBCharging.GetComponent<Slider>().value == 0 || !LMBCharging.activeSelf)
                     {
+                if (scriptDagger.isCharging())
+                {
+                    if (LMBCharging.GetComponent<Slider>().value == 0 || !LMBCharging.activeSelf)
+                    {
                         LMBCharging.GetComponent<Slider>().value = 1;
                         LMBCharging.SetActive(true);
                     }
+                    else
+                    {
+                        if (scriptDagger.getChargeUp() < 1)
+                        {
                     else
                     {
                         if (scriptDagger.getChargeUp() < 1)
@@ -158,6 +185,9 @@ public class WeaponUI : MonoBehaviour
                 }
                 else
                 {
+                }
+                else
+                {
                     LMBCharging.GetComponent<Slider>().value = 0;
                     LMBCharging.SetActive(false);
                 }
@@ -165,6 +195,7 @@ public class WeaponUI : MonoBehaviour
             default:
                 break;
         }
+
 
     }
 
@@ -182,15 +213,25 @@ public class WeaponUI : MonoBehaviour
                 {
                     if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
                     {
+                if (scriptRapier.isRMBCooldown())
+                {
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
+                    {
                         RMBCoolDown.GetComponent<Slider>().value = 1;
                         RMBCoolDown.SetActive(true);
                     }
                     else
                     {
 
+                    else
+                    {
+
                         RMBCoolDown.GetComponent<Slider>().value = scriptRapier.getRMBCooldown();
                     }
 
+                }
+                else
+                {
                 }
                 else
                 {
@@ -229,9 +270,16 @@ public class WeaponUI : MonoBehaviour
                 {
                     if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
                     {
+                if (scriptDagger.isRMBCooldown())
+                {
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
+                    {
                         RMBCoolDown.GetComponent<Slider>().value = 1;
                         RMBCoolDown.SetActive(true);
                     }
+                    else
+                    {
+
                     else
                     {
 
@@ -241,14 +289,19 @@ public class WeaponUI : MonoBehaviour
                 }
                 else
                 {
+                }
+                else
+                {
                     RMBCoolDown.GetComponent<Slider>().value = 0;
                     RMBCoolDown.SetActive(false);
                 }
                 break;
             default:
 
+
                 break;
         }
+
 
     }
 
@@ -261,6 +314,8 @@ public class WeaponUI : MonoBehaviour
         toggleChip(WeaponSwitching.WeaponEnum.Daggers, "DaggersChip");
     }
 
+    void updateIcons()
+    {
     void updateIcons()
     {
         updateChips();
@@ -320,6 +375,18 @@ public class WeaponUI : MonoBehaviour
                 }
             }
         }
+        }
+        else
+        {
+            foreach (Transform child in chips.transform)
+            {
+                if (child.name == name)
+                {
+                    child.gameObject.SetActive(false);
+                    break;
+                }
+            }
+        }
     }
 
     void toggleWeaponWheelOptions(string name)
@@ -329,7 +396,17 @@ public class WeaponUI : MonoBehaviour
         {
             if (child.name == name)
             {
+    void toggleWeaponWheelOptions(string name)
+    {
+
+        foreach (Transform child in weaponWheel.transform)
+        {
+            if (child.name == name)
+            {
                 child.gameObject.SetActive(true);
+            }
+            else
+            {
             }
             else
             {
@@ -345,7 +422,21 @@ public class WeaponUI : MonoBehaviour
         {
             if (child.name == name)
             {
+    void toggleAttacks(string name)
+    {
+
+        foreach (Transform child in attacks.transform)
+        {
+            if (child.name == name)
+            {
                 child.gameObject.SetActive(true);
+            }
+            else
+            {
+                if (child.name != "LMB" && child.name != "RMB")
+                {
+                    child.gameObject.SetActive(false);
+                }
             }
             else
             {
@@ -364,7 +455,17 @@ public class WeaponUI : MonoBehaviour
         {
             if (child.name == name)
             {
+    void toggleWeapons(string name)
+    {
+
+        foreach (Transform child in weapons.transform)
+        {
+            if (child.name == name)
+            {
                 child.gameObject.SetActive(true);
+            }
+            else
+            {
             }
             else
             {

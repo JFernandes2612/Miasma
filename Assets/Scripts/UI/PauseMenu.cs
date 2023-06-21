@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject continueBtt;
 
-       [SerializeField]
+    [SerializeField]
     private GameObject quitBtt;
 
     private Look mainCamLook;

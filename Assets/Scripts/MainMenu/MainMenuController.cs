@@ -6,22 +6,19 @@ using UnityEngine.InputSystem;
 
 public class MainMenuController : MonoBehaviour
 {
-    private void Start()
-    {
+    private void Start() {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
         Destroy(GameObject.Find("Player"));
     }
 
-    public void StartGame()
-    {
+    public void StartGame() {
         InputSystem.EnableDevice(Keyboard.current);
         StartCoroutine(StartGameAsync());
     }
 
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
     }
 

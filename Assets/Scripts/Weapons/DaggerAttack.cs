@@ -15,7 +15,7 @@ public class DaggerAttack : Weapon
     private float M2AttackRange = 4f;
 
     [SerializeField]
-    private float M2AttackDelay = 0.8f;
+    private float M2AttackDelay = 1.5f;
 
     [SerializeField]
     private float M2AttackCooldown = 3f;
@@ -50,6 +50,8 @@ public class DaggerAttack : Weapon
     private bool canStartCharge = false;
 
     private const string IDLE = "Idle";
+
+    private const string DAGGER_THROW = "Dagger Throw";
 
     public override float getRMBCooldown()
     {
@@ -114,6 +116,8 @@ public class DaggerAttack : Weapon
         readyToM2 = true;
     }
 
+
+
     void Update()
     {
         HandleDaggerCharge();
@@ -161,6 +165,31 @@ public class DaggerAttack : Weapon
         }
     }
 
+    private int GetNumOfDaggersToSpawn(float chargeTime)
+    {
+        int numDaggersToSpawn = 0;
+        if (chargeTime < M1MaxChargeUpTime / 4)
+        {
+            numDaggersToSpawn = 0;
+        }
+        else if (chargeTime < M1MaxChargeUpTime / 3)
+        {
+            numDaggersToSpawn = 1;
+        }
+        else if (chargeTime < M1MaxChargeUpTime * 2 / 3)
+        {
+            numDaggersToSpawn = 2;
+        }
+        else if (chargeTime < M1MaxChargeUpTime)
+        {
+            numDaggersToSpawn = 3;
+        }
+        else
+        {
+            numDaggersToSpawn = 4;
+        }
+        return numDaggersToSpawn;
+    }
 
     public override void Attack_M1(InputAction.CallbackContext context)
     {
@@ -191,12 +220,13 @@ public class DaggerAttack : Weapon
             //daggerReleaseEvent.Play();
             // spawn daggers and send them flying forwards
 
-            int numDaggersToSpawn = countChargeUpTime > M1MaxChargeUpTime ? 3 : 1;
-
-            float compensationHeight = 1f;
+            //make the number of daggers spawned depend on the charge up time
+            int numDaggersToSpawn = GetNumOfDaggersToSpawn(countChargeUpTime);
+            if (numDaggersToSpawn == 0) return;
+            float compensationHeight = 1.2f;
             Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + compensationHeight, transform.position.z);
 
-            Quaternion newRotation = Quaternion.Euler(90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            Quaternion newRotation = Quaternion.Euler(transform.rotation.eulerAngles.x + 90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
             StartCoroutine(SpawnDaggerProjectiles(numDaggersToSpawn, spawnPos, newRotation));
 
         }
@@ -207,10 +237,11 @@ public class DaggerAttack : Weapon
         playerLook.LockCamera();
         noPosEffectLook.LockCamera();
         playerMovement.isAnimLocked = true;
-        yield return new WaitForSeconds(executeDelay);
-
+        animator.SetTrigger("backStab");
         playerMovement.transform.position = enemy.transform.position - enemy.transform.forward * 1.5f;
         playerMovement.transform.rotation = Quaternion.LookRotation(enemy.transform.forward);
+        yield return new WaitForSeconds(executeDelay);
+
 
         if (Physics.Raycast(cam.transform.position,
         cam.transform.forward, out RaycastHit hit, M2AttackRange, attackLayer))
@@ -253,7 +284,6 @@ public class DaggerAttack : Weapon
 
                     //teleport to behind enemy
                     T.Freeze();
-                    animator.SetTrigger("backStab");
 
                     StartCoroutine(performExecute(M2AttackDelay, T));
 
