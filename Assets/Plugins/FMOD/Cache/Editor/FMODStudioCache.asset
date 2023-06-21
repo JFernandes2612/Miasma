@@ -1,0 +1,476 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8924002068450195133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/footsteps/enemyFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/footsteps/enemyFootsteps
+  Guid:
+    Data1: 1846103208
+    Data2: 1293945315
+    Data3: -157080648
+    Data4: -1106574372
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7651269724858255133}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-7983129389360153979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Background
+  m_EditorClassIdentifier: 
+  Path: event:/Background
+  Guid:
+    Data1: -1140641736
+    Data2: 1131067469
+    Data3: 1902937003
+    Data4: 478177310
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138000
+--- !u!114 &-7651269724858255133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/enemyFootsteps/speed
+  m_EditorClassIdentifier: 
+  Name: speed
+  StudioPath: 
+  Min: 0
+  Max: 20
+  Default: 0.8
+  ID:
+    data1: 1408781112
+    data2: 3779702219
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-6591981951155999900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MoveEffects/speed
+  m_EditorClassIdentifier: 
+  Name: speed
+  StudioPath: 
+  Min: 0
+  Max: 20
+  Default: 0.8
+  ID:
+    data1: 1408781112
+    data2: 3779702219
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-2546792164878886309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Movement/MoveEffects
+  m_EditorClassIdentifier: 
+  Path: event:/Movement/MoveEffects
+  Guid:
+    Data1: 1753227841
+    Data2: 1196381939
+    Data3: 1757331860
+    Data4: -93834622
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6591981951155999900}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15000
+--- !u!114 &-2530125535025450672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/footsteps/playerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/footsteps/playerFootsteps
+  Guid:
+    Data1: 39285350
+    Data2: 1138716021
+    Data3: 1395287487
+    Data4: 170787530
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8556982692617275759}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-1419278688923499737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Attacks/Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Attacks/Attack
+  Guid:
+    Data1: 1278017161
+    Data2: 1133174297
+    Data3: 1460596353
+    Data4: -451953005
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-482888509368537916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerOther/DeathPoweroff
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerOther/DeathPoweroff
+  Guid:
+    Data1: -654446120
+    Data2: 1115031275
+    Data3: -348968788
+    Data4: 1005598914
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 6294208581512736429}
+  - {fileID: 7723812583777605861}
+  EditorEvents:
+  - {fileID: -2546792164878886309}
+  - {fileID: -2530125535025450672}
+  - {fileID: 1990543774551462802}
+  - {fileID: -8924002068450195133}
+  - {fileID: 8148450322758957095}
+  - {fileID: 201742690306839357}
+  - {fileID: 4502263237380393393}
+  - {fileID: 8862459664332151297}
+  - {fileID: -482888509368537916}
+  - {fileID: -7983129389360153979}
+  - {fileID: 7863356731684924750}
+  - {fileID: -1419278688923499737}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 7723812583777605861}
+  StringsBanks:
+  - {fileID: 6294208581512736429}
+  cacheTime: 638229855971817001
+  cacheVersion: 131603
+--- !u!114 &201742690306839357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment/CheckpointChime
+  m_EditorClassIdentifier: 
+  Path: event:/Environment/CheckpointChime
+  Guid:
+    Data1: 120960690
+    Data2: 1191170762
+    Data3: -837242959
+    Data4: -1390004812
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1990543774551462802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fist/fist_hit
+  m_EditorClassIdentifier: 
+  Path: event:/fist/fist_hit
+  Guid:
+    Data1: 1800715388
+    Data2: 1201193143
+    Data3: 1313722524
+    Data4: -1624444645
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4502263237380393393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Attacks/LightsaberSwing
+  m_EditorClassIdentifier: 
+  Path: event:/Attacks/LightsaberSwing
+  Guid:
+    Data1: -1665423512
+    Data2: 1150953260
+    Data3: 1689304254
+    Data4: -127637384
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6294208581512736429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638229855971817001
+  FileSizes:
+  - Name: Desktop
+    Value: 1384
+  Exists: 1
+--- !u!114 &7723812583777605861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638229855971807014
+  FileSizes:
+  - Name: Desktop
+    Value: 1826432
+  Exists: 1
+--- !u!114 &7863356731684924750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Title
+  m_EditorClassIdentifier: 
+  Path: event:/Title
+  Guid:
+    Data1: -1164251967
+    Data2: 1288164744
+    Data3: 911806614
+    Data4: -843840286
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138000
+--- !u!114 &8148450322758957095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/fist/fist_swing
+  m_EditorClassIdentifier: 
+  Path: event:/fist/fist_swing
+  Guid:
+    Data1: 1028781785
+    Data2: 1109904222
+    Data3: -101338213
+    Data4: 528257956
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8556982692617275759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/playerFootsteps/speed
+  m_EditorClassIdentifier: 
+  Name: speed
+  StudioPath: 
+  Min: 0
+  Max: 20
+  Default: 0.8
+  ID:
+    data1: 1408781112
+    data2: 3779702219
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8862459664332151297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerOther/Dash
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerOther/Dash
+  Guid:
+    Data1: -371702768
+    Data2: 1076453570
+    Data3: 1360650661
+    Data4: 1188346547
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

@@ -21,8 +21,6 @@ public class Player : Entity
     public FMODUnity.EventReference backgroundEvent;
     private FMOD.Studio.EventInstance backgroundInstance;
 
-    private static bool started = false;
-
     public void AddRedPoints(int points)
     {
         redPoints += points;
@@ -55,11 +53,8 @@ public class Player : Entity
     {
         base.Awake();
         DontDestroyOnLoad(transform.gameObject);
-        if (!started) {
-            backgroundInstance = FMODUnity.RuntimeManager.CreateInstance(backgroundEvent);
-            backgroundInstance.start();
-            started = true;
-        }
+        backgroundInstance = FMODUnity.RuntimeManager.CreateInstance(backgroundEvent);
+        backgroundInstance.start();
         movementScript = GetComponent<Movement>(); // for changing movement sound effects on death
     }
 
