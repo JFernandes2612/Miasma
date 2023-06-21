@@ -94,7 +94,7 @@ public class WeaponSwitching : MonoBehaviour
                     currentWeapon = WeaponEnum.BroadSword;
                     if (previousSelectedWeapon != currentWeapon)
                     {
-                        SelectWeapon("broadsword(Clone)");
+                        SelectWeapon("Broadsword(Clone)");
                     }
                 }
             }
@@ -164,7 +164,7 @@ public class WeaponSwitching : MonoBehaviour
                         currentWeapon = WeaponEnum.Rapier;
 
                         break;
-                    case "broadsword(Clone)":
+                    case "Broadsword(Clone)":
                         currentWeapon = WeaponEnum.BroadSword;
 
                         break;
@@ -190,7 +190,7 @@ public class WeaponSwitching : MonoBehaviour
                 case "rapier(Clone)":
                     availableWeapons.Add(WeaponEnum.Rapier);
                     break;
-                case "broadsword(Clone)":
+                case "Broadsword(Clone)":
                     availableWeapons.Add(WeaponEnum.BroadSword);
                     break;
                 case "daggers(Clone)":
