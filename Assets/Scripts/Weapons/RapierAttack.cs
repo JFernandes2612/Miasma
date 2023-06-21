@@ -9,7 +9,7 @@ public class RapierAttack : Weapon
     private float M2AttackDamage = 2f;
 
     [SerializeField]
-    private float M2AttackDelay = 1f;
+    private float M2AttackDelay = 1.8f;
 
     [SerializeField]
     private float M2LungeForce = 100f;
@@ -32,6 +32,8 @@ public class RapierAttack : Weapon
     [SerializeField]
     private float M1AttackDelay = 0.3f;
 
+    private float M1CountDownTimer = 0f;
+    private float M1AnimationDuration = 1.6f;
     [SerializeField]
     private float M1AttackDamage = 1f;
 
@@ -41,6 +43,8 @@ public class RapierAttack : Weapon
     private const string DOUBLE_LUNGE = "Double Lunge";
 
     //public FMODUnity.EventReference fistSwingEvent;
+
+    private BoxCollider rapierCollider;
 
     private int CountAttack;
 
@@ -62,7 +66,7 @@ public class RapierAttack : Weapon
 
     public override float getLMBCooldown()
     {
-        return M1AttackDelay * 3;
+        return M1CountDownTimer / M1AnimationDuration;
     }
 
     public override bool isRMBCooldown()
@@ -72,7 +76,7 @@ public class RapierAttack : Weapon
 
     public override bool isLMBCooldown()
     {
-        return isAttacking && readyToM2;
+        return isAttacking;
     }
 
     void Awake()
@@ -85,6 +89,7 @@ public class RapierAttack : Weapon
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
+        rapierCollider = GameObject.Find("MarineRapier").GetComponent<BoxCollider>();
 
 
     }
@@ -97,9 +102,19 @@ public class RapierAttack : Weapon
 
     void OnDisable()
     {
-
+        disableRapierCollider();
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
+    }
+
+    public void enableRapierCollider()
+    {
+        rapierCollider.enabled = true;
+    }
+
+    public void disableRapierCollider()
+    {
+        rapierCollider.enabled = false;
     }
 
     private IEnumerator ApplyForwardLunge(float attackDelay)
@@ -127,9 +142,18 @@ public class RapierAttack : Weapon
         }
     }
 
-    public void M1AttackHitBox()
+    private void HandleM1CoolDown()
     {
-        StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
+        if (M1CountDownTimer > 0f)
+        {
+            M1CountDownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            M1CountDownTimer = 0f;
+        }
+
+
     }
 
     private void Update()
@@ -137,10 +161,12 @@ public class RapierAttack : Weapon
         if (CountAttack == 1)
         {
             animator.SetInteger("attackPhase", 1);
-            //StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
             isAttacking = true;
         }
         HandleLungeCoolDown();
+        HandleM1CoolDown();
+
+
 
     }
 
@@ -151,7 +177,6 @@ public class RapierAttack : Weapon
         {
             CountAttack++;
         }
-
 
 
     }
@@ -177,9 +202,15 @@ public class RapierAttack : Weapon
 
     }
 
+    public void UpdateCountDownTimer()
+    {
+        isAttacking = true;
+        M1CountDownTimer = M1AnimationDuration;
+    }
+
     public void CheckAttackPhase()
     {
-        Debug.Log("CountAttack: " + CountAttack);
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_1))
         {
             if (CountAttack > 1)
