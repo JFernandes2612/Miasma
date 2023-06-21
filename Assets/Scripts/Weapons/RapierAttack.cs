@@ -145,8 +145,7 @@ public class RapierAttack : Weapon
         if (CountAttack < 3){
         CountAttack++;}
 
-        // play fist swing event
-        //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
+
 
     }
 

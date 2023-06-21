@@ -6241,7 +6241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 250
-  baseFOV: 75
+  baseFOV: 90
   FOVVelocityRatio: 1
 --- !u!114 &7192955902230765403
 MonoBehaviour:
@@ -6395,7 +6395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 12
-  backMovementSpeed: 6
+  backMovementSpeed: 5
   maxAirSpeed: 20
   jumpForce: 10
   acceleration: 1
