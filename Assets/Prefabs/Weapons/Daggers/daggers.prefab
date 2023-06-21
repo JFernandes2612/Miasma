@@ -2782,13 +2782,19 @@ MonoBehaviour:
   M2ExecuteRange: 300
   M2AttackDelay: 0.5
   M2AttackCooldown: 10
-  M1AttackRange: 3
   M1AttackDelay: 0.3
   M1AttackDamage: 1
   M1MaxChargeUpTime: 3
   M1ProjectileSpeed: 5
   daggerProjectile: {fileID: 6696193758943536409, guid: 3500db9b5602f984ba300dce0ae43644,
     type: 3}
+  attackEffectsEvent:
+    Guid:
+      Data1: 1278017161
+      Data2: 1133174297
+      Data3: 1460596353
+      Data4: -451953005
+    Path: event:/Attacks/Attack
 --- !u!1 &7093567015424491339
 GameObject:
   m_ObjectHideFlags: 0
