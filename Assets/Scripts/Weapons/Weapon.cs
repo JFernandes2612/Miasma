@@ -26,7 +26,6 @@ public abstract class Weapon : MonoBehaviour
     protected IEnumerator ResetAttackLockIn(float attackCooldown)
     {
         yield return new WaitForSeconds(attackCooldown);
-
         isAttacking = false;
     }
 

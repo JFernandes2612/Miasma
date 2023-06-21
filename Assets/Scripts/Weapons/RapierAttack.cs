@@ -123,8 +123,7 @@ public class RapierAttack : Weapon
 
         CountAttack++;
 
-        // play fist swing event
-        //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
+
 
     }
 

@@ -4,24 +4,30 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class BroadswordAttack : Weapon
 {
+    // For both attacks
     [SerializeField]
-    private float smallAttackCooldown = 2.3f;
+    private float attackCooldown = 1f;
+
+    // First attack
     [SerializeField]
-    private float smallSwingAttackDelay = 1.1f;
+    private float smallSwingAttackDelay = 0.3f; // Time between the input action and applying the lunge force
     [SerializeField]
-    private float smallSwingLungeTime = 0.5f;
+    private float smallSwingLungeTime = 0.5f; // Time the lunge force is applied for
     [SerializeField]
-    private float smallSwingLungeForce = 20f;
+    private float smallSwingLungeForce = 2f; // Lunge force
+
+    // Second attack
     [SerializeField]
-    private float smallSwingAttackDamage = 5.0f;
+    private float upperSwingAttackDelay = 0.5f; // Time between the input action and applying the lunge force
+    [SerializeField]
+    private float upperSwingLungeTime = 2f; // Time the lunge force is applied for
+    [SerializeField]
+    private float upperSwingLungeForce = 3f; // Lunge force
 
     [SerializeField]
-    private float smallSwingAttackRange = 2f;
+    private float defendDuration = 2.0f; // Invincibility duration (animation is reset at the end)
 
-    [SerializeField]
-    private float defendCooldown = 2.0f;
-
-    //public FMODUnity.EventReference fistSwingEvent;
+    private int CountAttack; // 0 or 1 (first attack or second attack)
 
     private Movement playerMovement;
     private Player playerScript;
@@ -29,73 +35,92 @@ public class BroadswordAttack : Weapon
     [SerializeField]
     private Rigidbody playerRb;
 
+    private BoxCollider swordCollider;
+
+    private const string SWING = "Broadsword Swing";
+
+    private const string UPPER_SWING = "Broadsword Jump Swing";
+
+    private Camera noWeaponEffectsCam;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
         playerAttack.Enable();
+        CountAttack = 0;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerScript = player.GetComponent<Player>();
+        noWeaponEffectsCam = GameObject.Find("WeaponCameraNoPosEffects").GetComponent<Camera>();
+        swordCollider = GameObject.Find("Sword").GetComponent<BoxCollider>();
         playerRb = player.GetComponent<Rigidbody>();
     }
 
     void OnEnable()
     {
-
+        playerMovement.SlowPlayer();
         playerAttack.Player_Map.Attack.performed += Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed += Attack_M2;
     }
 
     void OnDisable()
     {
-
+        playerMovement.UnSlowPlayer();
+        swordCollider.enabled = false;
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
     }
 
-
-    private IEnumerator ApplyForwardLunge(float attackDelay)
+    void Update()
     {
-        //apply force forwards
-        playerMovement.isAnimLocked = true;
-        yield return new WaitForSeconds(attackDelay);
-        playerRb.velocity = new Vector3(transform.forward.x, 0, transform.forward.z) * smallSwingLungeForce;
-        yield return new WaitForSeconds(smallSwingLungeTime);
-        playerRb.velocity = Vector3.zero;
-        playerMovement.isAnimLocked = false;
-        ResetAttackPhase();
+        if (CountAttack == 1)
+        {
+            animator.SetInteger("attackPhase", 1);
+            //PLAY THE SWING SOUND HERE
+            isAttacking = true;
 
-    }
-
-
-    private IEnumerator ResetDefendLockIn(float defendCooldown)
-    {
-        yield return new WaitForSeconds(defendCooldown);
-        playerScript.setInvincible(false);
-        ResetAttackPhase();
-    }
-
-    private void ResetAttackPhase()
-    {
-        animator.SetInteger("attack", 0);
-        isAttacking = false;
+            Vector3 lungeDirection = new Vector3(transform.forward.x, 0, transform.forward.z);
+            StartCoroutine(ApplyLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce, lungeDirection));
+        }
     }
 
     public override void Attack_M1(CallbackContext context)
     {
-        if (isAttacking) return;
+        if (isAttacking && CountAttack == 0) return;
+        CountAttack++;
 
-        isAttacking = true;
-        animator.SetInteger("attack", 1);
+    }
 
-        // play fist swing event
-        //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
+    public void CheckAttackPhase()
+    {
+        Debug.Log("CountAttack: " + CountAttack);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName(SWING))
+        {
+            if (CountAttack > 1)
+            {
 
-        StartCoroutine(ResetAttackLockIn(smallAttackCooldown));
-        StartCoroutine(ApplyForwardLunge(smallSwingAttackDelay));
-        StartCoroutine(AttackRaycast(smallSwingAttackRange, smallSwingAttackDamage, smallSwingAttackDelay));
+                animator.SetInteger("attackPhase", 2);
+                //play the upper swing SOUND
+                Vector3 lungeDirection = Vector3.up;
+                StartCoroutine(ApplyLunge(upperSwingAttackDelay, upperSwingLungeTime, upperSwingLungeForce, lungeDirection));
+            }
+            else
+            {
+                ResetAttackPhase();
+            }
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName(UPPER_SWING))
+        {
+            if (CountAttack >= 2)
+            {
+                ResetAttackPhase();
+            }
+
+        }
+
+
     }
 
     public override void Attack_M2(CallbackContext context)
@@ -103,11 +128,49 @@ public class BroadswordAttack : Weapon
         if (isAttacking) return;
 
         isAttacking = true;
-        animator.SetInteger("attack", 2);
+        animator.SetInteger("attackPhase", 3);
         playerScript.setInvincible(true);
 
         //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
 
-        StartCoroutine(ResetDefendLockIn(defendCooldown));
+        StartCoroutine(ResetDefendLockIn(defendDuration));
+    }
+
+
+    // Applies a force with direction direction for lungetime seconds, after a delay of attackDelay seconds
+    private IEnumerator ApplyLunge(float attackDelay, float lungeTime, float lungeForce, Vector3 lungeDirection)
+    {
+        //apply force forwards
+        playerMovement.isAnimLocked = true;
+        yield return new WaitForSeconds(attackDelay);
+        playerRb.velocity = lungeDirection * lungeForce;
+        yield return new WaitForSeconds(lungeTime);
+        playerRb.velocity = Vector3.zero;
+        playerMovement.isAnimLocked = false;
+    }
+
+    public void enableSwordCollider()
+    {
+        swordCollider.enabled = true;
+    }
+
+    public void disableSwordCollider()
+    {
+        swordCollider.enabled = false;
+    }
+
+    private IEnumerator ResetDefendLockIn(float defendDuration)
+    {
+        yield return new WaitForSeconds(defendDuration);
+        playerScript.setInvincible(false);
+        ResetAttackPhase();
+    }
+
+    private void ResetAttackPhase()
+    {
+        animator.SetInteger("attackPhase", 0);
+        disableSwordCollider();
+        StartCoroutine(ResetAttackLockIn(attackCooldown));
+        CountAttack = 0;
     }
 }
