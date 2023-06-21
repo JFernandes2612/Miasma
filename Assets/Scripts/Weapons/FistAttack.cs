@@ -17,6 +17,10 @@ public class FistAttack : Weapon
     [SerializeField]
     private float attackCooldown = 1f; // attack Speed
 
+    private float attackCooldownCounter = 0f;
+
+    private float M1AnimationDuration = 1f;
+
     // create fmod references
     public FMODUnity.EventReference fistSwingEvent;
     public FMODUnity.EventReference fistHitEvent;
@@ -35,23 +39,35 @@ public class FistAttack : Weapon
         playerAttack.Enable();
     }
 
-    public override  float getLMBCooldown(){
-        return attackDelay*2;
+    public override float getLMBCooldown()
+    {
+        return attackCooldownCounter / M1AnimationDuration;
     }
 
-    public override  float getRMBCooldown(){
+    public override float getRMBCooldown()
+    {
         return 0;
     }
 
-    public override  bool isLMBCooldown(){
-    return isAttacking;
+    public override bool isLMBCooldown()
+    {
+        return isAttacking;
     }
 
-    public override  bool isRMBCooldown(){
+    public override bool isRMBCooldown()
+    {
         return false;
     }
 
 
+    private void HandleM1CoolDown()
+    {
+        if (attackCooldownCounter > 0)
+        {
+            attackCooldownCounter -= Time.deltaTime;
+        }
+
+    }
 
     public void ChangeAnimationState(string newState)
     {
@@ -75,12 +91,14 @@ public class FistAttack : Weapon
 
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
 
+
     }
 
     private void Update()
     {
 
         SetAnimations();
+        HandleM1CoolDown();
     }
 
     void ResetAttack()
@@ -102,6 +120,7 @@ public class FistAttack : Weapon
         if (isAttacking) return;
 
         isAttacking = true;
+        attackCooldownCounter = M1AnimationDuration;
 
         Invoke(nameof(ResetAttack), attackCooldown);
         StartCoroutine(AttackRaycast(attackRange, attackDamage, attackDelay));
@@ -112,6 +131,16 @@ public class FistAttack : Weapon
 
     public override void Attack_M2(CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("FistAttack: Attack_M2 not implemented");
+    }
+
+    public override void enableScript()
+    {
+        OnEnable();
+    }
+
+    public override void disableScript()
+    {
+        OnDisable();
     }
 }

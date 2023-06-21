@@ -228,4 +228,14 @@ public class BroadswordAttack : Weapon
     {
         return defendDurationCounter > 0;
     }
+
+    public override void enableScript()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void disableScript()
+    {
+        throw new System.NotImplementedException();
+    }
 }

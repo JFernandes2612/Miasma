@@ -14,7 +14,6 @@ public abstract class Weapon : MonoBehaviour
     protected bool readyToM2 = true;
     public Camera cam;
 
-
     public abstract float getLMBCooldown();
 
     public abstract bool isLMBCooldown();
@@ -23,6 +22,9 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract bool isRMBCooldown();
 
+    public abstract void enableScript();
+
+    public abstract void disableScript();
     protected void HitTarget(Vector3 pos, GameObject hittable)
     {
         // play fist hit event

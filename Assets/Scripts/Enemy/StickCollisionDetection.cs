@@ -10,13 +10,25 @@ public class StickCollisionDetection : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            Transform parent = 
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent.
+                gameObject.transform.parent;
 
             // Get the Player component from the collided object
             Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null && transform.root.gameObject.GetComponent<Enemy>()!= null)
+
+            if (player != null && parent.GetComponent<Enemy>()!= null)
             {
                 // Call the TakeDamage function on the Player object
-                player.TakeDamage(damage + transform.root.gameObject.GetComponent<Enemy>().extraDamage);
+                player.TakeDamage(damage + parent.GetComponent<Enemy>().extraDamage);
             }
         }
 

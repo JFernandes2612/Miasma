@@ -66,7 +66,7 @@ public class Player : Entity
     {
         movementScript.SetFmodSpeed(0.0f);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
             Destroy(gameObject);
         Awake();
     }

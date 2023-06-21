@@ -29,7 +29,7 @@ public class WeaponUI : MonoBehaviour
     [SerializeField]
     private GameObject LMBCharging;
 
-    private WeaponSwitching.Weapon lastWeapon;
+    private WeaponSwitching.WeaponEnum lastWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class WeaponUI : MonoBehaviour
 
         switch (weaponChanger.currentWeapon)
         {
-            case WeaponSwitching.Weapon.Fists:
+            case WeaponSwitching.WeaponEnum.Fists:
                 FistAttack script = weaponChanger.currentWeaponObject.GetComponent<FistAttack>();
                 if (script == null) return;
                 if (script.isLMBCooldown())
@@ -77,8 +77,7 @@ public class WeaponUI : MonoBehaviour
                     }
                     else
                     {
-
-                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / script.getLMBCooldown();
+                        LMBCoolDown.GetComponent<Slider>().value = script.getLMBCooldown();
                     }
 
                 }
@@ -88,7 +87,7 @@ public class WeaponUI : MonoBehaviour
                     LMBCoolDown.SetActive(false);
                 }
                 break;
-            case WeaponSwitching.Weapon.Rapier:
+            case WeaponSwitching.WeaponEnum.Rapier:
                 RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
                 if (scriptRapier.isLMBCooldown())
@@ -102,8 +101,7 @@ public class WeaponUI : MonoBehaviour
                     }
                     else
                     {
-
-                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / scriptRapier.getLMBCooldown();
+                        LMBCoolDown.GetComponent<Slider>().value = scriptRapier.getLMBCooldown();
                     }
                 }
                 else
@@ -113,31 +111,9 @@ public class WeaponUI : MonoBehaviour
                     LMBCombo.SetActive(false);
                 }
                 break;
-            case WeaponSwitching.Weapon.BroadSword:
-                BroadswordAttack scriptBroadSword = weaponChanger.currentWeaponObject.GetComponent<BroadswordAttack>();
-                if (scriptBroadSword == null) return;
-                if (scriptBroadSword.isLMBCooldown())
-                {
-                    LMBCombo.SetActive(true);
-                    LMBCombo.GetComponent<TMPro.TextMeshProUGUI>().text = scriptBroadSword.getAttackPhase() + "X";
-                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
-                    {
-                        LMBCoolDown.GetComponent<Slider>().value = 1;
-                        LMBCoolDown.SetActive(true);
-                    }
-                    else
-                    {
-                        LMBCoolDown.GetComponent<Slider>().value = scriptBroadSword.getLMBCooldown();
-                    }
-                }
-                else
-                {
-                    LMBCoolDown.GetComponent<Slider>().value = 0;
-                    LMBCoolDown.SetActive(false);
-                    LMBCombo.SetActive(false);
-                }
+            case WeaponSwitching.WeaponEnum.BroadSword:
                 break;
-            case WeaponSwitching.Weapon.Daggers:
+            case WeaponSwitching.WeaponEnum.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
                 if (scriptDagger == null) return;
                 if (scriptDagger.isCharging())
@@ -173,9 +149,9 @@ public class WeaponUI : MonoBehaviour
     {
         switch (weaponChanger.currentWeapon)
         {
-            case WeaponSwitching.Weapon.Fists:
+            case WeaponSwitching.WeaponEnum.Fists:
                 break;
-            case WeaponSwitching.Weapon.Rapier:
+            case WeaponSwitching.WeaponEnum.Rapier:
                 RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
                 if (scriptRapier.isRMBCooldown())
@@ -198,31 +174,10 @@ public class WeaponUI : MonoBehaviour
                     RMBCoolDown.SetActive(false);
                 }
                 break;
-            case WeaponSwitching.Weapon.BroadSword:
-                BroadswordAttack broadSwordScript = weaponChanger.currentWeaponObject.GetComponent<BroadswordAttack>();
-                if (broadSwordScript == null) return;
-                if (broadSwordScript.isRMBCooldown())
-                {
-                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
-                    {
-                        RMBCoolDown.GetComponent<Slider>().value = 1;
-                        RMBCoolDown.SetActive(true);
-                    }
-                    else
-                    {
+            case WeaponSwitching.WeaponEnum.BroadSword:
 
-                        RMBCoolDown.GetComponent<Slider>().value = broadSwordScript.getRMBCooldown();
-                    }
-
-                }
-                else
-                {
-                    RMBCoolDown.GetComponent<Slider>().value = 0;
-                    RMBCoolDown.SetActive(false);
-                }
                 break;
-
-            case WeaponSwitching.Weapon.Daggers:
+            case WeaponSwitching.WeaponEnum.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
                 if (scriptDagger == null) return;
                 if (scriptDagger.isRMBCooldown())
@@ -255,10 +210,10 @@ public class WeaponUI : MonoBehaviour
 
     void updateChips()
     {
-        toggleChip(WeaponSwitching.Weapon.Fists, "FistChip");
-        toggleChip(WeaponSwitching.Weapon.Rapier, "RapierChip");
-        toggleChip(WeaponSwitching.Weapon.BroadSword, "BroadSwordChip");
-        toggleChip(WeaponSwitching.Weapon.Daggers, "DaggersChip");
+        toggleChip(WeaponSwitching.WeaponEnum.Fists, "FistChip");
+        toggleChip(WeaponSwitching.WeaponEnum.Rapier, "RapierChip");
+        toggleChip(WeaponSwitching.WeaponEnum.BroadSword, "BroadSwordChip");
+        toggleChip(WeaponSwitching.WeaponEnum.Daggers, "DaggersChip");
     }
 
     void updateIcons()
@@ -267,22 +222,22 @@ public class WeaponUI : MonoBehaviour
 
         switch (weaponChanger.currentWeapon)
         {
-            case WeaponSwitching.Weapon.Fists:
+            case WeaponSwitching.WeaponEnum.Fists:
                 toggleWeaponWheelOptions("FistSelected");
                 toggleAttacks("Fists");
                 toggleWeapons("Fists");
                 break;
-            case WeaponSwitching.Weapon.Rapier:
+            case WeaponSwitching.WeaponEnum.Rapier:
                 toggleWeaponWheelOptions("RapierSelected");
                 toggleAttacks("Rapier");
                 toggleWeapons("Rapier");
                 break;
-            case WeaponSwitching.Weapon.BroadSword:
+            case WeaponSwitching.WeaponEnum.BroadSword:
                 toggleWeaponWheelOptions("BroadSwordSelected");
                 toggleAttacks("BroadSword");
                 toggleWeapons("BroadSword");
                 break;
-            case WeaponSwitching.Weapon.Daggers:
+            case WeaponSwitching.WeaponEnum.Daggers:
                 toggleWeaponWheelOptions("DaggersSelected");
                 toggleAttacks("Daggers");
                 toggleWeapons("Daggers");
@@ -296,7 +251,7 @@ public class WeaponUI : MonoBehaviour
     }
 
 
-    void toggleChip(WeaponSwitching.Weapon weapon, string name)
+    void toggleChip(WeaponSwitching.WeaponEnum weapon, string name)
     {
         if (weaponChanger.availableWeapons.Contains(weapon))
         {

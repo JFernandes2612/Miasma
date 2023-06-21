@@ -96597,15 +96597,29 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: AttackHitbox
+  - time: 0.02
+    functionName: UpdateCountDownTimer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.42
+    functionName: enableRapierCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.14
+    functionName: disableRapierCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.46
-    functionName: AnimEvent
+    functionName: CheckAttackPhase
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
