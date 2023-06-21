@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     }
 
     private void Update() {
-        if (SceneManager.GetActiveScene().buildIndex == 7) {
+        if (SceneManager.GetActiveScene().buildIndex == 8) {
             if (GameObject.FindWithTag("Enemy") == null)
                 GameObject.FindWithTag("GameEnd").SetActive(true);
         }
