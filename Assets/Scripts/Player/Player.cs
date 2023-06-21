@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
-    [ReadOnlyAttribute]
     [SerializeField]
     private bool invincible = false;
 
