@@ -28,6 +28,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-7983129389360153979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Background
+  m_EditorClassIdentifier: 
+  Path: event:/Background
+  Guid:
+    Data1: -1140641736
+    Data2: 1131067469
+    Data3: 1902937003
+    Data4: 478177310
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138000
 --- !u!114 &-7651269724858255133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,12 +211,14 @@ MonoBehaviour:
   - {fileID: 4502263237380393393}
   - {fileID: 8862459664332151297}
   - {fileID: -482888509368537916}
+  - {fileID: -7983129389360153979}
+  - {fileID: 7863356731684924750}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7723812583777605861}
   StringsBanks:
   - {fileID: 6294208581512736429}
-  cacheTime: 638229818431633241
+  cacheTime: 638229830202452534
   cacheVersion: 131603
 --- !u!114 &201742690306839357
 MonoBehaviour:
@@ -287,10 +316,10 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638229818431633241
+  lastModified: 638229830202452534
   FileSizes:
   - Name: Desktop
-    Value: 1258
+    Value: 1336
   Exists: 1
 --- !u!114 &7723812583777605861
 MonoBehaviour:
@@ -307,11 +336,38 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638229818431633241
+  lastModified: 638229830202412839
   FileSizes:
   - Name: Desktop
-    Value: 202848
+    Value: 1822304
   Exists: 1
+--- !u!114 &7863356731684924750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Title
+  m_EditorClassIdentifier: 
+  Path: event:/Title
+  Guid:
+    Data1: -1164251967
+    Data2: 1288164744
+    Data3: 911806614
+    Data4: -843840286
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138000
 --- !u!114 &8148450322758957095
 MonoBehaviour:
   m_ObjectHideFlags: 0

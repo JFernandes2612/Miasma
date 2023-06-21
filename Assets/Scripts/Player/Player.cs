@@ -15,7 +15,7 @@ public class Player : Entity
 
     private Movement movementScript;
 
-    public FMODUnity.EventReference deathEffectsEvent; // wind + lightsaberish effects
+    public FMODUnity.EventReference deathEffectsEvent;
     private FMOD.Studio.EventInstance deathEffectsInstance;
 
     public void AddRedPoints(int points)
@@ -69,6 +69,7 @@ public class Player : Entity
     {
         movementScript.SetFmodSpeed(0.0f);
         deathEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(deathEffectsEvent);
+        deathEffectsInstance.start();
         movementScript.SetFmodSpeed(0.0f);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
         if (SceneManager.GetActiveScene().buildIndex == 1)
