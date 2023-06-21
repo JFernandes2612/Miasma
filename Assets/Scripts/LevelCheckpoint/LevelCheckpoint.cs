@@ -18,8 +18,8 @@ public class LevelCheckpoint : MonoBehaviour
     private FMOD.Studio.EventInstance checkpointInstance;
 
     private void Start() {
-        floatingMessage = GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>();
         checkpointInstance = FMODUnity.RuntimeManager.CreateInstance(checkpointEvent);
+        floatingMessage = GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>();
     }
 
     private bool checkEnemyDependency() {
