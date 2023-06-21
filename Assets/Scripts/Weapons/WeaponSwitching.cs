@@ -8,12 +8,12 @@ public class WeaponSwitching : MonoBehaviour
     [SerializeField]
     private GameObject menu;
 
-    public Weapon currentWeapon = Weapon.None;
-    private  Weapon previousSelectedWeapon;
-    public List<Weapon> availableWeapons;
+    public WeaponEnum currentWeapon = WeaponEnum.None;
+    private WeaponEnum previousSelectedWeapon;
+    public List<WeaponEnum> availableWeapons;
     public GameObject currentWeaponObject;
 
-    public enum Weapon {Fists, Rapier, BroadSword, Daggers, None};
+    public enum WeaponEnum { Fists, Rapier, BroadSword, Daggers, None };
 
 
     public int numberOfWeapons = 0;
@@ -33,8 +33,28 @@ public class WeaponSwitching : MonoBehaviour
         HandleSelectWheel();
     }
 
+    public void disableCurrentWeapon()
+    {
+        if (currentWeaponObject != null)
+        {
+            Weapon weaponScript = currentWeaponObject.GetComponent<Weapon>();
+            if (weaponScript != null) weaponScript.disableScript();
+        }
+    }
 
-    public void HandleSelectWheel(){
+    public void enableCurrentWeapon()
+    {
+        if (currentWeaponObject != null)
+        {
+            Weapon weaponScript = currentWeaponObject.GetComponent<Weapon>();
+            if (weaponScript != null) weaponScript.enableScript();
+        }
+    }
+
+
+
+    public void HandleSelectWheel()
+    {
         if (Input.GetKey(KeyCode.F))
         {
             Cursor.visible = true;
@@ -45,33 +65,44 @@ public class WeaponSwitching : MonoBehaviour
             float middleX = (Screen.width / 2);
             float middleY = (Screen.height / 2);
 
-            if (pos.x < middleX - 30 && pos.y > middleY + 25 ){
-                if (availableWeapons.Contains(Weapon.Fists)){
-                    currentWeapon = Weapon.Fists;
+            if (pos.x < middleX - 30 && pos.y > middleY + 25)
+            {
+                if (availableWeapons.Contains(WeaponEnum.Fists))
+                {
+                    currentWeapon = WeaponEnum.Fists;
                     if (previousSelectedWeapon != currentWeapon)
                     {
                         SelectWeapon("fists(Clone)");
                     }
                 }
-            }else if(pos.x > middleX - 30 && pos.x < middleX + 30 && pos.y > middleY + 25 ){
-                 if (availableWeapons.Contains(Weapon.Rapier)){
-                    currentWeapon = Weapon.Rapier;
+            }
+            else if (pos.x > middleX - 30 && pos.x < middleX + 30 && pos.y > middleY + 25)
+            {
+                if (availableWeapons.Contains(WeaponEnum.Rapier))
+                {
+                    currentWeapon = WeaponEnum.Rapier;
                     if (previousSelectedWeapon != currentWeapon)
                     {
                         SelectWeapon("rapier(Clone)");
                     }
-                 }
-            }else if(pos.x > middleX + 30 && pos.y > middleY + 25 ){
-                if (availableWeapons.Contains(Weapon.BroadSword)){
-                    currentWeapon = Weapon.BroadSword;
+                }
+            }
+            else if (pos.x > middleX + 30 && pos.y > middleY + 25)
+            {
+                if (availableWeapons.Contains(WeaponEnum.BroadSword))
+                {
+                    currentWeapon = WeaponEnum.BroadSword;
                     if (previousSelectedWeapon != currentWeapon)
                     {
                         SelectWeapon("broadsword(Clone)");
                     }
                 }
-            }else if(pos.x > middleX + 30 && pos.y < middleY + 25  && pos.y > middleY - 25){
-                if (availableWeapons.Contains(Weapon.Daggers)){
-                    currentWeapon = Weapon.Daggers;
+            }
+            else if (pos.x > middleX + 30 && pos.y < middleY + 25 && pos.y > middleY - 25)
+            {
+                if (availableWeapons.Contains(WeaponEnum.Daggers))
+                {
+                    currentWeapon = WeaponEnum.Daggers;
                     if (previousSelectedWeapon != currentWeapon)
                     {
                         SelectWeapon("daggers(Clone)");
@@ -79,58 +110,66 @@ public class WeaponSwitching : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyUp(KeyCode.F)){
+        if (Input.GetKeyUp(KeyCode.F))
+        {
             Cursor.visible = false;
             menu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
-    public void ResetWeapons() {
+    public void ResetWeapons()
+    {
         int i = 0;
-        foreach (Transform weapon in transform) {
+        foreach (Transform weapon in transform)
+        {
             if (i > numberOfWeapons)
             {
                 Destroy(weapon.gameObject);
             }
             i++;
         }
-        availableWeapons = new List<Weapon>();
+        availableWeapons = new List<WeaponEnum>();
         updateAvailableWeapons();
     }
 
-    public int NumberOfWeapons() {
+    public int NumberOfWeapons()
+    {
         int i = -1;
         foreach (Transform weapon in transform) i++;
         return i;
     }
 
-    void updateCurrentWeapon(){
+    void updateCurrentWeapon()
+    {
 
-        if (transform.childCount == 1 || transform.childCount == 0){
-            currentWeapon = Weapon.None;
+        if (transform.childCount == 1 || transform.childCount == 0)
+        {
+            currentWeapon = WeaponEnum.None;
             currentWeaponObject = null;
         }
 
         foreach (Transform weapon in transform)
         {
-            if (weapon.gameObject.activeSelf){
+            if (weapon.gameObject.activeSelf)
+            {
                 currentWeaponObject = weapon.gameObject;
-                switch(weapon.name){
+                switch (weapon.name)
+                {
                     case "fists(Clone)":
-                        currentWeapon = Weapon.Fists;
+                        currentWeapon = WeaponEnum.Fists;
 
                         break;
                     case "rapier(Clone)":
-                        currentWeapon = Weapon.Rapier;
+                        currentWeapon = WeaponEnum.Rapier;
 
                         break;
                     case "broadsword(Clone)":
-                        currentWeapon = Weapon.BroadSword;
+                        currentWeapon = WeaponEnum.BroadSword;
 
                         break;
                     case "daggers(Clone)":
-                        currentWeapon = Weapon.Daggers;
+                        currentWeapon = WeaponEnum.Daggers;
 
                         break;
                 }
@@ -138,22 +177,24 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-    void updateAvailableWeapons(){
-        availableWeapons = new List<Weapon>();
+    void updateAvailableWeapons()
+    {
+        availableWeapons = new List<WeaponEnum>();
         foreach (Transform weapon in transform)
         {
-            switch(weapon.name){
+            switch (weapon.name)
+            {
                 case "fists(Clone)":
-                    availableWeapons.Add(Weapon.Fists);
+                    availableWeapons.Add(WeaponEnum.Fists);
                     break;
                 case "rapier(Clone)":
-                    availableWeapons.Add(Weapon.Rapier);
+                    availableWeapons.Add(WeaponEnum.Rapier);
                     break;
                 case "broadsword(Clone)":
-                    availableWeapons.Add(Weapon.BroadSword);
+                    availableWeapons.Add(WeaponEnum.BroadSword);
                     break;
                 case "daggers(Clone)":
-                    availableWeapons.Add(Weapon.Daggers);
+                    availableWeapons.Add(WeaponEnum.Daggers);
                     break;
             }
         }

@@ -91,6 +91,7 @@ public class FistAttack : Weapon
 
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
 
+
     }
 
     private void Update()
@@ -130,6 +131,16 @@ public class FistAttack : Weapon
 
     public override void Attack_M2(CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("FistAttack: Attack_M2 not implemented");
+    }
+
+    public override void enableScript()
+    {
+        OnEnable();
+    }
+
+    public override void disableScript()
+    {
+        OnDisable();
     }
 }
