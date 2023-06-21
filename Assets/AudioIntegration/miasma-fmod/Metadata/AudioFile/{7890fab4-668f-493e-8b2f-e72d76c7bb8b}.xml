@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7890fab4-668f-493e-8b2f-e72d76c7bb8b}">
+		<property name="assetPath">
+			<value>Environment/CheckpointChime.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b04f92d5-7741-42f6-8334-4e482c2ae581}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -13,6 +13,11 @@ public class Player : Entity
 
     private int yellowPoints = 0;
 
+    private Movement movementScript;
+
+    public FMODUnity.EventReference deathEffectsEvent;
+    private FMOD.Studio.EventInstance deathEffectsInstance;
+
     public void AddRedPoints(int points)
     {
         redPoints += points;
@@ -45,6 +50,8 @@ public class Player : Entity
     {
         base.Awake();
         DontDestroyOnLoad(transform.gameObject);
+
+        movementScript = GetComponent<Movement>(); // for changing movement sound effects on death
     }
 
     public void setInvincible(bool value)
@@ -60,6 +67,10 @@ public class Player : Entity
 
     protected override void Death()
     {
+        movementScript.SetFmodSpeed(0.0f);
+        deathEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(deathEffectsEvent);
+        deathEffectsInstance.start();
+        movementScript.SetFmodSpeed(0.0f);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().ReloadLevel();
         if (SceneManager.GetActiveScene().buildIndex == 2)
             Destroy(gameObject);
