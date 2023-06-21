@@ -26,7 +26,7 @@ public class WeaponUI : MonoBehaviour
     [SerializeField]
     private GameObject RMBCoolDown;
 
-      [SerializeField]
+    [SerializeField]
     private GameObject LMBCharging;
 
     private WeaponSwitching.Weapon lastWeapon;
@@ -42,7 +42,8 @@ public class WeaponUI : MonoBehaviour
     void Update()
     {
 
-        if(lastWeapon != weaponChanger.currentWeapon){
+        if (lastWeapon != weaponChanger.currentWeapon)
+        {
             LMBCoolDown.GetComponent<Slider>().value = 0;
             LMBCoolDown.SetActive(false);
             RMBCoolDown.GetComponent<Slider>().value = 0;
@@ -59,42 +60,52 @@ public class WeaponUI : MonoBehaviour
         updateIcons();
     }
 
-    void updateLMBCooldown(){
+    void updateLMBCooldown()
+    {
 
-         switch(weaponChanger.currentWeapon){
+        switch (weaponChanger.currentWeapon)
+        {
             case WeaponSwitching.Weapon.Fists:
                 FistAttack script = weaponChanger.currentWeaponObject.GetComponent<FistAttack>();
                 if (script == null) return;
-                if (script.isLMBCooldown()){
-                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf){
+                if (script.isLMBCooldown())
+                {
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
+                    {
                         LMBCoolDown.GetComponent<Slider>().value = 1;
                         LMBCoolDown.SetActive(true);
                     }
-                    else{
-                        
-                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / script.getLMBCooldown();
+                    else
+                    {
+                        LMBCoolDown.GetComponent<Slider>().value = script.getLMBCooldown();
                     }
 
-                }else{
+                }
+                else
+                {
                     LMBCoolDown.GetComponent<Slider>().value = 0;
                     LMBCoolDown.SetActive(false);
                 }
                 break;
             case WeaponSwitching.Weapon.Rapier:
-                RapierAttack scriptRapier= weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
+                RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
-                if (scriptRapier.isLMBCooldown()){
+                if (scriptRapier.isLMBCooldown())
+                {
                     LMBCombo.SetActive(true);
                     LMBCombo.GetComponent<TMPro.TextMeshProUGUI>().text = scriptRapier.getAttackPhase() + "X";
-                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf){
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
+                    {
                         LMBCoolDown.GetComponent<Slider>().value = 1;
                         LMBCoolDown.SetActive(true);
                     }
-                    else{
-                        
-                        LMBCoolDown.GetComponent<Slider>().value -= Time.deltaTime / scriptRapier.getLMBCooldown();
+                    else
+                    {
+                        LMBCoolDown.GetComponent<Slider>().value = scriptRapier.getLMBCooldown();
                     }
-                }else{
+                }
+                else
+                {
                     LMBCoolDown.GetComponent<Slider>().value = 0;
                     LMBCoolDown.SetActive(false);
                     LMBCombo.SetActive(false);
@@ -105,18 +116,24 @@ public class WeaponUI : MonoBehaviour
             case WeaponSwitching.Weapon.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
                 if (scriptDagger == null) return;
-                if (scriptDagger.isCharging()){
-                    if (LMBCharging.GetComponent<Slider>().value == 0 || !LMBCharging.activeSelf){
+                if (scriptDagger.isCharging())
+                {
+                    if (LMBCharging.GetComponent<Slider>().value == 0 || !LMBCharging.activeSelf)
+                    {
                         LMBCharging.GetComponent<Slider>().value = 1;
                         LMBCharging.SetActive(true);
                     }
-                    else{
-                        if (scriptDagger.getChargeUp() < 1){
+                    else
+                    {
+                        if (scriptDagger.getChargeUp() < 1)
+                        {
                             LMBCharging.GetComponent<Slider>().value = scriptDagger.getChargeUp();
                         }
                     }
 
-                }else{
+                }
+                else
+                {
                     LMBCharging.GetComponent<Slider>().value = 0;
                     LMBCharging.SetActive(false);
                 }
@@ -124,28 +141,35 @@ public class WeaponUI : MonoBehaviour
             default:
                 break;
         }
-       
+
     }
 
 
-    void updateRMBCooldown(){
-         switch(weaponChanger.currentWeapon){
+    void updateRMBCooldown()
+    {
+        switch (weaponChanger.currentWeapon)
+        {
             case WeaponSwitching.Weapon.Fists:
                 break;
             case WeaponSwitching.Weapon.Rapier:
                 RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
-                if (scriptRapier.isRMBCooldown()){
-                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf){
+                if (scriptRapier.isRMBCooldown())
+                {
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
+                    {
                         RMBCoolDown.GetComponent<Slider>().value = 1;
                         RMBCoolDown.SetActive(true);
                     }
-                    else{
-                        
+                    else
+                    {
+
                         RMBCoolDown.GetComponent<Slider>().value = scriptRapier.getRMBCooldown();
                     }
 
-                }else{
+                }
+                else
+                {
                     RMBCoolDown.GetComponent<Slider>().value = 0;
                     RMBCoolDown.SetActive(false);
                 }
@@ -156,40 +180,48 @@ public class WeaponUI : MonoBehaviour
             case WeaponSwitching.Weapon.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
                 if (scriptDagger == null) return;
-                if (scriptDagger.isRMBCooldown()){
-                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf){
+                if (scriptDagger.isRMBCooldown())
+                {
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
+                    {
                         RMBCoolDown.GetComponent<Slider>().value = 1;
                         RMBCoolDown.SetActive(true);
                     }
-                    else{
-                        
+                    else
+                    {
+
                         RMBCoolDown.GetComponent<Slider>().value = scriptDagger.getRMBCooldown();
                     }
 
-                }else{
+                }
+                else
+                {
                     RMBCoolDown.GetComponent<Slider>().value = 0;
                     RMBCoolDown.SetActive(false);
                 }
                 break;
             default:
-        
+
                 break;
         }
-       
+
     }
 
 
-    void updateChips(){
-        toggleChip(WeaponSwitching.Weapon.Fists,"FistChip");
-        toggleChip(WeaponSwitching.Weapon.Rapier,"RapierChip");
-        toggleChip(WeaponSwitching.Weapon.BroadSword,"BroadSwordChip");
-        toggleChip(WeaponSwitching.Weapon.Daggers,"DaggersChip");
+    void updateChips()
+    {
+        toggleChip(WeaponSwitching.Weapon.Fists, "FistChip");
+        toggleChip(WeaponSwitching.Weapon.Rapier, "RapierChip");
+        toggleChip(WeaponSwitching.Weapon.BroadSword, "BroadSwordChip");
+        toggleChip(WeaponSwitching.Weapon.Daggers, "DaggersChip");
     }
 
-    void updateIcons(){
+    void updateIcons()
+    {
         updateChips();
 
-        switch(weaponChanger.currentWeapon){
+        switch (weaponChanger.currentWeapon)
+        {
             case WeaponSwitching.Weapon.Fists:
                 toggleWeaponWheelOptions("FistSelected");
                 toggleAttacks("Fists");
@@ -219,53 +251,78 @@ public class WeaponUI : MonoBehaviour
     }
 
 
-    void toggleChip(WeaponSwitching.Weapon weapon, string name){
-        if (weaponChanger.availableWeapons.Contains(weapon)){
-            foreach (Transform child in chips.transform){
-                if (child.name == name){
+    void toggleChip(WeaponSwitching.Weapon weapon, string name)
+    {
+        if (weaponChanger.availableWeapons.Contains(weapon))
+        {
+            foreach (Transform child in chips.transform)
+            {
+                if (child.name == name)
+                {
                     child.gameObject.SetActive(true);
                     break;
                 }
             }
-        }else{
-            foreach (Transform child in chips.transform){
-            if (child.name == name){
+        }
+        else
+        {
+            foreach (Transform child in chips.transform)
+            {
+                if (child.name == name)
+                {
+                    child.gameObject.SetActive(false);
+                    break;
+                }
+            }
+        }
+    }
+
+    void toggleWeaponWheelOptions(string name)
+    {
+
+        foreach (Transform child in weaponWheel.transform)
+        {
+            if (child.name == name)
+            {
+                child.gameObject.SetActive(true);
+            }
+            else
+            {
                 child.gameObject.SetActive(false);
-                break;
-            }
-        }
-    }
-    }
-
-    void toggleWeaponWheelOptions(string name){
-       
-        foreach (Transform child in weaponWheel.transform){
-            if (child.name == name){
-                child.gameObject.SetActive(true);
-            }else{
-                child.gameObject.SetActive(false);
             }
         }
     }
 
-    void toggleAttacks(string name){
-       
-        foreach (Transform child in attacks.transform){
-            if (child.name == name){
+    void toggleAttacks(string name)
+    {
+
+        foreach (Transform child in attacks.transform)
+        {
+            if (child.name == name)
+            {
                 child.gameObject.SetActive(true);
-            }else{
-                if (child.name != "LMB"&& child.name != "RMB"){
-                child.gameObject.SetActive(false);}
+            }
+            else
+            {
+                if (child.name != "LMB" && child.name != "RMB")
+                {
+                    child.gameObject.SetActive(false);
+                }
             }
         }
     }
 
-       void toggleWeapons(string name){
-       
-        foreach (Transform child in weapons.transform){
-            if (child.name == name){
+    void toggleWeapons(string name)
+    {
+
+        foreach (Transform child in weapons.transform)
+        {
+            if (child.name == name)
+            {
                 child.gameObject.SetActive(true);
-            }else{
+            }
+            else
+            {
                 child.gameObject.SetActive(false);
             }
         }

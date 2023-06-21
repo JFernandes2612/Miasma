@@ -9,7 +9,7 @@ public class RapierAttack : Weapon
     private float M2AttackDamage = 2f;
 
     [SerializeField]
-    private float M2AttackDelay = 1f;
+    private float M2AttackDelay = 1.8f;
 
     [SerializeField]
     private float M2LungeForce = 100f;
@@ -32,6 +32,8 @@ public class RapierAttack : Weapon
     [SerializeField]
     private float M1AttackDelay = 0.3f;
 
+    private float M1CountDownTimer = 0f;
+    private float M1AnimationDuration = 1.6f;
     [SerializeField]
     private float M1AttackDamage = 1f;
 
@@ -44,7 +46,8 @@ public class RapierAttack : Weapon
 
     private int CountAttack;
 
-    public int getAttackPhase(){
+    public int getAttackPhase()
+    {
         return CountAttack;
     }
 
@@ -54,20 +57,24 @@ public class RapierAttack : Weapon
     private Rigidbody playerRb;
 
 
-    public override  float getRMBCooldown(){
-        return M2attackCooldownCounter/ M2AttackCooldown;
+    public override float getRMBCooldown()
+    {
+        return M2attackCooldownCounter / M2AttackCooldown;
     }
 
-    public override  float getLMBCooldown(){
-        return M1AttackDelay * 3;
+    public override float getLMBCooldown()
+    {
+        return M1CountDownTimer / M1AnimationDuration;
     }
 
-    public override  bool isRMBCooldown(){
+    public override bool isRMBCooldown()
+    {
         return !readyToM2;
     }
 
-    public override  bool isLMBCooldown(){
-        return isAttacking && readyToM2;
+    public override bool isLMBCooldown()
+    {
+        return isAttacking;
     }
 
     void Awake()
@@ -122,6 +129,20 @@ public class RapierAttack : Weapon
         }
     }
 
+    private void HandleM1CoolDown()
+    {
+        if (M1CountDownTimer > 0f)
+        {
+            M1CountDownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            M1CountDownTimer = 0f;
+        }
+
+
+    }
+
     public void M1AttackHitBox()
     {
         StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
@@ -132,18 +153,22 @@ public class RapierAttack : Weapon
         if (CountAttack == 1)
         {
             animator.SetInteger("attackPhase", 1);
-            //StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
             isAttacking = true;
         }
         HandleLungeCoolDown();
+        HandleM1CoolDown();
+
+
 
     }
 
 
     public override void Attack_M1(CallbackContext context)
     {
-        if (CountAttack < 3){
-        CountAttack++;}
+        if (CountAttack < 3)
+        {
+            CountAttack++;
+        }
 
         // play fist swing event
         //FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
@@ -171,9 +196,15 @@ public class RapierAttack : Weapon
 
     }
 
+    public void UpdateCountDownTimer()
+    {
+        isAttacking = true;
+        M1CountDownTimer = M1AnimationDuration;
+    }
+
     public void CheckAttackPhase()
     {
-        Debug.Log("CountAttack: " + CountAttack);
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(LUNGE_1))
         {
             if (CountAttack > 1)
