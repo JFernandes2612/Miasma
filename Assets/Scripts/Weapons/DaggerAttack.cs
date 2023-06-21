@@ -136,6 +136,17 @@ public class DaggerAttack : Weapon
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
         playerAttack.Player_Map.Attack.canceled -= Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
+
+    }
+    public override void enableScript()
+    {
+
+        OnEnable();
+    }
+
+    public override void disableScript()
+    {
+        OnDisable();
     }
     IEnumerator SpawnDaggerProjectiles(int numDaggersToSpawn, Vector3 spawnPos, Quaternion currentRotation)
     {
@@ -250,4 +261,6 @@ public class DaggerAttack : Weapon
             }
         }
     }
+
+
 }

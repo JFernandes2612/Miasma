@@ -90,7 +90,6 @@ public class RapierAttack : Weapon
     }
     void OnEnable()
     {
-
         playerAttack.Player_Map.Attack.performed += Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed += Attack_M2;
     }
@@ -98,6 +97,7 @@ public class RapierAttack : Weapon
     void OnDisable()
     {
 
+        disableRapierCollider();
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
     }
@@ -222,5 +222,13 @@ public class RapierAttack : Weapon
         isAttacking = false;
     }
 
+    public override void enableScript()
+    {
+        OnEnable();
+    }
 
+    public override void disableScript()
+    {
+        OnDisable();
+    }
 }

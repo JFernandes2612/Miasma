@@ -130,7 +130,12 @@ public class Enemy : Entity
 
     public void Freeze()
     {
-        StartCoroutine(PauseAnimation());
+        PauseAnimation();
+    }
+
+    public void UnFreeze()
+    {
+        ResumeAnimation();
     }
 
     override protected void Death()
@@ -140,7 +145,7 @@ public class Enemy : Entity
         Destroy(gameObject, 10);
     }
 
-    private IEnumerator PauseAnimation()
+    private void PauseAnimation()
     {
 
         animator = GetComponent<Animator>();
@@ -151,9 +156,11 @@ public class Enemy : Entity
         animator.speed = 0f;
         agent.speed = 0f;
 
-        // Wait for 5 seconds
-        yield return new WaitForSeconds(5f);
 
+    }
+
+    private void ResumeAnimation()
+    {
         // Resume the animation
         animator.speed = prevAnimatorSpeed;
         agent.speed = prevAgentSpeed;

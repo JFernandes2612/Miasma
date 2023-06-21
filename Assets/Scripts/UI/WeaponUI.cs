@@ -29,7 +29,7 @@ public class WeaponUI : MonoBehaviour
     [SerializeField]
     private GameObject LMBCharging;
 
-    private WeaponSwitching.Weapon lastWeapon;
+    private WeaponSwitching.WeaponEnum lastWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class WeaponUI : MonoBehaviour
 
         switch (weaponChanger.currentWeapon)
         {
-            case WeaponSwitching.Weapon.Fists:
+            case WeaponSwitching.WeaponEnum.Fists:
                 FistAttack script = weaponChanger.currentWeaponObject.GetComponent<FistAttack>();
                 if (script == null) return;
                 if (script.isLMBCooldown())
@@ -88,7 +88,7 @@ public class WeaponUI : MonoBehaviour
                     LMBCoolDown.SetActive(false);
                 }
                 break;
-            case WeaponSwitching.Weapon.Rapier:
+            case WeaponSwitching.WeaponEnum.Rapier:
                 RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
                 if (scriptRapier.isLMBCooldown())
@@ -137,7 +137,7 @@ public class WeaponUI : MonoBehaviour
                     LMBCombo.SetActive(false);
                 }
                 break;
-            case WeaponSwitching.Weapon.Daggers:
+            case WeaponSwitching.WeaponEnum.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
                 if (scriptDagger == null) return;
                 if (scriptDagger.isCharging())
@@ -173,9 +173,9 @@ public class WeaponUI : MonoBehaviour
     {
         switch (weaponChanger.currentWeapon)
         {
-            case WeaponSwitching.Weapon.Fists:
+            case WeaponSwitching.WeaponEnum.Fists:
                 break;
-            case WeaponSwitching.Weapon.Rapier:
+            case WeaponSwitching.WeaponEnum.Rapier:
                 RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
                 if (scriptRapier.isRMBCooldown())
@@ -255,10 +255,10 @@ public class WeaponUI : MonoBehaviour
 
     void updateChips()
     {
-        toggleChip(WeaponSwitching.Weapon.Fists, "FistChip");
-        toggleChip(WeaponSwitching.Weapon.Rapier, "RapierChip");
-        toggleChip(WeaponSwitching.Weapon.BroadSword, "BroadSwordChip");
-        toggleChip(WeaponSwitching.Weapon.Daggers, "DaggersChip");
+        toggleChip(WeaponSwitching.WeaponEnum.Fists, "FistChip");
+        toggleChip(WeaponSwitching.WeaponEnum.Rapier, "RapierChip");
+        toggleChip(WeaponSwitching.WeaponEnum.BroadSword, "BroadSwordChip");
+        toggleChip(WeaponSwitching.WeaponEnum.Daggers, "DaggersChip");
     }
 
     void updateIcons()
@@ -267,22 +267,22 @@ public class WeaponUI : MonoBehaviour
 
         switch (weaponChanger.currentWeapon)
         {
-            case WeaponSwitching.Weapon.Fists:
+            case WeaponSwitching.WeaponEnum.Fists:
                 toggleWeaponWheelOptions("FistSelected");
                 toggleAttacks("Fists");
                 toggleWeapons("Fists");
                 break;
-            case WeaponSwitching.Weapon.Rapier:
+            case WeaponSwitching.WeaponEnum.Rapier:
                 toggleWeaponWheelOptions("RapierSelected");
                 toggleAttacks("Rapier");
                 toggleWeapons("Rapier");
                 break;
-            case WeaponSwitching.Weapon.BroadSword:
+            case WeaponSwitching.WeaponEnum.BroadSword:
                 toggleWeaponWheelOptions("BroadSwordSelected");
                 toggleAttacks("BroadSword");
                 toggleWeapons("BroadSword");
                 break;
-            case WeaponSwitching.Weapon.Daggers:
+            case WeaponSwitching.WeaponEnum.Daggers:
                 toggleWeaponWheelOptions("DaggersSelected");
                 toggleAttacks("Daggers");
                 toggleWeapons("Daggers");
@@ -296,7 +296,7 @@ public class WeaponUI : MonoBehaviour
     }
 
 
-    void toggleChip(WeaponSwitching.Weapon weapon, string name)
+    void toggleChip(WeaponSwitching.WeaponEnum weapon, string name)
     {
         if (weaponChanger.availableWeapons.Contains(weapon))
         {
