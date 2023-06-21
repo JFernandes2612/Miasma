@@ -21,7 +21,6 @@ public class Enemy : Entity
     public List<Transform> wayPoints = new List<Transform>();
 
     float timer;
-    float freezeTimer;
 
     float prevAnimatorSpeed;
     float prevAgentSpeed;
@@ -49,6 +48,7 @@ public class Enemy : Entity
         {
             timer = 0;
             //TakeDamage(20);
+            //Freeze();
         }
     }
 
