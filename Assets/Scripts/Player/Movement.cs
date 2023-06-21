@@ -68,6 +68,9 @@ public class Movement : MonoBehaviour
     private FMOD.Studio.EventInstance moveEffectsInstance;
     FMOD.Studio.PARAMETER_ID speedID;
 
+    public FMODUnity.EventReference dashEffectsEvent; 
+    private FMOD.Studio.EventInstance dashEffectsInstance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -150,6 +153,8 @@ public class Movement : MonoBehaviour
 
     private IEnumerator QuickStep()
     {
+        dashEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(dashEffectsEvent);
+        dashEffectsInstance.start();
         isAnimLocked = true;
         canQuickStep = false;
         Vector3 wishSpeed = (moveInput.x * transform.right + moveInput.z * transform.forward).normalized;
