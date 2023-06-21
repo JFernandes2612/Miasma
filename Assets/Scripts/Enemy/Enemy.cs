@@ -44,10 +44,10 @@ public class Enemy : Entity
         directionToPlayer = (playerTransform.position - transform.position).normalized;
         directionToPlayer.y += -0.1f;
 
-        if (timer > 4 && currentHealth > 0)
+        if (timer > 5 && currentHealth > 0)
         {
             timer = 0;
-            TakeDamage(20);
+            //TakeDamage(101);
             //Freeze();
         }
     }

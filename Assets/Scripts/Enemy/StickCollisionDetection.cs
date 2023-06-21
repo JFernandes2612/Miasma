@@ -13,7 +13,7 @@ public class StickCollisionDetection : MonoBehaviour
 
             // Get the Player component from the collided object
             Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null)
+            if (player != null && transform.root.gameObject.GetComponent<Enemy>()!= null)
             {
                 // Call the TakeDamage function on the Player object
                 player.TakeDamage(damage + transform.root.gameObject.GetComponent<Enemy>().extraDamage);

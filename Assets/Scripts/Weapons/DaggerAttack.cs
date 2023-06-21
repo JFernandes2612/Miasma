@@ -23,8 +23,7 @@ public class DaggerAttack : Weapon
     private float M2attackCooldownCounter = 0f;
 
     // M1 PARAMETERS
-    [SerializeField]
-    private float M1AttackRange = 3f;
+
 
     [SerializeField]
     private float M1AttackDelay = 0.3f;
@@ -52,27 +51,33 @@ public class DaggerAttack : Weapon
 
     private const string IDLE = "Idle";
 
-    public override  float getRMBCooldown(){
-        return M2attackCooldownCounter/ M2AttackCooldown;
+    public override float getRMBCooldown()
+    {
+        return M2attackCooldownCounter / M2AttackCooldown;
     }
 
-    public float getChargeUp(){
-        return countChargeUpTime/M1MaxChargeUpTime;
+    public float getChargeUp()
+    {
+        return countChargeUpTime / M1MaxChargeUpTime;
     }
 
-    public bool isCharging(){
+    public bool isCharging()
+    {
         return canStartCharge;
     }
 
-    public override  float getLMBCooldown(){
+    public override float getLMBCooldown()
+    {
         return M1AttackDelay;
     }
 
-    public override  bool isRMBCooldown(){
+    public override bool isRMBCooldown()
+    {
         return !readyToM2;
     }
 
-    public override  bool isLMBCooldown(){
+    public override bool isLMBCooldown()
+    {
         return isAttacking && !canStartCharge;
     }
 
@@ -220,7 +225,7 @@ public class DaggerAttack : Weapon
         {
 
             if (!readyToM2 || !animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE)) return;
-            
+
 
             //play assassination sound
             //FMODUnity.RuntimeManager.PlayOneShot(M2AttackEvent);
