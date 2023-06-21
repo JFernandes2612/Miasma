@@ -4896,11 +4896,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
-  enemyHP: 100
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   shotEffectPrefab: {fileID: 0}
-  extraDamage: 5
+  extraDamage: 10
   animator: {fileID: 2345940883054271559}
   attackRange: 2
   chaseRange: 15
@@ -4940,7 +4939,7 @@ Animator:
   m_GameObject: {fileID: 1594479376150921334}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 44cad8bdfbd80484897fcd2abfba4ea2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f75f68b69bf7ca4f8707e076664c1da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

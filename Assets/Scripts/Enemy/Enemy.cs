@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Enemy : Entity
 {
-    public int enemyHP = 100;
     public GameObject bullet;
     public Transform bulletPoint;
     public ParticleSystem shotEffectPrefab;
@@ -45,10 +44,10 @@ public class Enemy : Entity
         directionToPlayer = (playerTransform.position - transform.position).normalized;
         directionToPlayer.y += -0.1f;
 
-        if (timer > 4 && enemyHP > 0)
+        if (timer > 4 && currentHealth > 0)
         {
             timer = 0;
-            //TakeDamage(20);
+            TakeDamage(20);
             //Freeze();
         }
     }
@@ -57,8 +56,8 @@ public class Enemy : Entity
     {
         //Play Enemy Getting Hit Sound
 
-        enemyHP -= damageAmount;
-        if(enemyHP <= 0)
+        currentHealth -= damageAmount;
+        if(currentHealth <= 0)
         {
             animator.SetTrigger("isDying");
             GetComponent<CapsuleCollider>().enabled = false;
