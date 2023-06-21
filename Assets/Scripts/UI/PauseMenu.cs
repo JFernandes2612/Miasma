@@ -13,12 +13,18 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject continueBtt;
 
-       [SerializeField]
+    [SerializeField]
     private GameObject quitBtt;
+
+    private Look mainCamLook;
+
+    private Look noPosEffectLook;
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCamLook = Camera.main.GetComponent<Look>();
+        noPosEffectLook = GameObject.Find("WeaponCameraNoPosEffects").GetComponent<Look>();
         Button button = continueBtt.GetComponent<Button>();
         button.onClick.AddListener(Unpause);
 
@@ -29,7 +35,10 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.P) && !pauseMenu.activeSelf){
+        if (Input.GetKey(KeyCode.P) && !pauseMenu.activeSelf)
+        {
+            mainCamLook.LockCamera();
+            noPosEffectLook.LockCamera();
             pauseMenu.SetActive(true);
             InputSystem.DisableDevice(Keyboard.current);
             Cursor.visible = true;
@@ -41,7 +50,10 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    void Unpause(){
+    void Unpause()
+    {
+        mainCamLook.UnlockCamera();
+        noPosEffectLook.UnlockCamera();
         pauseMenu.SetActive(false);
         InputSystem.EnableDevice(Keyboard.current);
         Cursor.visible = false;
@@ -51,7 +63,8 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    void Quit(){
+    void Quit()
+    {
         // Go to main menu
     }
 }
