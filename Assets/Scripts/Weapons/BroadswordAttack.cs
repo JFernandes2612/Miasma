@@ -6,7 +6,10 @@ public class BroadswordAttack : Weapon
 {
     // For both attacks
     [SerializeField]
-    private float attackCooldown = 1f;
+    private float attackCooldown = 3f;
+
+    private float animationsDuration = 1.8f;
+    private float attackCooldownCounter = 0f;
 
     // First attack
     [SerializeField]
@@ -27,7 +30,9 @@ public class BroadswordAttack : Weapon
     [SerializeField]
     private float defendDuration = 2.0f; // Invincibility duration (animation is reset at the end)
 
-    private int CountAttack; // 0 or 1 (first attack or second attack)
+    private float defendDurationCounter = 0f;
+
+    private int CountAttack;             // 0 or 1 (first attack or second attack)
 
     private Movement playerMovement;
     private Player playerScript;
@@ -73,34 +78,58 @@ public class BroadswordAttack : Weapon
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
     }
 
+    void HandleM1CoolDown()
+    {
+        if (attackCooldownCounter > 0)
+        {
+            attackCooldownCounter -= Time.deltaTime;
+        }
+    }
+
+    void HandleM2CoolDown()
+    {
+        if (defendDurationCounter > 0)
+        {
+            defendDurationCounter -= Time.deltaTime;
+        }
+    }
+
     void Update()
     {
         if (CountAttack == 1)
         {
             animator.SetInteger("attackPhase", 1);
+
             //PLAY THE SWING SOUND HERE
             isAttacking = true;
 
             Vector3 lungeDirection = new Vector3(transform.forward.x, 0, transform.forward.z);
             StartCoroutine(ApplyLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce, lungeDirection));
         }
+        HandleM1CoolDown();
+        HandleM2CoolDown();
+    }
+
+    public void UpdateCountDownTimer()
+    {
+        isAttacking = true;
+        attackCooldownCounter = animationsDuration;
     }
 
     public override void Attack_M1(CallbackContext context)
     {
         if (isAttacking && CountAttack == 0) return;
-        CountAttack++;
+        if (CountAttack < 3) CountAttack++;
 
     }
 
     public void CheckAttackPhase()
     {
-        Debug.Log("CountAttack: " + CountAttack);
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(SWING))
         {
             if (CountAttack > 1)
             {
-
                 animator.SetInteger("attackPhase", 2);
                 //play the upper swing SOUND
                 Vector3 lungeDirection = Vector3.up;
@@ -120,14 +149,14 @@ public class BroadswordAttack : Weapon
 
         }
 
-
     }
 
     public override void Attack_M2(CallbackContext context)
     {
-        if (isAttacking) return;
+        if (CountAttack != 0 || !readyToM2) return;
+        readyToM2 = false;
 
-        isAttacking = true;
+        defendDurationCounter = defendDuration;
         animator.SetInteger("attackPhase", 3);
         playerScript.setInvincible(true);
 
@@ -163,14 +192,39 @@ public class BroadswordAttack : Weapon
     {
         yield return new WaitForSeconds(defendDuration);
         playerScript.setInvincible(false);
-        ResetAttackPhase();
+        readyToM2 = true;
+        animator.SetInteger("attackPhase", 0);
     }
 
     private void ResetAttackPhase()
     {
         animator.SetInteger("attackPhase", 0);
         disableSwordCollider();
-        StartCoroutine(ResetAttackLockIn(attackCooldown));
         CountAttack = 0;
+        attackCooldownCounter = attackCooldown;
+        StartCoroutine(ResetAttackLockIn(attackCooldown));
+    }
+    public int getAttackPhase()
+    {
+        return CountAttack;
+    }
+    public override float getLMBCooldown()
+    {
+        return attackCooldownCounter / attackCooldown;
+    }
+
+    public override bool isLMBCooldown()
+    {
+        return attackCooldownCounter > 0;
+    }
+
+    public override float getRMBCooldown()
+    {
+        return defendDurationCounter / defendDuration;
+    }
+
+    public override bool isRMBCooldown()
+    {
+        return defendDurationCounter > 0;
     }
 }
