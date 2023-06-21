@@ -165,25 +165,7 @@ public class BroadswordAttack : Weapon
         StartCoroutine(ResetDefendLockIn(defendDuration));
     }
 
-    public override bool isRMBCooldown()
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public override bool isLMBCooldown()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override float getLMBCooldown()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override float getRMBCooldown()
-    {
-        throw new System.NotImplementedException();
-    }
 
     // Applies a force with direction direction for lungetime seconds, after a delay of attackDelay seconds
     private IEnumerator ApplyLunge(float attackDelay, float lungeTime, float lungeForce, Vector3 lungeDirection)
