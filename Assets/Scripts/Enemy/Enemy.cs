@@ -18,6 +18,8 @@ public class Enemy : Entity
 
     private Vector3 directionToPlayer;
 
+    public List<Transform> wayPoints = new List<Transform>();
+
     float timer;
     float freezeTimer;
 

@@ -23,7 +23,8 @@ public class IdleBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer += Time.deltaTime;
-        if(timer > 5)
+        float randomValue = Random.Range(5f, 10f);
+        if (timer > randomValue)
         {
             animator.SetBool("isPatrolling", true);
         }

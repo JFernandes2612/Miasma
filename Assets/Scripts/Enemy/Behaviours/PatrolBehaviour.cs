@@ -15,11 +15,15 @@ public class PatrolBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
-        Transform wayPointsObject = GameObject.FindGameObjectWithTag("WayPoints").transform;
+        /*Transform wayPointsObject = GameObject.FindGameObjectWithTag("WayPoints").transform;
         foreach (Transform t in wayPointsObject)
         {
             wayPoints.Add(t);
-        }
+        }*/
+
+        wayPoints = animator.GetComponent<Enemy>().wayPoints;
+
+
         agent = animator.GetComponent<NavMeshAgent>();
         agent.SetDestination(wayPoints[0].position);
 
@@ -36,7 +40,8 @@ public class PatrolBehaviour : StateMachineBehaviour
             agent.SetDestination(wayPoints[Random.Range(0, wayPoints.Count)].position);
 
         timer += Time.deltaTime;
-        if (timer > 5)
+        float randomValue = Random.Range(5f, 10f);
+        if (timer > randomValue)
         {
             animator.SetBool("isPatrolling", false);
         }

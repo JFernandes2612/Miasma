@@ -152,6 +152,10 @@ MonoBehaviour:
   animator: {fileID: 2527756809195889825}
   attackRange: 10
   chaseRange: 20
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &2527756809195889825
 Animator:
   serializedVersion: 5
