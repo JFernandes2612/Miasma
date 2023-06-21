@@ -142,7 +142,7 @@ public class Enemy : Entity
     {
         //Play Enemy Dying Sound
 
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 1f);
     }
 
     private void PauseAnimation()
