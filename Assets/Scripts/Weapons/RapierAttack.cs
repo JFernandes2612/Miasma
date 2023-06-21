@@ -44,6 +44,8 @@ public class RapierAttack : Weapon
 
     //public FMODUnity.EventReference fistSwingEvent;
 
+    private BoxCollider rapierCollider;
+
     private int CountAttack;
 
     public int getAttackPhase()
@@ -87,6 +89,7 @@ public class RapierAttack : Weapon
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
+        rapierCollider = GameObject.Find("MarineRapier").GetComponent<BoxCollider>();
 
 
     }
@@ -99,9 +102,19 @@ public class RapierAttack : Weapon
 
     void OnDisable()
     {
-
+        disableRapierCollider();
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;
+    }
+
+    public void enableRapierCollider()
+    {
+        rapierCollider.enabled = true;
+    }
+
+    public void disableRapierCollider()
+    {
+        rapierCollider.enabled = false;
     }
 
     private IEnumerator ApplyForwardLunge(float attackDelay)
@@ -141,11 +154,6 @@ public class RapierAttack : Weapon
         }
 
 
-    }
-
-    public void M1AttackHitBox()
-    {
-        StartCoroutine(AttackRaycast(M1AttackRange, M1AttackDamage, M1AttackDelay));
     }
 
     private void Update()
