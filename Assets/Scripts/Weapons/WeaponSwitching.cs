@@ -89,17 +89,18 @@ public class WeaponSwitching : MonoBehaviour
     public void ResetWeapons() {
         int i = 0;
         foreach (Transform weapon in transform) {
-            if (i >= numberOfWeapons)
+            if (i > numberOfWeapons)
             {
                 Destroy(weapon.gameObject);
             }
             i++;
         }
         availableWeapons = new List<Weapon>();
+        updateAvailableWeapons();
     }
 
     public int NumberOfWeapons() {
-        int i = 0;
+        int i = -1;
         foreach (Transform weapon in transform) i++;
         return i;
     }
@@ -112,20 +113,20 @@ public class WeaponSwitching : MonoBehaviour
                 switch(weapon.name){
                     case "fists(Clone)":
                         currentWeapon = Weapon.Fists;
-            
+
                         break;
                     case "rapier(Clone)":
                         currentWeapon = Weapon.Rapier;
-               
+
                         break;
                     case "broadsword(Clone)":
                         currentWeapon = Weapon.BroadSword;
-          
+
                         break;
                     case "daggers(Clone)":
                         currentWeapon = Weapon.Daggers;
-      
-                        break;    
+
+                        break;
                 }
             }
         }
@@ -147,7 +148,7 @@ public class WeaponSwitching : MonoBehaviour
                     break;
                 case "daggers(Clone)":
                     availableWeapons.Add(Weapon.Daggers);
-                    break;    
+                    break;
             }
         }
     }
