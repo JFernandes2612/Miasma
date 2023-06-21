@@ -63,6 +63,7 @@ public class Movement : MonoBehaviour
     private float slowAmount = 0.5f;
 
     // Sound
+    private FMODHelper fmodHelper = new FMODHelper();
     public FMODUnity.EventReference moveEffectsEvent; // wind + lightsaberish effects
     private FMOD.Studio.EventInstance moveEffectsInstance;
     FMOD.Studio.PARAMETER_ID speedID;
@@ -76,17 +77,10 @@ public class Movement : MonoBehaviour
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        // create fmod instances, and bind to game object
+        // create fmod instances, and get speed parameter ID
         moveEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(moveEffectsEvent);
         moveEffectsInstance.start();
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(moveEffectsInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
-
-        // get fmod parameter ID from its description
-        FMOD.Studio.EventDescription moveEffectsDescription;
-        moveEffectsInstance.getDescription(out moveEffectsDescription);
-        FMOD.Studio.PARAMETER_DESCRIPTION speedDescription;
-        moveEffectsDescription.getParameterDescriptionByName("speed", out speedDescription);
-        speedID = speedDescription.id;
+        speedID = fmodHelper.GetParameterID(moveEffectsInstance, "speed");
     }
 
     public void SlowPlayer()
@@ -102,9 +96,6 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float test = 0;
-        moveEffectsInstance.getParameterByID(speedID, out test);
-        Debug.Log("VEL: " + rb.velocity.magnitude + "|" + test);
         if (isAnimLocked) return;
 
         if (isGrounded())
@@ -220,10 +211,14 @@ public class Movement : MonoBehaviour
     }
 
     private void SetFmodSpeed(float speedValue){
-        if(speedValue > 20){
-            speedValue = 20;
+        // speed parameter cap
+        if(speedValue > 20.0f){
+            speedValue = 20.0f;
+        }
+        // for inconsistencies with floats in fmod
+        else if(speedValue < 0.1f){
+            speedValue = 0.0f;
         }
         moveEffectsInstance.setParameterByID(speedID, speedValue);
-        // FMODUnity.RuntimeManager.StudioSystem.setParameterByName("speed", speedValue);
     }
 }
