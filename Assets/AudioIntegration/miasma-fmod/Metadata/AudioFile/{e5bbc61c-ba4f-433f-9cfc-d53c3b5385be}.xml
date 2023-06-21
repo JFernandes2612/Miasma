@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e5bbc61c-ba4f-433f-9cfc-d53c3b5385be}">
+		<property name="assetPath">
+			<value>Movement/RunningWind.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>16</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b04f92d5-7741-42f6-8334-4e482c2ae581}</destination>
+		</relationship>
+	</object>
+</objects>

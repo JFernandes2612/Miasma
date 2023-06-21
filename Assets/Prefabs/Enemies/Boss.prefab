@@ -4894,11 +4894,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 10000
+  maxHealth: 200
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   shotEffectPrefab: {fileID: 0}
-  extraDamage: 20
+  extraDamage: 0
   animator: {fileID: 2345940883054271559}
   attackRange: 7
   chaseRange: 15
