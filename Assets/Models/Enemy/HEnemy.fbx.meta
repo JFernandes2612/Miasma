@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: d6ccae4ec4b498d43bbdc041dbdfd41b
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: HEnemy(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube.016
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.001
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.24556015, y: 2.7486967e-15, z: 9.162325e-16, w: 0.9693814}
+      scale: {x: 100, y: 99.99999, z: 99.99999}
+    - name: Cube.002
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: 0.01814494, y: 2.664974e-15, z: -2.5745649e-17, w: 0.9998354}
+      scale: {x: 100, y: 100.00001, z: 100.00001}
+    - name: Cube.003
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.09871821, y: 0.09948772, z: -0.7028403, w: 0.697404}
+      scale: {x: 99.99999, y: 99.99999, z: 100}
+    - name: Cube.004
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.20978077, y: 0.21141602, z: -0.67763233, w: 0.67239106}
+      scale: {x: 99.99999, y: 99.99999, z: 99.99999}
+    - name: Cube.005
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.20978077, y: 0.21141602, z: -0.67763233, w: 0.67239106}
+      scale: {x: 99.99999, y: 99.99999, z: 99.99999}
+    - name: Cube.006
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: 0.011705862, y: -0.0117971115, z: -0.70974874, w: 0.70425886}
+      scale: {x: 99.99999, y: 100.00001, z: 99.99999}
+    - name: Cube.007
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.028179409, y: 0.028399065, z: -0.70927846, w: 0.7037923}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.008
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.028179409, y: 0.028399065, z: -0.70927846, w: 0.7037923}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.009
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.022753866, y: 0.02293123, z: -0.70947623, w: 0.70398855}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.010
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.022753866, y: 0.02293123, z: -0.70947623, w: 0.70398855}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.011
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.022753866, y: 0.02293123, z: -0.70947623, w: 0.70398855}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.012
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.022753866, y: 0.02293123, z: -0.70947623, w: 0.70398855}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.013
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.022753866, y: 0.02293123, z: -0.70947623, w: 0.70398855}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.014
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.022753866, y: 0.02293123, z: -0.70947623, w: 0.70398855}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Cube.015
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.017
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.68439496, y: 2.5886015e-15, z: 2.360348e-15, w: 0.7291115}
+      scale: {x: 100, y: 99.99999, z: 99.99999}
+    - name: Cube.018
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.019
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.70989805, y: 1.2517494e-15, z: 2.5208503e-15, w: 0.70430446}
+      scale: {x: 100, y: 100.000336, z: 105.2162}
+    - name: Plane
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: 0.28579324, y: 0.6467784, z: -0.64677835, w: -0.28579322}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere.001
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere.002
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.2336581, y: 0.23547944, z: -0.6696505, w: 0.6644709}
+      scale: {x: 99.99999, y: 99.99999, z: 99.999985}
+    - name: Sphere.003
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.028925499, y: 0.029150978, z: -0.7092479, w: 0.703762}
+      scale: {x: 99.99999, y: 100, z: 100.00001}
+    - name: Sphere.004
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.04132835, y: 0.0416505, z: -0.7086237, w: 0.7031427}
+      scale: {x: 99.99999, y: 100, z: 99.99999}
+    - name: Sphere.005
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.023566807, y: 0.023750514, z: -0.7094493, w: 0.7039618}
+      scale: {x: 99.99999, y: 100, z: 100}
+    - name: Sphere.006
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.051914055, y: 0.052318744, z: -0.70791614, w: 0.70244044}
+      scale: {x: 99.99999, y: 100, z: 100}
+    - name: Sphere.007
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.04655026, y: 0.04691313, z: -0.70829487, w: 0.7028163}
+      scale: {x: 99.99999, y: 99.99999, z: 100}
+    - name: Sphere.008
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.052874103, y: 0.05328625, z: -0.70784396, w: 0.7023688}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Sphere.009
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere.010
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.029455706, y: 0.029685317, z: -0.7092258, w: 0.70374006}
+      scale: {x: 99.99999, y: 100, z: 100}
+    - name: Sphere.011
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.029455706, y: 0.029685317, z: -0.7092258, w: 0.70374006}
+      scale: {x: 99.99999, y: 100, z: 100}
+    - name: Sphere.012
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.029455706, y: 0.029685317, z: -0.7092258, w: 0.70374006}
+      scale: {x: 99.99999, y: 100, z: 100}
+    - name: Sphere.013
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.3865123, y: 0.38952518, z: -0.5934244, w: 0.58883435}
+      scale: {x: 99.99999, y: 99.99999, z: 99.99999}
+    - name: Sphere.014
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: -0.0035693645, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere.016
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere.017
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Sphere.018
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.70491445, y: 2.504407e-15, z: 2.504892e-15, w: 0.70929235}
+      scale: {x: 100, y: 99.99999, z: 99.99999}
+    - name: Sphere.019
+      parentName: HEnemy(Clone)
+      position: {x: -0, y: 0.00000047683716, z: 0}
+      rotation: {x: -0.7071068, y: 2.512148e-15, z: 2.5121485e-15, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

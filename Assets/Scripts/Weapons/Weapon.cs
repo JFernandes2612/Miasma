@@ -13,6 +13,16 @@ public abstract class Weapon : MonoBehaviour
     protected PlayerInput playerAttack;
     protected bool readyToM2 = true;
     public Camera cam;
+
+
+    public abstract float getLMBCooldown();
+
+     public abstract bool isLMBCooldown();
+
+    public abstract float getRMBCooldown();
+
+    public abstract bool isRMBCooldown();
+
     protected void HitTarget(Vector3 pos, GameObject hittable)
     {
         // play fist hit event

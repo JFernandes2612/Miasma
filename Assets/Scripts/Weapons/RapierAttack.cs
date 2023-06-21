@@ -44,10 +44,32 @@ public class RapierAttack : Weapon
 
     private int CountAttack;
 
+    public int getAttackPhase(){
+        return CountAttack;
+    }
+
     private Movement playerMovement;
 
     [SerializeField]
     private Rigidbody playerRb;
+
+
+    public override  float getRMBCooldown(){
+        return M2attackCooldownCounter/ M2AttackCooldown;
+    }
+
+    public override  float getLMBCooldown(){
+        return M1AttackDelay * 3;
+    }
+
+    public override  bool isRMBCooldown(){
+        return !readyToM2;
+    }
+
+    public override  bool isLMBCooldown(){
+        return isAttacking && readyToM2;
+    }
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -120,8 +142,8 @@ public class RapierAttack : Weapon
 
     public override void Attack_M1(CallbackContext context)
     {
-
-        CountAttack++;
+        if (CountAttack < 3){
+        CountAttack++;}
 
 
 

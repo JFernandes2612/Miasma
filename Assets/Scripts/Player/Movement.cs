@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
 
     private float distanceToGround;
 
-    private bool canQuickStep = true;
+    public bool canQuickStep = true;
     public bool isAnimLocked = false;
 
     [SerializeField]
@@ -54,9 +54,9 @@ public class Movement : MonoBehaviour
 
 
     [SerializeField]
-    private float dashTime = 0.3f;
+    public float dashTime = 0.3f;
     [SerializeField]
-    private float dashCooldown = 1f;
+    public float dashCooldown = 1f;
 
     private Player player;
 

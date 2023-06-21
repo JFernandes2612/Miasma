@@ -26,8 +26,8 @@ public class ReadOnlyDrawer : PropertyDrawer
 
 abstract public class Entity : MonoBehaviour
 {
-    [ReadOnlyAttribute] [SerializeField]
-    private float currentHealth;
+    [SerializeField]
+    public float currentHealth;
 
     [SerializeField]
     protected float maxHealth;

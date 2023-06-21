@@ -48,9 +48,34 @@ public class DaggerAttack : Weapon
 
     private float countChargeUpTime = 0f;
 
-    private bool canStartCharge = true;
+    private bool canStartCharge = false;
 
     private const string IDLE = "Idle";
+
+    public override  float getRMBCooldown(){
+        return M2attackCooldownCounter/ M2AttackCooldown;
+    }
+
+    public float getChargeUp(){
+        return countChargeUpTime/M1MaxChargeUpTime;
+    }
+
+    public bool isCharging(){
+        return canStartCharge;
+    }
+
+    public override  float getLMBCooldown(){
+        return M1AttackDelay;
+    }
+
+    public override  bool isRMBCooldown(){
+        return !readyToM2;
+    }
+
+    public override  bool isLMBCooldown(){
+        return isAttacking && !canStartCharge;
+    }
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -116,6 +141,7 @@ public class DaggerAttack : Weapon
             dagger.GetComponent<DaggerProjectile>().SetDamage(M1AttackDamage);
             dagger.GetComponent<DaggerProjectile>().SetDirection(transform.forward);
             dagger.GetComponent<DaggerProjectile>().SetSpeed(M1ProjectileSpeed);
+            isAttacking = false;
         }
     }
 
@@ -129,16 +155,18 @@ public class DaggerAttack : Weapon
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE) || canStartCharge) return;
             canStartCharge = true;
             playerMovement.SlowPlayer();
-
-
             // start charging up attack
             animator.SetBool("isCharging", true);
 
         }
         else if (context.canceled)
         {
+
             if (!canStartCharge) return;
             canStartCharge = false;
+
+            isAttacking = true;
+
             playerMovement.UnSlowPlayer();
 
             // release attack
@@ -192,7 +220,7 @@ public class DaggerAttack : Weapon
         {
 
             if (!readyToM2 || !animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE)) return;
-            M2attackCooldownCounter = M2AttackCooldown;
+            
 
             //play assassination sound
             //FMODUnity.RuntimeManager.PlayOneShot(M2AttackEvent);
@@ -203,6 +231,10 @@ public class DaggerAttack : Weapon
             {
                 if (hit.transform.TryGetComponent<Enemy>(out Enemy T))
                 {
+                    readyToM2 = false;
+                    M2attackCooldownCounter = M2AttackCooldown;
+                    isAttacking = true;
+
                     //teleport to behind enemy
                     T.Freeze();
                     animator.SetTrigger("backStab");
