@@ -43,6 +43,7 @@ public class DaggerProjectile : MonoBehaviour
 
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -59,8 +60,8 @@ public class DaggerProjectile : MonoBehaviour
 
         if (other.transform.TryGetComponent<Entity>(out Entity T))
         {
-
-            GameObject GO = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            var collisionPoint = other.ClosestPoint(transform.position);
+            GameObject GO = Instantiate(hitEffect, collisionPoint, Quaternion.identity);
             Destroy(gameObject);
             GO.transform.parent = T.gameObject.transform;
             Destroy(GO, 10);
