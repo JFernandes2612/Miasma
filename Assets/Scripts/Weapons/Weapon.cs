@@ -17,7 +17,7 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract float getLMBCooldown();
 
-     public abstract bool isLMBCooldown();
+    public abstract bool isLMBCooldown();
 
     public abstract float getRMBCooldown();
 
