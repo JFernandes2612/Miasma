@@ -132,6 +132,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-482888509368537916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerOther/DeathPoweroff
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerOther/DeathPoweroff
+  Guid:
+    Data1: -654446120
+    Data2: 1115031275
+    Data3: -348968788
+    Data4: 1005598914
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,21 +175,21 @@ MonoBehaviour:
   - {fileID: 6294208581512736429}
   - {fileID: 7723812583777605861}
   EditorEvents:
-  - {fileID: 4216952604970454134}
   - {fileID: -2546792164878886309}
-  - {fileID: 2086337412293983704}
   - {fileID: -2530125535025450672}
   - {fileID: 1990543774551462802}
   - {fileID: -8924002068450195133}
   - {fileID: 8148450322758957095}
   - {fileID: 201742690306839357}
   - {fileID: 4502263237380393393}
+  - {fileID: 8862459664332151297}
+  - {fileID: -482888509368537916}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7723812583777605861}
   StringsBanks:
   - {fileID: 6294208581512736429}
-  cacheTime: 638229714141230167
+  cacheTime: 638229778478604556
   cacheVersion: 131603
 --- !u!114 &201742690306839357
 MonoBehaviour:
@@ -218,60 +245,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &2086337412293983704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/dash
-  m_EditorClassIdentifier: 
-  Path: event:/dash
-  Guid:
-    Data1: 441600341
-    Data2: 1260498715
-    Data3: 308073351
-    Data4: 691233761
-  Banks:
-  - {fileID: 7723812583777605861}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &4216952604970454134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/gameOver
-  m_EditorClassIdentifier: 
-  Path: event:/gameOver
-  Guid:
-    Data1: -1989878252
-    Data2: 1105369891
-    Data3: 1562397343
-    Data4: -730310738
-  Banks:
-  - {fileID: 7723812583777605861}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 7000
 --- !u!114 &4502263237380393393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,10 +287,10 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638229714141230167
+  lastModified: 638229778478604556
   FileSizes:
   - Name: Desktop
-    Value: 1230
+    Value: 1258
   Exists: 1
 --- !u!114 &7723812583777605861
 MonoBehaviour:
@@ -334,10 +307,10 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638229714141189882
+  lastModified: 638229778478554668
   FileSizes:
   - Name: Desktop
-    Value: 265024
+    Value: 202848
   Exists: 1
 --- !u!114 &8148450322758957095
 MonoBehaviour:
@@ -390,3 +363,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &8862459664332151297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerOther/Dash
+  m_EditorClassIdentifier: 
+  Path: event:/PlayerOther/Dash
+  Guid:
+    Data1: -371702768
+    Data2: 1076453570
+    Data3: 1360650661
+    Data4: 1188346547
+  Banks:
+  - {fileID: 7723812583777605861}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
