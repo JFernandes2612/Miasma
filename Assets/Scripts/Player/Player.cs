@@ -9,17 +9,51 @@ public class Player : Entity
     [SerializeField]
     private bool invincible = false;
 
+    private int redPoints = 0;
+
+    private int yellowPoints = 0;
+
+    public void AddRedPoints(int points)
+    {
+        redPoints += points;
+    }
+
+    public void AddYellowPoints(int points)
+    {
+        yellowPoints += points;
+    }
+
+    public void SetRedPoints(int points) {
+        redPoints = points;
+    }
+
+    public void SetYellowPoints(int points) {
+        yellowPoints = points;
+    }
+
+    public int GetRedPoints()
+    {
+        return redPoints;
+    }
+
+    public int GetYellowPoints()
+    {
+        return yellowPoints;
+    }
+
     new void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(transform.gameObject);
     }
 
-    public void setInvincible(bool value) {
+    public void setInvincible(bool value)
+    {
         invincible = value;
     }
 
-    public new void TakeDamage(float damage) {
+    public new void TakeDamage(float damage)
+    {
         if (!invincible)
             base.TakeDamage(damage);
     }

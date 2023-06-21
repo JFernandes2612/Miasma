@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class FistAttack : MonoBehaviour
+public class FistAttack : Weapon
 {
     [SerializeField]
     private float attackRange = 3f;
@@ -21,17 +21,7 @@ public class FistAttack : MonoBehaviour
     public FMODUnity.EventReference fistSwingEvent;
     public FMODUnity.EventReference fistHitEvent;
 
-    public LayerMask attackLayer;
-    Camera cam;
-    Animator animator;
-    public GameObject hitEffect;
-
-    private bool isAttacking = false;
-    private bool readyToAttack = true;
-
     private float attackTimer;
-
-    private PlayerInput playerAttack;
     string currentAnimationState;
 
     public const string IDLE = "IdlePunch";
@@ -44,6 +34,23 @@ public class FistAttack : MonoBehaviour
         playerAttack = new PlayerInput();
         playerAttack.Enable();
     }
+
+    public override  float getLMBCooldown(){
+        return attackDelay*2;
+    }
+
+    public override  float getRMBCooldown(){
+        return 0;
+    }
+
+    public override  bool isLMBCooldown(){
+    return isAttacking;
+    }
+
+    public override  bool isRMBCooldown(){
+        return false;
+    }
+
 
 
     public void ChangeAnimationState(string newState)
@@ -58,15 +65,15 @@ public class FistAttack : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("Enabled Fists");
-        playerAttack.Player_Map.Attack.performed += Attack;
+
+        playerAttack.Player_Map.Attack.performed += Attack_M1;
 
     }
 
     void OnDisable()
     {
-        Debug.Log("Disabled Fists");
-        playerAttack.Player_Map.Attack.performed -= Attack;
+
+        playerAttack.Player_Map.Attack.performed -= Attack_M1;
 
     }
 
@@ -75,19 +82,11 @@ public class FistAttack : MonoBehaviour
 
         SetAnimations();
     }
-    void HitTarget(Vector3 pos, GameObject hittable)
-    {
-        // play fist hit event
-        FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
 
-        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
-        GO.transform.parent = hittable.transform;
-        Destroy(GO, 20);
-    }
     void ResetAttack()
     {
         isAttacking = false;
-        readyToAttack = true;
+
     }
     void SetAnimations()
     {
@@ -97,32 +96,22 @@ public class FistAttack : MonoBehaviour
             ChangeAnimationState(IDLE);
         }
     }
-    void AttackRaycast()
-    {
-        if (Physics.Raycast(cam.transform.position,
-        cam.transform.forward, out RaycastHit hit, attackRange, attackLayer))
-        {
-            if (hit.transform.TryGetComponent<Entity>(out Entity T))
-            {
-                HitTarget(hit.point, T.gameObject);
-                T.TakeDamage(attackDamage);
-            }
-        }
-    }
 
-    private void Attack(CallbackContext ctx)
+    public override void Attack_M1(CallbackContext ctx)
     {
-        Debug.Log("FIST Attack");
-        if (!readyToAttack || isAttacking) return;
+        if (isAttacking) return;
 
-        readyToAttack = false;
         isAttacking = true;
 
         Invoke(nameof(ResetAttack), attackCooldown);
-        Invoke(nameof(AttackRaycast), attackDelay);
+        StartCoroutine(AttackRaycast(attackRange, attackDamage, attackDelay));
         // play fist swing event
         FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
         ChangeAnimationState(RIGHT_PUNCH);
     }
 
+    public override void Attack_M2(CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
 }

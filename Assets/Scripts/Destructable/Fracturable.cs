@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fracturable : Entity
 {
-    private Fracture fracture;
+    protected Fracture fracture;
 
     private Rigidbody rb;
 

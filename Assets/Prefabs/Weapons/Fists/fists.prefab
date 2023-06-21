@@ -2533,7 +2533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8085250325717199997}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.032999996, y: -1.63, z: 0.05}
+  m_LocalPosition: {x: 0.032999996, y: -1.526, z: -0.074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2575,6 +2575,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d88ed086ebf46489b628880cbd11c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
+    type: 3}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  cam: {fileID: 0}
   attackRange: 3
   attackDelay: 0.5
   attackDamage: 1
@@ -2593,11 +2599,6 @@ MonoBehaviour:
       Data3: 1313722524
       Data4: -1624444645
     Path: event:/fist/fist_hit
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
 --- !u!1 &8125006985191171341
 GameObject:
   m_ObjectHideFlags: 0
