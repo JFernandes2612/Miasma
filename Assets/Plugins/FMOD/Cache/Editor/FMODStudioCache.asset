@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7537678973842214588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/gameOver
+  m_EditorClassIdentifier: 
+  Path: event:/gameOver
+  Guid:
+    Data1: -1989878252
+    Data2: 1105369891
+    Data3: 1562397343
+    Data4: -730310738
+  Banks:
+  - {fileID: -5154455204758545794}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7000
 --- !u!114 &-6613069694995871054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +42,14 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 638229665178884243
+=======
+  lastModified: 638229664284349859
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
-    Value: 810
+    Value: 1118
   Exists: 1
 --- !u!114 &-5154455204758545794
 MonoBehaviour:
@@ -35,11 +66,43 @@ MonoBehaviour:
   Path: Assets/AudioIntegration/miasma-fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 638229665178874237
+=======
+  lastModified: 638229664284319906
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
-    Value: 17568
+    Value: 245504
   Exists: 1
+--- !u!114 &-4271532391587744293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Movement/MoveEffects
+  m_EditorClassIdentifier: 
+  Path: event:/Movement/MoveEffects
+  Guid:
+    Data1: 1753227841
+    Data2: 1196381939
+    Data3: 1757331860
+    Data4: -93834622
+  Banks:
+  - {fileID: -5154455204758545794}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8952759746341760223}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,13 +121,50 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 6550093882006813992}
   - {fileID: 5106518268026656517}
+  - {fileID: -7537678973842214588}
+  - {fileID: -4271532391587744293}
+  - {fileID: 6104357162137486147}
+  - {fileID: 6442710334208463446}
+  - {fileID: 1755476854233981491}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5154455204758545794}
   StringsBanks:
   - {fileID: -6613069694995871054}
+<<<<<<< Updated upstream
   cacheTime: 638229665178884243
+=======
+  cacheTime: 638229664284349859
+>>>>>>> Stashed changes
   cacheVersion: 131603
+--- !u!114 &1755476854233981491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/footsteps/enemyFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/footsteps/enemyFootsteps
+  Guid:
+    Data1: 1846103208
+    Data2: 1293945315
+    Data3: -157080648
+    Data4: -1106574372
+  Banks:
+  - {fileID: -5154455204758545794}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 9205209860654417856}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &5106518268026656517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +192,61 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6104357162137486147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dash
+  m_EditorClassIdentifier: 
+  Path: event:/dash
+  Guid:
+    Data1: 441600341
+    Data2: 1260498715
+    Data3: 308073351
+    Data4: 691233761
+  Banks:
+  - {fileID: -5154455204758545794}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6442710334208463446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/footsteps/playerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/footsteps/playerFootsteps
+  Guid:
+    Data1: 39285350
+    Data2: 1138716021
+    Data3: 1395287487
+    Data4: 170787530
+  Banks:
+  - {fileID: -5154455204758545794}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7465806391305631767}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &6550093882006813992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +274,75 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7465806391305631767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/playerFootsteps/speed
+  m_EditorClassIdentifier: 
+  Name: speed
+  StudioPath: 
+  Min: 0
+  Max: 20
+  Default: 0.8
+  ID:
+    data1: 1408781112
+    data2: 3779702219
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8952759746341760223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MoveEffects/speed
+  m_EditorClassIdentifier: 
+  Name: speed
+  StudioPath: 
+  Min: 0
+  Max: 20
+  Default: 0.8
+  ID:
+    data1: 1408781112
+    data2: 3779702219
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &9205209860654417856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/enemyFootsteps/speed
+  m_EditorClassIdentifier: 
+  Name: speed
+  StudioPath: 
+  Min: 0
+  Max: 20
+  Default: 0.8
+  ID:
+    data1: 1408781112
+    data2: 3779702219
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1

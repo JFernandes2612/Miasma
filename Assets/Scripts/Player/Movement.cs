@@ -61,6 +61,12 @@ public class Movement : MonoBehaviour
     private Player player;
 
     private float slowAmount = 0.5f;
+
+    // Sound
+    public FMODUnity.EventReference moveEffectsEvent; // wind + lightsaberish effects
+    private FMOD.Studio.EventInstance moveEffectsInstance;
+    FMOD.Studio.PARAMETER_ID speedID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +75,18 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        // create fmod instances, and bind to game object
+        moveEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(moveEffectsEvent);
+        moveEffectsInstance.start();
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(moveEffectsInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+
+        // get fmod parameter ID from its description
+        FMOD.Studio.EventDescription moveEffectsDescription;
+        moveEffectsInstance.getDescription(out moveEffectsDescription);
+        FMOD.Studio.PARAMETER_DESCRIPTION speedDescription;
+        moveEffectsDescription.getParameterDescriptionByName("speed", out speedDescription);
+        speedID = speedDescription.id;
     }
 
     public void SlowPlayer()
@@ -84,7 +102,9 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        float test = 0;
+        moveEffectsInstance.getParameterByID(speedID, out test);
+        Debug.Log("VEL: " + rb.velocity.magnitude + "|" + test);
         if (isAnimLocked) return;
 
         if (isGrounded())
@@ -171,6 +191,8 @@ public class Movement : MonoBehaviour
         rb.velocity += addSpeed * airAcceleration * wishDir;
 
         rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxAirSpeed) + rb.velocity.y * Vector3.up;
+
+        SetFmodSpeed(rb.velocity.magnitude);
     }
 
     private void GroundMove()
@@ -193,5 +215,15 @@ public class Movement : MonoBehaviour
         float maxSpeed = Mathf.Lerp(backMovementSpeed, baseMovementSpeed, dynamicSpeedFactor);
 
         rb.velocity = Vector3.ClampMagnitude(new Vector3(rb.velocity.x, 0.0f, rb.velocity.z), maxSpeed) + rb.velocity.y * Vector3.up;
+
+        SetFmodSpeed(rb.velocity.magnitude);
+    }
+
+    private void SetFmodSpeed(float speedValue){
+        if(speedValue > 20){
+            speedValue = 20;
+        }
+        moveEffectsInstance.setParameterByID(speedID, speedValue);
+        // FMODUnity.RuntimeManager.StudioSystem.setParameterByName("speed", speedValue);
     }
 }
