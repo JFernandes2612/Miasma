@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.79/win64" 1687364308
+<REAPER_PROJECT 0.1 "6.79/win64" 1687366097
   <NOTES 0 2
   >
   RIPPLE 0
@@ -16,9 +16,9 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 0.1
+  CURSOR 0.9
   ZOOM 161.38039379218918 0 0
-  VZOOMEX 7.45564508 2211
+  VZOOMEX 7.45564508 1647
   USE_REC_CFG 0
   RECMODE 1
   SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
@@ -30,9 +30,8 @@
   >
   <APPLYFX_CFG
   >
-  RENDER_FILE C:\Users\retchut\Desktop\Miasma\Assets\AudioIntegration\miasma-fmod\Assets\Movement
-  RENDER_PATTERN $item
-  RENDER_FMT 0 1 48000
+  RENDER_FILE "C:\Users\retchut\Desktop\Miasma\Assets\AudioIntegration\miasma-fmod\Assets\Movement\RunningWind.wav"
+  RENDER_FMT 0 2 48000
   RENDER_1X 0
   RENDER_RANGE 4 0 1.408 18 1000
   RENDER_RESAMPLE 3 0 1
@@ -810,13 +809,13 @@
     BEAT -1
     AUTOMODE 0
     VOLPAN 1.0115794542599 0 -1 -1 1
-    MUTESOLO 0 0 0
+    MUTESOLO 0 2 0
     IPHASE 0
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -828,13 +827,13 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 2601 441 736 461
+      WNDRECT 2601 441 716 182
       SHOW 0
-      LASTSEL 1
+      LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <JS utility/volume ""
-        36.3 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        46.5 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       >
       FLOATPOS 0 0 0 0
       FXID {6A31BCAF-E248-43B7-AF4A-177F7BFD3AB1}
@@ -859,7 +858,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 2 0 0 2 0 -1 -1
       MUTE 0 0
-      SEL 0
+      SEL 1
       IGUID {2976C47C-6D53-4C51-A09F-968FBB196F2B}
       IID 13
       NAME 20-MIDI
@@ -7072,13 +7071,13 @@
     BEAT -1
     AUTOMODE 0
     VOLPAN 1 0 -1 -1 1
-    MUTESOLO 0 2 0
+    MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -7121,7 +7120,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {8884AEEB-7D83-4718-B6A3-F72BFAE17422}
       IID 72
       <NOTES
@@ -7149,7 +7148,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {6729C7AB-832E-4D15-BEFA-566FA94C5D04}
       IID 78
       <NOTES
@@ -7177,7 +7176,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {8935A1F2-9ECA-4594-AE4A-C1AC441AA9BA}
       IID 80
       <NOTES
@@ -7205,7 +7204,7 @@
       FADEIN 1 0.5 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {8F402BB5-72C4-43CC-BB96-83121F077A06}
       IID 82
       <NOTES
@@ -7233,7 +7232,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {76E21153-7191-4C8B-B8B9-3CAFD1AF2611}
       IID 84
       <NOTES
@@ -7261,7 +7260,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {6AB611F0-1937-47FD-A6C7-2D297B582812}
       IID 86
       <NOTES
@@ -7289,7 +7288,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {FA616634-9647-40CE-AF03-CE1AB5D2D651}
       IID 88
       <NOTES
