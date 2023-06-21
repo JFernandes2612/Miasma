@@ -29,6 +29,7 @@ public class StickCollisionDetection : MonoBehaviour
             {
                 // Call the TakeDamage function on the Player object
                 player.TakeDamage(damage + parent.GetComponent<Enemy>().extraDamage);
+                Debug.Log(parent.GetComponent<Enemy>().extraDamage);
             }
         }
 
