@@ -4788,7 +4788,7 @@ GameObject:
   - component: {fileID: 2345940883054271559}
   - component: {fileID: 2345940883054271558}
   m_Layer: 0
-  m_Name: RedEnemy
+  m_Name: MiniBossRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4803,7 +4803,7 @@ Transform:
   m_GameObject: {fileID: 1594479376150921334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.128, y: 0, z: -20.218}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1594479374962274410}
@@ -4896,10 +4896,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
-  enemyHP: 100
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   shotEffectPrefab: {fileID: 0}
+  extraDamage: 10
   animator: {fileID: 2345940883054271559}
   attackRange: 2
   chaseRange: 15
@@ -4939,7 +4939,7 @@ Animator:
   m_GameObject: {fileID: 1594479376150921334}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 44cad8bdfbd80484897fcd2abfba4ea2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f75f68b69bf7ca4f8707e076664c1da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
