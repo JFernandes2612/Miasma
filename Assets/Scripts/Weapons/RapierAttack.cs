@@ -42,14 +42,9 @@ public class RapierAttack : Weapon
     private const string LUNGE_2 = "Lunge 2";
     private const string DOUBLE_LUNGE = "Double Lunge";
 
-    //public FMODUnity.EventReference fistSwingEvent;
-
     private BoxCollider rapierCollider;
 
     private int CountAttack;
-
-    public FMODUnity.EventReference attackEffectsEvent; 
-    private FMOD.Studio.EventInstance attackEffectsInstance;
 
     public int getAttackPhase()
     {
@@ -82,8 +77,10 @@ public class RapierAttack : Weapon
         return isAttacking;
     }
 
-    void Awake()
+    override protected void Awake()
     {
+        base.Awake();
+        Debug.Log("in rapier");
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -93,7 +90,6 @@ public class RapierAttack : Weapon
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
         rapierCollider = GameObject.Find("MarineRapier").GetComponent<BoxCollider>();
-        attackEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(attackEffectsEvent);
 
     }
     void OnEnable()
@@ -168,21 +164,15 @@ public class RapierAttack : Weapon
         }
         HandleLungeCoolDown();
         HandleM1CoolDown();
-
-
-
     }
 
 
     public override void Attack_M1(CallbackContext context)
     {
-        attackEffectsInstance.start();
         if (CountAttack < 3)
         {
             CountAttack++;
         }
-
-
     }
 
 
@@ -197,13 +187,9 @@ public class RapierAttack : Weapon
 
         animator.SetInteger("attackPhase", 1);
 
-        // play rapier swing event
-        //FMODUnity.RuntimeManager.PlayOneShot(rapierSwingEvent);
-
         StartCoroutine(ResetAttackLockIn(M2AttackCooldown));
         StartCoroutine(ApplyForwardLunge(M2AttackDelay));
         StartCoroutine(AttackRaycast(M2AttackRange, M2AttackDamage, M2AttackDelay));
-
     }
 
     public void UpdateCountDownTimer()
@@ -220,7 +206,6 @@ public class RapierAttack : Weapon
             if (CountAttack > 1)
             {
                 animator.SetInteger("attackPhase", 2);
-
             }
             else
             {
@@ -245,9 +230,7 @@ public class RapierAttack : Weapon
             {
                 ResetAttackPhase();
             }
-
         }
-
     }
 
     private void ResetAttackPhase()

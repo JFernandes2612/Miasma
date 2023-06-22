@@ -2778,6 +2778,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   cam: {fileID: 0}
+  swingEffectsEvent:
+    Guid:
+      Data1: 1278017161
+      Data2: 1133174297
+      Data3: 1460596353
+      Data4: -451953005
+    Path: event:/Attacks/MeleeAttack
+  fistEffectsEvent:
+    Guid:
+      Data1: 954430505
+      Data2: 1108827567
+      Data3: 643953313
+      Data4: -1950905753
+    Path: event:/Attacks/FistSwing
   M2AttackDamage: 1000
   M2ExecuteRange: 300
   M2AttackDelay: 0.5
@@ -2788,13 +2802,6 @@ MonoBehaviour:
   M1ProjectileSpeed: 5
   daggerProjectile: {fileID: 6696193758943536409, guid: 3500db9b5602f984ba300dce0ae43644,
     type: 3}
-  attackEffectsEvent:
-    Guid:
-      Data1: 1278017161
-      Data2: 1133174297
-      Data3: 1460596353
-      Data4: -451953005
-    Path: event:/Attacks/MeleeAttack
 --- !u!1 &7093567015424491339
 GameObject:
   m_ObjectHideFlags: 0

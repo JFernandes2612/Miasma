@@ -25,11 +25,22 @@ public abstract class Weapon : MonoBehaviour
     public abstract void enableScript();
 
     public abstract void disableScript();
+
+    public FMODUnity.EventReference swingEffectsEvent;
+    private FMOD.Studio.EventInstance swingEffectsInstance;
+
+    public FMODUnity.EventReference fistEffectsEvent;
+    private FMOD.Studio.EventInstance fistEffectsInstance;
+
+    protected virtual void Awake()
+    {
+        Debug.Log("in parent");
+        swingEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(swingEffectsEvent);
+        fistEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(fistEffectsEvent);
+    }
+
     protected void HitTarget(Vector3 pos, GameObject hittable)
     {
-        // play fist hit event
-        // FMODUnity.RuntimeManager.PlayOneShot(fistHitEvent);
-
         GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
         GO.transform.parent = hittable.transform;
         Destroy(GO, 20);
@@ -58,5 +69,15 @@ public abstract class Weapon : MonoBehaviour
 
     abstract public void Attack_M1(CallbackContext context);
     abstract public void Attack_M2(CallbackContext context);
+
+    public void PlayFistAttackSFX()
+    {
+        fistEffectsInstance.start();
+    }
+
+    public void PlayWeaponAttackSFX()
+    {
+        swingEffectsInstance.start();
+    }
 
 }
