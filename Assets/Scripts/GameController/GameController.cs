@@ -58,7 +58,8 @@ public class GameController : MonoBehaviour
 
     public void NextLevel()
     {
-        loadingScreen.SetActive(true);
+        if (loadingScreen)
+            loadingScreen.SetActive(true);
         saveRedPoints = GameObject.Find("Player").GetComponent<Player>().GetRedPoints();
         saveYellowPoints = GameObject.Find("Player").GetComponent<Player>().GetYellowPoints();
         GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>().Reset();
