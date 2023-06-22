@@ -21,18 +21,15 @@ public class FistAttack : Weapon
 
     private float M1AnimationDuration = 1f;
 
-    // create fmod references
-    public FMODUnity.EventReference fistSwingEvent;
-    public FMODUnity.EventReference fistHitEvent;
-
     private float attackTimer;
     string currentAnimationState;
 
     public const string IDLE = "IdlePunch";
     public const string RIGHT_PUNCH = "RightPunch";
 
-    void Awake()
+    override protected void Awake()
     {
+        base.Awake();
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -124,8 +121,6 @@ public class FistAttack : Weapon
 
         Invoke(nameof(ResetAttack), attackCooldown);
         StartCoroutine(AttackRaycast(attackRange, attackDamage, attackDelay));
-        // play fist swing event
-        FMODUnity.RuntimeManager.PlayOneShot(fistSwingEvent);
         ChangeAnimationState(RIGHT_PUNCH);
     }
 

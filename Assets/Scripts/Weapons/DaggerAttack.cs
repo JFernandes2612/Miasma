@@ -53,9 +53,6 @@ public class DaggerAttack : Weapon
 
     private const string DAGGER_THROW = "Dagger Throw";
 
-    public FMODUnity.EventReference attackEffectsEvent; 
-    private FMOD.Studio.EventInstance attackEffectsInstance;
-
     public override float getRMBCooldown()
     {
         return M2attackCooldownCounter / M2AttackCooldown;
@@ -86,9 +83,10 @@ public class DaggerAttack : Weapon
         return isAttacking && !canStartCharge;
     }
 
-    void Awake()
+    override protected void Awake()
     {
-        attackEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(attackEffectsEvent);
+        base.Awake();
+        Debug.Log("in dagger");
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -202,7 +200,7 @@ public class DaggerAttack : Weapon
         if (context.started)
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE) || canStartCharge) return;
-            attackEffectsInstance.start();
+
             canStartCharge = true;
             playerMovement.SlowPlayer();
             // start charging up attack
@@ -221,7 +219,6 @@ public class DaggerAttack : Weapon
             // release attack
             animator.SetBool("isCharging", false);
 
-            //daggerReleaseEvent.Play();
             // spawn daggers and send them flying forwards
 
             //make the number of daggers spawned depend on the charge up time
@@ -271,10 +268,6 @@ public class DaggerAttack : Weapon
         {
 
             if (!readyToM2 || !animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE)) return;
-
-
-            //play assassination sound
-            //FMODUnity.RuntimeManager.PlayOneShot(M2AttackEvent);
 
             //raycast to check if enemy is in front of player
             if (Physics.Raycast(cam.transform.position,

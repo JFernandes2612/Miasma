@@ -24,6 +24,14 @@ public class Enemy : Entity
 
     float prevAnimatorSpeed;
     float prevAgentSpeed;
+
+    public FMODUnity.EventReference lightsaberEffect;
+    private FMOD.Studio.EventInstance lightsaberInstance;
+    public FMODUnity.EventReference raygunEffect;
+    private FMOD.Studio.EventInstance raygunInstance;
+    public FMODUnity.EventReference rayshotgunEffect;
+    private FMOD.Studio.EventInstance rayshotgunInstance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +43,10 @@ public class Enemy : Entity
         agent = GetComponent<NavMeshAgent>();
         prevAnimatorSpeed = animator.speed;
         prevAgentSpeed = agent.speed;
+
+        lightsaberInstance = FMODUnity.RuntimeManager.CreateInstance(lightsaberEffect);
+        raygunInstance = FMODUnity.RuntimeManager.CreateInstance(raygunEffect);
+        rayshotgunInstance = FMODUnity.RuntimeManager.CreateInstance(rayshotgunEffect);
     }
 
     // Update is called once per frame
@@ -164,5 +176,20 @@ public class Enemy : Entity
         // Resume the animation
         animator.speed = prevAnimatorSpeed;
         agent.speed = prevAgentSpeed;
+    }
+
+    public void PlayLightsaberEffect()
+    {
+        lightsaberInstance.start();
+    }
+
+    public void PlayRaygunEffect()
+    {
+        raygunInstance.start();
+    }
+
+    public void PlayRayshotgunEffect()
+    {
+        rayshotgunInstance.start();
     }
 }

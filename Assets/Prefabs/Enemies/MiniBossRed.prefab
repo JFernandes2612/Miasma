@@ -4906,6 +4906,27 @@ MonoBehaviour:
   - {fileID: 1594479376249285154}
   - {fileID: 1594479376069595830}
   - {fileID: 1594479374593204546}
+  lightsaberEffect:
+    Guid:
+      Data1: -1665423512
+      Data2: 1150953260
+      Data3: 1689304254
+      Data4: -127637384
+    Path: event:/Attacks/LightsaberSwing
+  raygunEffect:
+    Guid:
+      Data1: -99971258
+      Data2: 1241198752
+      Data3: -96500550
+      Data4: -1820259048
+    Path: event:/Attacks/RaygunShoot
+  rayshotgunEffect:
+    Guid:
+      Data1: 1071444616
+      Data2: 1322514452
+      Data3: -1087684224
+      Data4: 2124262185
+    Path: event:/Attacks/ShotgunShoot
 --- !u!195 &2345940883054271552
 NavMeshAgent:
   m_ObjectHideFlags: 0
