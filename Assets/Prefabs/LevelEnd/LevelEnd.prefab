@@ -97,8 +97,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.7016735
+  m_Center: {x: 0, y: 0.08716011, z: -0.1145134}
 --- !u!95 &8481205003178842949
 Animator:
   serializedVersion: 5
@@ -131,3 +131,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1891627b83fcf444c86985860cd7e5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDependency: []

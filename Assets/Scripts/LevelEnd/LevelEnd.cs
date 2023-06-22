@@ -9,23 +9,28 @@ public class LevelEnd : MonoBehaviour
 
     private FloatingMessage floatingMessage;
 
-    private void Start() {
+    private void Start()
+    {
         floatingMessage = GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>();
     }
 
-    private bool checkEnemyDependency() {
+    private bool checkEnemyDependency()
+    {
         foreach (GameObject item in enemyDependency)
         {
             foreach (Transform maybeEnemy in item.transform)
-            if (maybeEnemy.gameObject.CompareTag("Enemy"))
-                return true;
+                if (maybeEnemy.gameObject.CompareTag("Enemy"))
+                    return true;
         }
 
         return false;
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if (checkEnemyDependency()) {
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Collision");
+        if (checkEnemyDependency())
+        {
             StartCoroutine(KillThemAll());
             return;
         }
@@ -34,7 +39,8 @@ public class LevelEnd : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().NextLevel();
     }
 
-    private IEnumerator KillThemAll() {
+    private IEnumerator KillThemAll()
+    {
         floatingMessage.SetPulse(true);
         floatingMessage.SetText("KILL THEM ALL\nKEEP NO ONE ALIVE");
         floatingMessage.SetActive(true);

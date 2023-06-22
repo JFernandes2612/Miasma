@@ -9899,6 +9899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1340684019}
+  loadingScreen: {fileID: 0}
 --- !u!1001 &1339778167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17069,6 +17070,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1369956778005654756, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1449780929897023748, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
@@ -17313,6 +17319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496306748712018787, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.9999847
       objectReference: {fileID: 0}
     - target: {fileID: 5799934515310238356, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}

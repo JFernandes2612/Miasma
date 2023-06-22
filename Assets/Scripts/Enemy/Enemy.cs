@@ -10,6 +10,7 @@ public class Enemy : Entity
     public ParticleSystem shotEffectPrefab;
     public int extraDamage = 0;
 
+    public float playerExtraHealthOnKill = 15f;
     private Transform playerTransform;
     private NavMeshAgent agent;
     public Animator animator;
@@ -57,7 +58,7 @@ public class Enemy : Entity
         //Play Enemy Getting Hit Sound
 
         currentHealth -= damageAmount;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             animator.SetTrigger("isDying");
             GetComponent<CapsuleCollider>().enabled = false;
@@ -141,7 +142,7 @@ public class Enemy : Entity
     override protected void Death()
     {
         //Play Enemy Dying Sound
-
+        playerTransform.gameObject.GetComponent<Player>().GetHealthBack(playerExtraHealthOnKill);
         Destroy(gameObject, 1f);
     }
 
