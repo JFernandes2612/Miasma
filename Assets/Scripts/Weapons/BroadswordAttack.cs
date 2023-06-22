@@ -48,12 +48,10 @@ public class BroadswordAttack : Weapon
 
     private Camera noWeaponEffectsCam;
 
-    public FMODUnity.EventReference attackEffectsEvent;
-    private FMOD.Studio.EventInstance attackEffectsInstance;
-
-    void Awake()
+    override protected void Awake()
     {
-        attackEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(attackEffectsEvent);
+        base.Awake();
+        Debug.Log("in broadsword");
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -116,14 +114,13 @@ public class BroadswordAttack : Weapon
 
     public void UpdateCountDownTimer()
     {
-        attackEffectsInstance.start();
+
         isAttacking = true;
         attackCooldownCounter = animationsDuration;
     }
 
     public override void Attack_M1(CallbackContext context)
     {
-
         if (isAttacking && CountAttack == 0) return;
         if (CountAttack < 3) CountAttack++;
 
@@ -165,8 +162,6 @@ public class BroadswordAttack : Weapon
         defendDurationCounter = defendDuration;
         animator.SetInteger("attackPhase", 3);
         playerScript.setInvincible(true);
-
-        //FMODUnity.RuntimeManager.PlayOneShot(defendEvent);
 
         StartCoroutine(ResetDefendLockIn(defendDuration));
     }
