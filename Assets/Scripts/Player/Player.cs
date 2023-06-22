@@ -14,6 +14,8 @@ public class Player : Entity
 
     private Movement movementScript;
 
+    private bool isDead = false;
+
     public FMODUnity.EventReference deathEffectsEvent;
     private FMOD.Studio.EventInstance deathEffectsInstance;
 
@@ -32,11 +34,13 @@ public class Player : Entity
         yellowPoints += points;
     }
 
-    public void SetRedPoints(int points) {
+    public void SetRedPoints(int points)
+    {
         redPoints = points;
     }
 
-    public void SetYellowPoints(int points) {
+    public void SetYellowPoints(int points)
+    {
         yellowPoints = points;
     }
 
@@ -54,7 +58,8 @@ public class Player : Entity
     {
         base.Awake();
         DontDestroyOnLoad(transform.gameObject);
-        if (!started) {
+        if (!started)
+        {
             backgroundInstance = FMODUnity.RuntimeManager.CreateInstance(backgroundEvent);
             backgroundInstance.start();
             started = true;
@@ -75,6 +80,8 @@ public class Player : Entity
 
     protected override void Death()
     {
+        if (isDead) return;
+        isDead = true;
         movementScript.SetFmodSpeed(0.0f);
         deathEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(deathEffectsEvent);
         deathEffectsInstance.start();
