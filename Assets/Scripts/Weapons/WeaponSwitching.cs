@@ -175,6 +175,10 @@ public class WeaponSwitching : MonoBehaviour
                 }
             }
         }
+
+        if (previousSelectedWeapon != currentWeapon){
+            SelectWeapon(weapon.name);
+        }
     }
 
     void updateAvailableWeapons()
@@ -198,6 +202,9 @@ public class WeaponSwitching : MonoBehaviour
                     break;
             }
         }
+
+
+
     }
 
     void SelectWeapon(string name)
