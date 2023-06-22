@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 6241677222824237157}
   - component: {fileID: 6241677222824237156}
   m_Layer: 0
-  m_Name: broadsword
+  m_Name: Broadsword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1964,7 +1964,7 @@ MonoBehaviour:
       Data2: 1133174297
       Data3: 1460596353
       Data4: -451953005
-    Path: event:/Attacks/Attack
+    Path: event:/Attacks/MeleeAttack
 --- !u!1 &6613997906563681704
 GameObject:
   m_ObjectHideFlags: 0

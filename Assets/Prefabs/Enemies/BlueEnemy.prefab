@@ -695,6 +695,20 @@ MonoBehaviour:
       Data3: 1689304254
       Data4: -127637384
     Path: event:/Attacks/LightsaberSwing
+  raygunEffect:
+    Guid:
+      Data1: -99971258
+      Data2: 1241198752
+      Data3: -96500550
+      Data4: -1820259048
+    Path: event:/Attacks/RaygunShoot
+  rayshotgunEffect:
+    Guid:
+      Data1: 1071444616
+      Data2: 1322514452
+      Data3: -1087684224
+      Data4: 2124262185
+    Path: event:/Attacks/ShotgunShoot
 --- !u!95 &2750527918017331316
 Animator:
   serializedVersion: 5
