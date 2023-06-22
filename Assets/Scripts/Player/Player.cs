@@ -58,6 +58,7 @@ public class Player : Entity
     {
         base.Awake();
         DontDestroyOnLoad(transform.gameObject);
+        isDead = false;
         if (!started)
         {
             backgroundInstance = FMODUnity.RuntimeManager.CreateInstance(backgroundEvent);
