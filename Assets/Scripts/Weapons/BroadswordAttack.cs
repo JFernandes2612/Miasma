@@ -61,7 +61,8 @@ public class BroadswordAttack : Weapon
         playerMovement = player.GetComponent<Movement>();
         playerScript = player.GetComponent<Player>();
         noWeaponEffectsCam = GameObject.Find("WeaponCameraNoPosEffects").GetComponent<Camera>();
-        swordCollider = GameObject.Find("Sword").GetComponent<BoxCollider>();
+        swordCollider = gameObject.GetComponentInChildren<BoxCollider>();
+
         playerRb = player.GetComponent<Rigidbody>();
     }
 
