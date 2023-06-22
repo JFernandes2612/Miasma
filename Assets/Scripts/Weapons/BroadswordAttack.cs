@@ -122,7 +122,7 @@ public class BroadswordAttack : Weapon
     public override void Attack_M1(CallbackContext context)
     {
         if (isAttacking && CountAttack == 0) return;
-        if (CountAttack < 3) CountAttack++;
+        if (CountAttack < 2) CountAttack++;
 
     }
 

@@ -74,7 +74,8 @@ public class RapierAttack : Weapon
 
     public override bool isLMBCooldown()
     {
-        return isAttacking;
+
+        return isAttacking && M1CountDownTimer != 0f;
     }
 
     override protected void Awake()

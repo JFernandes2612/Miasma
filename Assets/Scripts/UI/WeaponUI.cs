@@ -90,7 +90,7 @@ public class WeaponUI : MonoBehaviour
             case WeaponSwitching.WeaponEnum.Rapier:
                 RapierAttack scriptRapier = weaponChanger.currentWeaponObject.GetComponent<RapierAttack>();
                 if (scriptRapier == null) return;
-                if (scriptRapier.isLMBCooldown())
+                if (scriptRapier.isLMBCooldown() && scriptRapier.getAttackPhase()!= 0)
                 {
                     LMBCombo.SetActive(true);
                     LMBCombo.GetComponent<TMPro.TextMeshProUGUI>().text = scriptRapier.getAttackPhase() + "X";
@@ -112,6 +112,29 @@ public class WeaponUI : MonoBehaviour
                 }
                 break;
             case WeaponSwitching.WeaponEnum.BroadSword:
+                BroadswordAttack scriptBS = weaponChanger.currentWeaponObject.GetComponent<BroadswordAttack>();
+                if (scriptBS == null) return;
+                if (scriptBS.isLMBCooldown())
+                {
+                    if (scriptBS.getAttackPhase() != 0){
+                    LMBCombo.SetActive(true);
+                    LMBCombo.GetComponent<TMPro.TextMeshProUGUI>().text = scriptBS.getAttackPhase() + "X";}
+                    if (LMBCoolDown.GetComponent<Slider>().value == 0 || !LMBCoolDown.activeSelf)
+                    {
+                        LMBCoolDown.GetComponent<Slider>().value = 1;
+                        LMBCoolDown.SetActive(true);
+                    }
+                    else
+                    {
+                        LMBCoolDown.GetComponent<Slider>().value = scriptBS.getLMBCooldown();
+                    }
+                }
+                else
+                {
+                    LMBCoolDown.GetComponent<Slider>().value = 0;
+                    LMBCoolDown.SetActive(false);
+                    LMBCombo.SetActive(false);
+                }
                 break;
             case WeaponSwitching.WeaponEnum.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
@@ -175,7 +198,27 @@ public class WeaponUI : MonoBehaviour
                 }
                 break;
             case WeaponSwitching.WeaponEnum.BroadSword:
+                BroadswordAttack scriptBS = weaponChanger.currentWeaponObject.GetComponent<BroadswordAttack>();
+                if (scriptBS == null) return;
+                if (scriptBS.isRMBCooldown())
+                {
+                    if (RMBCoolDown.GetComponent<Slider>().value == 0 || !RMBCoolDown.activeSelf)
+                    {
+                        RMBCoolDown.GetComponent<Slider>().value = 1;
+                        RMBCoolDown.SetActive(true);
+                    }
+                    else
+                    {
 
+                        RMBCoolDown.GetComponent<Slider>().value = scriptBS.getRMBCooldown();
+                    }
+
+                }
+                else
+                {
+                    RMBCoolDown.GetComponent<Slider>().value = 0;
+                    RMBCoolDown.SetActive(false);
+                }
                 break;
             case WeaponSwitching.WeaponEnum.Daggers:
                 DaggerAttack scriptDagger = weaponChanger.currentWeaponObject.GetComponent<DaggerAttack>();
