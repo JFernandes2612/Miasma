@@ -19,7 +19,8 @@ public class GameController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         loadingScreen = GameObject.Find("LoadingScreen");
-        loadingScreen.SetActive(false);
+        if(loadingScreen)
+            loadingScreen.SetActive(false);
         GameObject.FindGameObjectWithTag("Player").transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
     }
 
