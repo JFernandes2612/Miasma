@@ -90,7 +90,7 @@ public class RapierAttack : Weapon
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
-        rapierCollider = GameObject.Find("MarineRapier").GetComponent<BoxCollider>();
+        rapierCollider = gameObject.GetComponentInChildren<BoxCollider>();
 
     }
     void OnEnable()
