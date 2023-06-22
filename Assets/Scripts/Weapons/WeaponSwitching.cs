@@ -27,6 +27,8 @@ public class WeaponSwitching : MonoBehaviour
 
     void Update()
     {
+
+
         previousSelectedWeapon = currentWeapon;
         updateCurrentWeapon();
         updateAvailableWeapons();
@@ -198,6 +200,11 @@ public class WeaponSwitching : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void makeCurrentWeaponInactive()
+    {
+        currentWeaponObject.SetActive(false);
     }
 
     void SelectWeapon(string name)

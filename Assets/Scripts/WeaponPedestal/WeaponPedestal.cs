@@ -26,11 +26,13 @@ public class WeaponPedestal : MonoBehaviour
 
     void Update()
     {
-        if (!gotWeapon && Input.GetKeyDown("e") && Vector3.Distance(player.transform.position, transform.position) <= minCollectDistance) {
-            Instantiate(weaponPrefab, weaponHolder.transform);
+        if (!gotWeapon && Input.GetKeyDown("e") && Vector3.Distance(player.transform.position, transform.position) <= minCollectDistance)
+        {
+            GameObject newWeapon = Instantiate(weaponPrefab, weaponHolder.transform);
             Destroy(transform.GetChild(4).gameObject);
             Destroy(transform.GetChild(3).gameObject);
             gotWeapon = true;
+            weaponHolder.GetComponent<WeaponSwitching>().makeCurrentWeaponInactive();
         }
     }
 }
