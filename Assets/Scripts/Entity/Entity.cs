@@ -16,7 +16,7 @@ abstract public class Entity : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         if (currentHealth > 0.0f)
         {

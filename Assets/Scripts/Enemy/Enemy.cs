@@ -52,7 +52,7 @@ public class Enemy : Entity
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public override void TakeDamage(float damageAmount)
     {
         //Play Enemy Getting Hit Sound
 

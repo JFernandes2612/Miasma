@@ -67,7 +67,7 @@ public class Player : Entity
         invincible = value;
     }
 
-    public new void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         if (!invincible)
             base.TakeDamage(damage);
