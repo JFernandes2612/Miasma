@@ -160,23 +160,33 @@ public class WeaponSwitching : MonoBehaviour
                 {
                     case "fists(Clone)":
                         currentWeapon = WeaponEnum.Fists;
-
+                        if (previousSelectedWeapon != currentWeapon){
+                                    SelectWeapon(weapon.name);
+                                }
                         break;
                     case "rapier(Clone)":
                         currentWeapon = WeaponEnum.Rapier;
-
+                        if (previousSelectedWeapon != currentWeapon){
+                                    SelectWeapon(weapon.name);
+                                }
                         break;
                     case "Broadsword(Clone)":
                         currentWeapon = WeaponEnum.BroadSword;
-
+                        if (previousSelectedWeapon != currentWeapon){
+                                    SelectWeapon(weapon.name);
+                                }
                         break;
                     case "daggers(Clone)":
                         currentWeapon = WeaponEnum.Daggers;
-
+                        if (previousSelectedWeapon != currentWeapon){
+                                    SelectWeapon(weapon.name);
+                                }
                         break;
                 }
             }
         }
+
+        
     }
 
     void updateAvailableWeapons()
@@ -200,6 +210,9 @@ public class WeaponSwitching : MonoBehaviour
                     break;
             }
         }
+
+
+
     }
 
     public void makeCurrentWeaponInactive()
