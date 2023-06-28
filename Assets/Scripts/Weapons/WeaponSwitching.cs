@@ -8,6 +8,9 @@ public class WeaponSwitching : MonoBehaviour
     [SerializeField]
     private GameObject menu;
 
+    [SerializeField]
+    private GameObject warningObject;
+
     public WeaponEnum currentWeapon = WeaponEnum.None;
     private WeaponEnum previousSelectedWeapon;
     public List<WeaponEnum> availableWeapons;
@@ -58,8 +61,13 @@ public class WeaponSwitching : MonoBehaviour
 
     public void HandleSelectWheel()
     {
-        if (Input.GetKey(KeyCode.F) && !playerMovement.isAnimLocked)
+
+        if (playerMovement.isAnimLocked && Input.GetKey(KeyCode.F)){
+            warningObject.SetActive(true);
+        }
+        else if (Input.GetKey(KeyCode.F) && !playerMovement.isAnimLocked)
         {
+            warningObject.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             menu.SetActive(true);
