@@ -74178,6 +74178,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: PlayerAnimLock
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.56666666
     functionName: enableSwordCollider
     data: 
@@ -74194,6 +74201,13 @@ AnimationClip:
     messageOptions: 0
   - time: 1.4333333
     functionName: disableSwordCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.6
+    functionName: PlayerAnimUnlock
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -28,7 +28,7 @@ public class LevelEnd : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Collision");
+
         if (checkEnemyDependency())
         {
             StartCoroutine(KillThemAll());

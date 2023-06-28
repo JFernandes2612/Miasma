@@ -175,17 +175,26 @@ public class BroadswordAttack : Weapon
     }
 
 
+    public void PlayerAnimLock()
+    {
+        playerMovement.isAnimLocked = true;
+    }
+
+    public void PlayerAnimUnlock()
+    {
+        playerMovement.isAnimLocked = false;
+    }
 
     // Applies a force with direction direction for lungetime seconds, after a delay of attackDelay seconds
     private IEnumerator ApplyLunge(float attackDelay, float lungeTime, float lungeForce, Vector3 lungeDirection)
     {
         //apply force forwards
-        playerMovement.isAnimLocked = true;
+
         yield return new WaitForSeconds(attackDelay);
         playerRb.velocity = lungeDirection * lungeForce;
         yield return new WaitForSeconds(lungeTime);
         playerRb.velocity = Vector3.zero;
-        playerMovement.isAnimLocked = false;
+
     }
 
     public void enableSwordCollider()

@@ -13,6 +13,8 @@ public class WeaponSwitching : MonoBehaviour
     public List<WeaponEnum> availableWeapons;
     public GameObject currentWeaponObject;
 
+    private Movement playerMovement;
+
     public enum WeaponEnum { Fists, Rapier, BroadSword, Daggers, None };
 
 
@@ -22,6 +24,7 @@ public class WeaponSwitching : MonoBehaviour
     {
         menu.SetActive(false);
         updateCurrentWeapon();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
     }
 
 
@@ -55,7 +58,7 @@ public class WeaponSwitching : MonoBehaviour
 
     public void HandleSelectWheel()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && !playerMovement.isAnimLocked)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

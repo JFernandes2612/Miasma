@@ -35,7 +35,7 @@ public class DaggerAttack : Weapon
     private float M1MaxChargeUpTime = 2f;
 
     [SerializeField]
-    private float M1ProjectileSpeed = 3f;
+    private float M1ProjectileSpeed = 3.5f;
 
     public GameObject daggerProjectile;
 
@@ -54,6 +54,8 @@ public class DaggerAttack : Weapon
     public GameObject hitEffect;
 
     public LayerMask attackLayer;
+
+    public Rigidbody playerRb;
 
     void HitTarget(Vector3 pos, GameObject hittable)
     {
@@ -100,6 +102,7 @@ public class DaggerAttack : Weapon
         playerAttack = new PlayerInput();
         playerAttack.Enable();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerRb = player.GetComponent<Rigidbody>();
         playerLook = cam.GetComponent<Look>();
         noPosEffectLook = GameObject.Find("WeaponCameraNoPosEffects").GetComponent<Look>();
         playerMovement = player.GetComponent<Movement>();
@@ -204,7 +207,6 @@ public class DaggerAttack : Weapon
     public override void Attack_M1(InputAction.CallbackContext context)
     {
 
-
         if (context.started)
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName(IDLE) || canStartCharge) return;
@@ -246,9 +248,11 @@ public class DaggerAttack : Weapon
         playerLook.LockCamera();
         noPosEffectLook.LockCamera();
         playerMovement.isAnimLocked = true;
+        playerRb.mass = 1000000;
         animator.SetTrigger("backStab");
         playerMovement.transform.position = enemy.transform.position - enemy.transform.forward * 1.5f;
         playerMovement.transform.rotation = Quaternion.LookRotation(enemy.transform.forward);
+
         yield return new WaitForSeconds(executeDelay);
 
 
@@ -265,6 +269,7 @@ public class DaggerAttack : Weapon
         playerLook.UnlockCamera();
         noPosEffectLook.UnlockCamera();
         playerMovement.isAnimLocked = false;
+        playerRb.mass = 1;
 
 
     }
