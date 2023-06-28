@@ -1884,10 +1884,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5842397010508172311}
-  - component: {fileID: 6241677222824237157}
-  - component: {fileID: 6241677222824237156}
   m_Layer: 0
-  m_Name: Broadsword
+  m_Name: Broadsword_model_only
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1911,67 +1909,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6241677222824237157
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512079222571570861}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef418e762f57a0b4ca82e961e5abaad8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &6241677222824237156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512079222571570861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d05e3c91ec1af0f4aa573d712d303761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  cam: {fileID: 0}
-  swingEffectsEvent:
-    Guid:
-      Data1: 1278017161
-      Data2: 1133174297
-      Data3: 1460596353
-      Data4: -451953005
-    Path: event:/Attacks/MeleeAttack
-  fistEffectsEvent:
-    Guid:
-      Data1: 954430505
-      Data2: 1108827567
-      Data3: 643953313
-      Data4: -1950905753
-    Path: event:/Attacks/FistSwing
-  attackCooldown: 3
-  smallSwingAttackDelay: 0.5
-  smallSwingLungeTime: 1.1
-  smallSwingLungeForce: 2.5
-  upperSwingAttackDelay: 0.4
-  upperSwingLungeTime: 2
-  upperSwingLungeForce: 10
-  defendDuration: 2
-  playerRb: {fileID: 0}
 --- !u!1 &6613997906563681704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,6 +2932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8857918654868049017, guid: d9ef8945015ecd148aa21bbb41e1cbd4, type: 3}
+    - {fileID: 1220225367646296204, guid: d9ef8945015ecd148aa21bbb41e1cbd4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9ef8945015ecd148aa21bbb41e1cbd4, type: 3}
 --- !u!4 &5154767079088786085 stripped
 Transform:
@@ -3002,24 +2940,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3954016714595698831}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5531187751904825375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8799405528068937872, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3954016714595698831}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7904134868868915393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531187751904825375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbda13e318ad944799bd5c7124ead48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderDamage: 1
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}

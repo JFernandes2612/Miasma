@@ -8,6 +8,9 @@ public class BroadswordAttack : Weapon
     [SerializeField]
     private float attackCooldown = 3f;
 
+    [SerializeField]
+    private float swordDamage = 5f;
+
     private float animationsDuration = 1.8f;
     private float attackCooldownCounter = 0f;
 
@@ -48,10 +51,12 @@ public class BroadswordAttack : Weapon
 
     private Camera noWeaponEffectsCam;
 
+    private ColliderWeaponsBehavior colliderWeaponsBehavior;
+
     override protected void Awake()
     {
         base.Awake();
-        Debug.Log("in broadsword");
+
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -64,18 +69,20 @@ public class BroadswordAttack : Weapon
         swordCollider = gameObject.GetComponentInChildren<BoxCollider>();
 
         playerRb = player.GetComponent<Rigidbody>();
+        colliderWeaponsBehavior = GetComponentInChildren<ColliderWeaponsBehavior>();
+        colliderWeaponsBehavior.colliderDamage = swordDamage;
     }
 
     void OnEnable()
     {
-        playerMovement.SlowPlayer();
+
         playerAttack.Player_Map.Attack.performed += Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed += Attack_M2;
     }
 
     void OnDisable()
     {
-        playerMovement.UnSlowPlayer();
+
         swordCollider.enabled = false;
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
         playerAttack.Player_Map.SpecialAttack.performed -= Attack_M2;

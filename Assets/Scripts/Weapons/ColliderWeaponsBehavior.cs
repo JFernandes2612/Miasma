@@ -2,26 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordBehaviour : MonoBehaviour
+public class ColliderWeaponsBehavior : MonoBehaviour
 {
 
     // Start is called before the first frame update
 
     [SerializeField]
-    private float swordDamage = 1.0f;
+
+    public float colliderDamage = 1.0f;
 
     public GameObject hitEffect;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -36,7 +26,7 @@ public class SwordBehaviour : MonoBehaviour
             GameObject GO = Instantiate(hitEffect, collisionPoint, Quaternion.identity);
             GO.transform.parent = T.gameObject.transform;
             Destroy(GO, 20);
-            T.TakeDamage(swordDamage);
+            T.TakeDamage(colliderDamage);
         }
     }
 }

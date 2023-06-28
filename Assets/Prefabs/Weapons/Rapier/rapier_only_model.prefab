@@ -635,7 +635,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994534451429634731}
-  m_LocalRotation: {x: 0.75768757, y: 0.0000013856194, z: 0.09143821, w: 0.6461799}
+  m_LocalRotation: {x: 0.7576876, y: 0.0000013856195, z: 0.09143822, w: 0.64618}
   m_LocalPosition: {x: 0.00000034213065, y: 0.09533375, z: -0.0000006437302}
   m_LocalScale: {x: 0.9999998, y: 1, z: 0.9999998}
   m_ConstrainProportionsScale: 0
@@ -749,10 +749,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2980445773546526171}
-  - component: {fileID: 5074108626896266677}
-  - component: {fileID: 5100221792499094295}
   m_Layer: 0
-  m_Name: rapier
+  m_Name: rapier_only_model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -776,68 +774,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5074108626896266677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2456567427421327201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a4587c5d74b2746bbc16e83a66cf3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  cam: {fileID: 0}
-  swingEffectsEvent:
-    Guid:
-      Data1: 1278017161
-      Data2: 1133174297
-      Data3: 1460596353
-      Data4: -451953005
-    Path: event:/Attacks/MeleeAttack
-  fistEffectsEvent:
-    Guid:
-      Data1: 954430505
-      Data2: 1108827567
-      Data3: 643953313
-      Data4: -1950905753
-    Path: event:/Attacks/FistSwing
-  M2AttackDamage: 2
-  M2AttackDelay: 0.5
-  M2LungeForce: 30
-  M2LungeTime: 0.5
-  M2AttackRange: 50
-  M2AttackCooldown: 3
-  M1AttackRange: 7
-  M1AttackDelay: 0.5
-  M1AttackDamage: 1
-  playerRb: {fileID: 0}
---- !u!95 &5100221792499094295
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2456567427421327201}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7ae4d7ab47274f4bb6193d0cabe1110, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2513639248756819473
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +892,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2683999702549599349}
-  m_LocalRotation: {x: -0.000003821569, y: 0.0007840125, z: 0.00029590476, w: 0.99999964}
+  m_LocalRotation: {x: -0.0000038215694, y: 0.0007840125, z: 0.00029590479, w: 0.99999964}
   m_LocalPosition: {x: 0.000000014752149, y: 0.021255169, z: 0.00000011205673}
   m_LocalScale: {x: 0.99999976, y: 0.99999994, z: 0.9999999}
   m_ConstrainProportionsScale: 0
@@ -2006,7 +1942,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5926839306866776463}
-  m_LocalRotation: {x: 0.7104735, y: -0.025415793, z: 0.060559787, w: 0.70065254}
+  m_LocalRotation: {x: 0.71047354, y: -0.025415793, z: 0.06055979, w: 0.70065254}
   m_LocalPosition: {x: -0.000000022649765, y: 0.035999797, z: 0.000000042915342}
   m_LocalScale: {x: 1.0000001, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
@@ -2960,6 +2896,7 @@ PrefabInstance:
       value: MarineRapier
       objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 2330254060117665663, guid: e59f1c6923ca72e4c9340d4dd7dbdc79, type: 3}
     - {fileID: 3391980361469924276, guid: e59f1c6923ca72e4c9340d4dd7dbdc79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e59f1c6923ca72e4c9340d4dd7dbdc79, type: 3}
 --- !u!4 &3000279119391300186 stripped
@@ -2968,24 +2905,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4118316810305179976}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4937410631764967647 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9052806579750179223, guid: e59f1c6923ca72e4c9340d4dd7dbdc79,
-    type: 3}
-  m_PrefabInstance: {fileID: 4118316810305179976}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4062919081141226238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4937410631764967647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbda13e318ad944799bd5c7124ead48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderDamage: 1
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}

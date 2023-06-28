@@ -34,7 +34,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Awake()
     {
-        Debug.Log("in parent");
+
         swingEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(swingEffectsEvent);
         fistEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(fistEffectsEvent);
     }

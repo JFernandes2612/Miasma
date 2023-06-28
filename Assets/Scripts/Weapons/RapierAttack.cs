@@ -44,6 +44,7 @@ public class RapierAttack : Weapon
 
     private BoxCollider rapierCollider;
 
+    private ColliderWeaponsBehavior colliderWeaponsBehavior;
     private int CountAttack;
 
     public int getAttackPhase()
@@ -81,7 +82,7 @@ public class RapierAttack : Weapon
     override protected void Awake()
     {
         base.Awake();
-        Debug.Log("in rapier");
+
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
@@ -90,7 +91,9 @@ public class RapierAttack : Weapon
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<Movement>();
         playerRb = player.GetComponent<Rigidbody>();
-        rapierCollider = gameObject.GetComponentInChildren<BoxCollider>();
+        rapierCollider = GetComponentInChildren<BoxCollider>();
+
+        colliderWeaponsBehavior = GetComponentInChildren<ColliderWeaponsBehavior>();
 
     }
     void OnEnable()
@@ -170,6 +173,8 @@ public class RapierAttack : Weapon
 
     public override void Attack_M1(CallbackContext context)
     {
+        colliderWeaponsBehavior.colliderDamage = M1AttackDamage;
+
         if (CountAttack < 3)
         {
             CountAttack++;
@@ -180,6 +185,7 @@ public class RapierAttack : Weapon
     public override void Attack_M2(CallbackContext context)
     {
         if (isAttacking || !readyToM2) return;
+        colliderWeaponsBehavior.colliderDamage = M2AttackDamage;
 
         readyToM2 = false;
         M2attackCooldownCounter = M2AttackCooldown;

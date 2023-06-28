@@ -21,6 +21,10 @@ public class FistAttack : Weapon
 
     private float M1AnimationDuration = 1f;
 
+    private ColliderWeaponsBehavior colliderWeaponsBehavior;
+
+    private BoxCollider fistCollider;
+
     private float attackTimer;
     string currentAnimationState;
 
@@ -34,6 +38,10 @@ public class FistAttack : Weapon
         cam = Camera.main;
         playerAttack = new PlayerInput();
         playerAttack.Enable();
+        fistCollider = GetComponentInChildren<BoxCollider>();
+
+        colliderWeaponsBehavior = GetComponentInChildren<ColliderWeaponsBehavior>();
+        colliderWeaponsBehavior.colliderDamage = attackDamage;
     }
 
     public override float getLMBCooldown()
@@ -81,6 +89,7 @@ public class FistAttack : Weapon
 
         playerAttack.Player_Map.Attack.performed += Attack_M1;
 
+
     }
 
     void OnDisable()
@@ -89,6 +98,16 @@ public class FistAttack : Weapon
         playerAttack.Player_Map.Attack.performed -= Attack_M1;
 
 
+    }
+
+    public void enableFistCollider()
+    {
+        fistCollider.enabled = true;
+    }
+
+    public void disableFistCollider()
+    {
+        fistCollider.enabled = false;
     }
 
     private void Update()
@@ -120,7 +139,7 @@ public class FistAttack : Weapon
         attackCooldownCounter = M1AnimationDuration;
 
         Invoke(nameof(ResetAttack), attackCooldown);
-        StartCoroutine(AttackRaycast(attackRange, attackDamage, attackDelay));
+
         ChangeAnimationState(RIGHT_PUNCH);
     }
 

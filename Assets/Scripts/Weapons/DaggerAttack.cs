@@ -86,7 +86,7 @@ public class DaggerAttack : Weapon
     override protected void Awake()
     {
         base.Awake();
-        Debug.Log("in dagger");
+
         animator = GetComponent<Animator>();
         cam = Camera.main;
         playerAttack = new PlayerInput();
