@@ -161,13 +161,17 @@ public class Enemy : Entity
     private void PauseAnimation()
     {
 
+        agent.speed = 0f;
+
+        agent.angularSpeed = 0f;
+
         animator = GetComponent<Animator>();
         prevAnimatorSpeed = animator.speed;
         prevAgentSpeed = agent.speed;
 
         // Pause the animation
         animator.speed = 0f;
-        agent.speed = 0f;
+
 
 
     }

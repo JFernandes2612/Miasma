@@ -292,8 +292,13 @@ public class DaggerAttack : Weapon
                     M2attackCooldownCounter = M2AttackCooldown;
                     isAttacking = true;
 
-                    //teleport to behind enemy
+                    //freeze enemy
                     T.Freeze();
+                    if (hit.transform.TryGetComponent<Animator>(out Animator animatorEnemy))
+                    {
+
+                        animatorEnemy.enabled = false;
+                    }
 
                     StartCoroutine(performExecute(M2AttackDelay, T));
 

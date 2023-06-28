@@ -2772,11 +2772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6e2542ee4984d458bc31f0256abd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
   cam: {fileID: 0}
   swingEffectsEvent:
     Guid:
@@ -2793,7 +2788,7 @@ MonoBehaviour:
       Data4: -1950905753
     Path: event:/Attacks/FistSwing
   M2AttackDamage: 1000
-  M2ExecuteRange: 300
+  M2ExecuteRange: 1000
   M2AttackDelay: 0.5
   M2AttackCooldown: 10
   M1AttackDelay: 0.3
@@ -2802,6 +2797,12 @@ MonoBehaviour:
   M1ProjectileSpeed: 5
   daggerProjectile: {fileID: 6696193758943536409, guid: 3500db9b5602f984ba300dce0ae43644,
     type: 3}
+  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
+    type: 3}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  playerRb: {fileID: 0}
 --- !u!1 &7093567015424491339
 GameObject:
   m_ObjectHideFlags: 0

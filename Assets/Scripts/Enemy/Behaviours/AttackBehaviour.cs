@@ -23,13 +23,13 @@ public class AttackBehaviour : StateMachineBehaviour
         Vector3 lookAtPosition = new Vector3(player.position.x, animator.transform.position.y, player.position.z);
         animator.transform.LookAt(lookAtPosition);
         float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance > attackRange*1.5)
+        if (distance > attackRange * 1.5)
             animator.SetBool("isAttacking", false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+
     }
 }
