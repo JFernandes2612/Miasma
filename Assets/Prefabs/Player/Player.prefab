@@ -2764,7 +2764,6 @@ GameObject:
   - component: {fileID: 6446601437273593974}
   - component: {fileID: 5592914758202702766}
   - component: {fileID: 7151751389919141705}
-  - component: {fileID: 7176563392387181303}
   m_Layer: 9
   m_Name: OnScreenMessage
   m_TagString: Untagged
@@ -2890,25 +2889,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7176563392387181303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4440197357309328518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 640f3ba16f0042744af1a47ec879d423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fonts:
-  - {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  - {fileID: 11400000, guid: 81e28e67279717147924ba9b02385d67, type: 2}
-  - {fileID: 11400000, guid: 77d849cf2f69534498f61bd1fdeae1d5, type: 2}
-  - {fileID: 11400000, guid: 3c99d507612fd3e4ca1704199ad1e264, type: 2}
-  - {fileID: 11400000, guid: 3434af0d9e6396c4a811616b783e697b, type: 2}
-  - {fileID: 11400000, guid: 738c945e49be4724291c129b7d37432a, type: 2}
 --- !u!1 &4474602898285819743
 GameObject:
   m_ObjectHideFlags: 0
@@ -6773,7 +6753,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 5985492376028074785}
   warningObject: {fileID: 8345300060713554811}
-  warning: {fileID: 7176563392387181303}
   currentWeapon: 4
   availableWeapons: 
   currentWeaponObject: {fileID: 0}

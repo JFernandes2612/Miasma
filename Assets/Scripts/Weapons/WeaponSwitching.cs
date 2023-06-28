@@ -61,7 +61,15 @@ public class WeaponSwitching : MonoBehaviour
 
     public void HandleSelectWheel()
     {
+
+
         Weapon weaponScript = currentWeaponObject.GetComponent<Weapon>();
+        if (!weaponScript.getIsAttacking() && warningObject.activeSelf){
+            warningObject.SetActive(false);
+            return;
+        }
+
+
         if (Input.GetKey(KeyCode.F))
         {
             if (weaponScript.getIsAttacking() ){
