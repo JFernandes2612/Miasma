@@ -10,7 +10,7 @@ public class Enemy : Entity
     public ParticleSystem shotEffectPrefab;
     public int extraDamage = 0;
 
-    public float playerExtraHealthOnKill = 15f;
+    public float playerExtraHealthOnKill = 100f;
     private Transform playerTransform;
     private NavMeshAgent agent;
     public Animator animator;

@@ -15,7 +15,7 @@ public class FistAttack : Weapon
     private float attackDamage = 1f;
 
     [SerializeField]
-    private float attackCooldown = 1f; // attack Speed
+    private float attackCooldown = 0.6f; // attack Speed
 
     private float attackCooldownCounter = 0f;
 

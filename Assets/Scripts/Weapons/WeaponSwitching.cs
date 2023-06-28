@@ -27,8 +27,6 @@ public class WeaponSwitching : MonoBehaviour
 
     void Update()
     {
-
-
         previousSelectedWeapon = currentWeapon;
         updateCurrentWeapon();
         updateAvailableWeapons();
@@ -125,12 +123,14 @@ public class WeaponSwitching : MonoBehaviour
         int i = 0;
         foreach (Transform weapon in transform)
         {
-            if (i > numberOfWeapons)
+            if (i > NumberOfWeapons())
             {
                 Destroy(weapon.gameObject);
             }
             i++;
         }
+        currentWeapon = WeaponEnum.None;
+        currentWeaponObject = null;
         availableWeapons = new List<WeaponEnum>();
         updateAvailableWeapons();
     }
@@ -160,33 +160,37 @@ public class WeaponSwitching : MonoBehaviour
                 {
                     case "fists(Clone)":
                         currentWeapon = WeaponEnum.Fists;
-                        if (previousSelectedWeapon != currentWeapon){
-                                    SelectWeapon(weapon.name);
-                                }
+                        if (previousSelectedWeapon != currentWeapon)
+                        {
+                            SelectWeapon(weapon.name);
+                        }
                         break;
                     case "rapier(Clone)":
                         currentWeapon = WeaponEnum.Rapier;
-                        if (previousSelectedWeapon != currentWeapon){
-                                    SelectWeapon(weapon.name);
-                                }
+                        if (previousSelectedWeapon != currentWeapon)
+                        {
+                            SelectWeapon(weapon.name);
+                        }
                         break;
                     case "Broadsword(Clone)":
                         currentWeapon = WeaponEnum.BroadSword;
-                        if (previousSelectedWeapon != currentWeapon){
-                                    SelectWeapon(weapon.name);
-                                }
+                        if (previousSelectedWeapon != currentWeapon)
+                        {
+                            SelectWeapon(weapon.name);
+                        }
                         break;
                     case "daggers(Clone)":
                         currentWeapon = WeaponEnum.Daggers;
-                        if (previousSelectedWeapon != currentWeapon){
-                                    SelectWeapon(weapon.name);
-                                }
+                        if (previousSelectedWeapon != currentWeapon)
+                        {
+                            SelectWeapon(weapon.name);
+                        }
                         break;
                 }
             }
         }
 
-        
+
     }
 
     void updateAvailableWeapons()

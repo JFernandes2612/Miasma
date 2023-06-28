@@ -788,11 +788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a4587c5d74b2746bbc16e83a66cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
   cam: {fileID: 0}
   swingEffectsEvent:
     Guid:
@@ -810,7 +805,7 @@ MonoBehaviour:
     Path: event:/Attacks/FistSwing
   M2AttackDamage: 2
   M2AttackDelay: 0.5
-  M2LungeForce: 30
+  M2LungeForce: 50
   M2LungeTime: 0.5
   M2AttackRange: 50
   M2AttackCooldown: 3

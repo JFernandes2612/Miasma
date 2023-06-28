@@ -114,7 +114,7 @@ public class BroadswordAttack : Weapon
             isAttacking = true;
 
             Vector3 lungeDirection = new Vector3(transform.forward.x, 0, transform.forward.z);
-            StartCoroutine(ApplyLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce, lungeDirection));
+            //StartCoroutine(ApplyLunge(smallSwingAttackDelay, smallSwingLungeTime, smallSwingLungeForce, lungeDirection));
         }
         HandleM1CoolDown();
         HandleM2CoolDown();
@@ -144,7 +144,7 @@ public class BroadswordAttack : Weapon
                 animator.SetInteger("attackPhase", 2);
                 //play the upper swing SOUND
                 Vector3 lungeDirection = Vector3.up;
-                StartCoroutine(ApplyLunge(upperSwingAttackDelay, upperSwingLungeTime, upperSwingLungeForce, lungeDirection));
+                //StartCoroutine(ApplyLunge(upperSwingAttackDelay, upperSwingLungeTime, upperSwingLungeForce, lungeDirection));
             }
             else
             {
