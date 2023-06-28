@@ -61,12 +61,14 @@ public class WeaponSwitching : MonoBehaviour
 
     public void HandleSelectWheel()
     {
-
-        if (playerMovement.isAnimLocked && Input.GetKey(KeyCode.F)){
-            warningObject.SetActive(true);
-        }
-        else if (Input.GetKey(KeyCode.F) && !playerMovement.isAnimLocked)
+        Weapon weaponScript = currentWeaponObject.GetComponent<Weapon>();
+        if (Input.GetKey(KeyCode.F))
         {
+            if (weaponScript.getIsAttacking() ){
+                warningObject.SetActive(true);
+                return;
+            }
+
             warningObject.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

@@ -25,6 +25,9 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract void disableScript();
 
+    public bool getIsAttacking(){
+        return isAttacking;
+    }
     public FMODUnity.EventReference swingEffectsEvent;
     private FMOD.Studio.EventInstance swingEffectsInstance;
 
