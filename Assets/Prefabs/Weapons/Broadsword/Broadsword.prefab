@@ -1943,11 +1943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05e3c91ec1af0f4aa573d712d303761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
   cam: {fileID: 0}
   swingEffectsEvent:
     Guid:
@@ -1964,6 +1959,7 @@ MonoBehaviour:
       Data4: -1950905753
     Path: event:/Attacks/FistSwing
   attackCooldown: 3
+  swordDamage: 5
   smallSwingAttackDelay: 0.5
   smallSwingLungeTime: 1.1
   smallSwingLungeForce: 2.5
@@ -2933,6 +2929,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3107073343331973617}
     m_Modifications:
+    - target: {fileID: 1220225367646296204, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.0129651725
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220225367646296204, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.2312302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220225367646296204, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000046695366
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220225367646296204, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.00000035833838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220225367646296204, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.115093514
+      objectReference: {fileID: 0}
     - target: {fileID: 8166737068762333738, guid: d9ef8945015ecd148aa21bbb41e1cbd4,
         type: 3}
       propertyPath: m_RootOrder

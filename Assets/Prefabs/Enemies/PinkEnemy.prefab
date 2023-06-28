@@ -2746,10 +2746,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 4
+  m_Radius: 0.93131447
+  m_Height: 4.43496
   m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: -0.013807297, y: 2.21748, z: 0}
 --- !u!195 &4340472705225447489
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2791,6 +2791,7 @@ MonoBehaviour:
   shotEffectPrefab: {fileID: 7692336672675980230, guid: b9e4e185fe3d3674ab50aa2a10a663cc,
     type: 3}
   extraDamage: 0
+  playerExtraHealthOnKill: 100
   animator: {fileID: 4340472705225447491}
   attackRange: 30
   chaseRange: 30

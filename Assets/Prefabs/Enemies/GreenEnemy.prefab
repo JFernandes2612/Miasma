@@ -3524,10 +3524,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 4
+  m_Radius: 0.8669605
+  m_Height: 4.469673
   m_Direction: 1
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0.03698349, y: 2.2348366, z: 0}
 --- !u!95 &1492824302791267886
 Animator:
   serializedVersion: 5
@@ -3589,6 +3589,7 @@ MonoBehaviour:
   shotEffectPrefab: {fileID: 7692336672675980230, guid: b9e4e185fe3d3674ab50aa2a10a663cc,
     type: 3}
   extraDamage: 0
+  playerExtraHealthOnKill: 100
   animator: {fileID: 1492824302791267886}
   attackRange: 8
   chaseRange: 20
