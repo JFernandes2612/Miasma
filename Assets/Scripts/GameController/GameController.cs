@@ -19,9 +19,13 @@ public class GameController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         loadingScreen = GameObject.Find("LoadingScreen");
-        if(loadingScreen)
+        if (loadingScreen)
             loadingScreen.SetActive(false);
         GameObject.FindGameObjectWithTag("Player").transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+        //if you have more than one Player in the scene, delete one of them
+        if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
+            Destroy(GameObject.FindGameObjectsWithTag("Player")[1]);
+
     }
 
     private void Update()
@@ -72,6 +76,7 @@ public class GameController : MonoBehaviour
         GameObject.Find("Player").GetComponent<Player>().SetRedPoints(saveRedPoints);
         GameObject.Find("WeaponHolder").GetComponent<WeaponSwitching>().ResetWeapons();
         GameObject.Find("OnScreenMessage").GetComponent<FloatingMessage>().Reset();
+
         StartCoroutine(ReloadCurrentSceneAsync());
     }
 }

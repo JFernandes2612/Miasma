@@ -1723,8 +1723,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16480501, y: 0.1610095, z: 0.13791466}
-  m_Center: {x: -0.0068572713, y: 0.044889476, z: 0.0077210157}
+  m_Size: {x: 0.16480501, y: 0.2040553, z: 0.13791466}
+  m_Center: {x: -0.006857273, y: 0.0664124, z: 0.007721015}
 --- !u!114 &6804247430868550165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,11 +2605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d88ed086ebf46489b628880cbd11c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8305895600444076120, guid: b7c9baf87344902469d6c8751756368a,
-    type: 3}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
   cam: {fileID: 0}
   swingEffectsEvent:
     Guid:

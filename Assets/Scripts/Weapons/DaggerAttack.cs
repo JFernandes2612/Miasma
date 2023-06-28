@@ -51,8 +51,16 @@ public class DaggerAttack : Weapon
 
     private const string IDLE = "Idle";
 
-    private const string DAGGER_THROW = "Dagger Throw";
+    public GameObject hitEffect;
 
+    public LayerMask attackLayer;
+
+    void HitTarget(Vector3 pos, GameObject hittable)
+    {
+        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
+        GO.transform.parent = hittable.transform;
+        Destroy(GO, 20);
+    }
     public override float getRMBCooldown()
     {
         return M2attackCooldownCounter / M2AttackCooldown;

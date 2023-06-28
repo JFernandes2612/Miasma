@@ -81,7 +81,9 @@ public class Player : Entity
 
     protected override void Death()
     {
+
         if (isDead) return;
+        Debug.Log("Player death function");
         isDead = true;
         movementScript.SetFmodSpeed(0.0f);
         deathEffectsInstance = FMODUnity.RuntimeManager.CreateInstance(deathEffectsEvent);

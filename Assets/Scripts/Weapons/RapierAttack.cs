@@ -196,7 +196,7 @@ public class RapierAttack : Weapon
 
         StartCoroutine(ResetAttackLockIn(M2AttackCooldown));
         StartCoroutine(ApplyForwardLunge(M2AttackDelay));
-        StartCoroutine(AttackRaycast(M2AttackRange, M2AttackDamage, M2AttackDelay));
+
     }
 
     public void UpdateCountDownTimer()
