@@ -4899,6 +4899,7 @@ MonoBehaviour:
   bulletPoint: {fileID: 0}
   shotEffectPrefab: {fileID: 0}
   extraDamage: 0
+  bulletVelocity: 1
   playerExtraHealthOnKill: 100
   animator: {fileID: 2345940883054271559}
   attackRange: 2
@@ -4982,7 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcd31a0fcffe2b4bb30328a0797caea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 30
+  radius: 20
   angle: 150
   targetMask:
     serializedVersion: 2
@@ -5243,7 +5244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28f1b24c87fe5540beba9493be538da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 1
 --- !u!1 &1594479376258611660
 GameObject:
   m_ObjectHideFlags: 0

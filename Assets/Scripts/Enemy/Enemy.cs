@@ -10,6 +10,8 @@ public class Enemy : Entity
     public ParticleSystem shotEffectPrefab;
     public int extraDamage = 0;
 
+    public float bulletVelocity = 2f;
+
     public float playerExtraHealthOnKill = 100f;
     private Transform playerTransform;
     private NavMeshAgent agent;
@@ -55,7 +57,7 @@ public class Enemy : Entity
     {
         timer += Time.deltaTime;
         directionToPlayer = (playerTransform.position - transform.position).normalized;
-        directionToPlayer.y += -0.1f;
+        directionToPlayer.y -= directionToPlayer.y * 1f;
 
         if (timer > 5 && currentHealth > 0)
         {
@@ -87,7 +89,7 @@ public class Enemy : Entity
         //Play PistolShoot Sound
 
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
+        rb.AddForce(directionToPlayer * bulletVelocity, ForceMode.Impulse);
         Destroy(rb, 3);
 
         ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
@@ -100,7 +102,7 @@ public class Enemy : Entity
         //Play SniperShoot Sound
 
         Rigidbody rb = Instantiate(bullet, bulletPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
+        rb.AddForce(directionToPlayer * bulletVelocity, ForceMode.Impulse);
         Destroy(rb, 3);
 
         ParticleSystem shotEffect = Instantiate(shotEffectPrefab, bulletPoint.position, Quaternion.identity);
@@ -115,20 +117,20 @@ public class Enemy : Entity
 
         Vector3 bulletPos = bulletPoint.position;
         Rigidbody r1 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r1.AddForce(directionToPlayer * 50f, ForceMode.Impulse);
-        bulletPos.y += 0.05f;
+        r1.AddForce(directionToPlayer * bulletVelocity, ForceMode.Impulse);
+        bulletPos.y += 0.1f;
         Rigidbody r2 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r2.AddForce(directionToPlayer * 50f + transform.up * 10f, ForceMode.Impulse);
-        bulletPos.y += -0.1f;
+        r2.AddForce(directionToPlayer * bulletVelocity + transform.up * bulletVelocity/10, ForceMode.Impulse);
+        bulletPos.y += -0.2f;
         Rigidbody r3 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r3.AddForce(directionToPlayer * 50f + transform.up * -10f, ForceMode.Impulse);
-        bulletPos.y += 0.05f;
-        bulletPos.x += 0.05f;
+        r3.AddForce(directionToPlayer * bulletVelocity + transform.up * -bulletVelocity/10, ForceMode.Impulse);
+        bulletPos.y += 0.1f;
+        bulletPos.x += 0.1f;
         Rigidbody r4 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r4.AddForce(directionToPlayer * 50f + transform.right * 10f, ForceMode.Impulse);
-        bulletPos.x += -0.1f;
+        r4.AddForce(directionToPlayer * bulletVelocity + transform.right * bulletVelocity/10, ForceMode.Impulse);
+        bulletPos.x += -0.2f;
         Rigidbody r5 = Instantiate(bullet, bulletPos, Quaternion.identity).GetComponent<Rigidbody>();
-        r5.AddForce(directionToPlayer * 50f + transform.right * -10f, ForceMode.Impulse);
+        r5.AddForce(directionToPlayer * bulletVelocity + transform.right * -bulletVelocity/10, ForceMode.Impulse);
 
         Destroy(r1, 3);
         Destroy(r2, 3);

@@ -138,8 +138,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 2
+  bullet: {fileID: 0}
+  bulletPoint: {fileID: 0}
+  shotEffectPrefab: {fileID: 0}
+  extraDamage: 0
+  bulletVelocity: 1
+  playerExtraHealthOnKill: 100
+  animator: {fileID: 0}
   attackRange: 3
   chaseRange: 10
+  wayPoints: []
+  lightsaberEffect:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  raygunEffect:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  rayshotgunEffect:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!54 &646480665554414515
 Rigidbody:
   m_ObjectHideFlags: 0

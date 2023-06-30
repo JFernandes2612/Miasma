@@ -2791,10 +2791,11 @@ MonoBehaviour:
   shotEffectPrefab: {fileID: 7692336672675980230, guid: b9e4e185fe3d3674ab50aa2a10a663cc,
     type: 3}
   extraDamage: 0
+  bulletVelocity: 2
   playerExtraHealthOnKill: 100
   animator: {fileID: 4340472705225447491}
-  attackRange: 30
-  chaseRange: 30
+  attackRange: 40
+  chaseRange: 40
   wayPoints:
   - {fileID: 4604118929563230595}
   - {fileID: 4604118929563230652}

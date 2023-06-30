@@ -4894,11 +4894,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 200
+  maxHealth: 100
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   shotEffectPrefab: {fileID: 0}
   extraDamage: 0
+  bulletVelocity: 2
   playerExtraHealthOnKill: 100
   animator: {fileID: 2345940883054271559}
   attackRange: 7
@@ -4982,7 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcd31a0fcffe2b4bb30328a0797caea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 30
+  radius: 20
   angle: 150
   targetMask:
     serializedVersion: 2
@@ -5012,7 +5013,7 @@ MonoBehaviour:
   spawnRadius: 5
   maxEnemies: 5
   bossCurrentHP: 0
-  hpThreshold: 100
+  hpThreshold: 15
   activeEnemies: 0
 --- !u!1 &1594479376164561336
 GameObject:
