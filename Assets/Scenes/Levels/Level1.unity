@@ -8631,7 +8631,7 @@ PrefabInstance:
     - target: {fileID: 3228557307173431053, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21.599945
+      value: -21.59996
       objectReference: {fileID: 0}
     - target: {fileID: 3311164193236861048, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -8851,7 +8851,7 @@ PrefabInstance:
     - target: {fileID: 4866473678216099244, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4892517115146781018, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
@@ -9251,6 +9251,11 @@ PrefabInstance:
     - target: {fileID: 8532131417155319148, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532131417155319149, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8532131417155319150, guid: 453145591c111ee4d9698503509ff9bb,
@@ -9431,6 +9436,11 @@ PrefabInstance:
     - target: {fileID: 8857304771065070162, guid: 453145591c111ee4d9698503509ff9bb,
         type: 3}
       propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881696618448886949, guid: 453145591c111ee4d9698503509ff9bb,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8930428050281204405, guid: 453145591c111ee4d9698503509ff9bb,
