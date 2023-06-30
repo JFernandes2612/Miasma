@@ -157,7 +157,7 @@ public class Enemy : Entity
     {
         //Play Enemy Dying Sound
         playerTransform.gameObject.GetComponent<Player>().GetHealthBack(playerExtraHealthOnKill);
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 5);
     }
 
     private void PauseAnimation()
