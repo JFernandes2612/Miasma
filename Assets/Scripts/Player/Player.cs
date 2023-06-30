@@ -29,6 +29,11 @@ public class Player : Entity
         redPoints += points;
     }
 
+    public float getMaxHealth()
+    {
+        return maxHealth;
+    }
+
     public void AddYellowPoints(int points)
     {
         yellowPoints += points;

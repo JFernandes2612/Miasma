@@ -8,6 +8,7 @@ public class DamageSurface : MonoBehaviour
 
     private void DamageEntity(GameObject gameObject)
     {
+       
         if (gameObject.tag == "Player")
         {
             gameObject.GetComponent<Player>().TakeDamage(damage);
@@ -17,7 +18,7 @@ public class DamageSurface : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision other)
     {
-
+       
         DamageEntity(other.gameObject);
     }
 

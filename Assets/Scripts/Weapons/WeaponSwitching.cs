@@ -64,7 +64,7 @@ public class WeaponSwitching : MonoBehaviour
 
 
         Weapon weaponScript = currentWeaponObject.GetComponent<Weapon>();
-        if (!weaponScript.getIsAttacking() && warningObject.activeSelf){
+        if (weaponScript != null && !weaponScript.getIsAttacking() && warningObject.activeSelf){
             warningObject.SetActive(false);
             return;
         }
